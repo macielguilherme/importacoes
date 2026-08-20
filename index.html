@@ -2699,18 +2699,30 @@
             const words = text.toLowerCase().split(' ');
             
             return words.map((word, index) => {
-                // Remove caracteres especiais para verificação
                 const cleanWord = word.replace(/[^a-záéíóúâêôãõàç]/g, '');
-                
-                // Primeira palavra sempre com inicial maiúscula
                 if (index === 0) {
                     return word.charAt(0).toUpperCase() + word.slice(1);
                 }
-                // Se for preposição, mantém minúscula
                 if (prepositions.includes(cleanWord)) {
                     return word;
                 }
-                // Caso contrário, capitaliza
+                return word.charAt(0).toUpperCase() + word.slice(1);
+            }).join(' ');
+        }
+
+        // Função para capitalizar textos completos (usada nos toasts)
+        function capitalizeText(text) {
+            const prepositions = ['de', 'da', 'do', 'das', 'dos', 'e', 'em', 'com', 'sem', 'para', 'por', 'perante', 'entre', 'após', 'contra', 'sobre', 'até', 'desde', 'a', 'o', 'as', 'os', 'um', 'uma', 'uns', 'umas'];
+            const words = text.toLowerCase().split(' ');
+            
+            return words.map((word, index) => {
+                const cleanWord = word.replace(/[^a-záéíóúâêôãõàç]/g, '');
+                if (index === 0) {
+                    return word.charAt(0).toUpperCase() + word.slice(1);
+                }
+                if (prepositions.includes(cleanWord)) {
+                    return word;
+                }
                 return word.charAt(0).toUpperCase() + word.slice(1);
             }).join(' ');
         }
@@ -2718,20 +2730,20 @@
         const data = {
             documental: [
                 { id: 1, name: 'Recebimento', active: true },
-                { id: 2, name: 'Preparação documental', active: true },
+                { id: 2, name: 'Preparação Documental', active: true },
                 { id: 3, name: 'Higienização', active: true },
                 { id: 4, name: 'Digitalização', active: true },
                 { id: 5, name: 'Indexação', active: true },
-                { id: 6, name: 'Controle de qualidade', active: true },
+                { id: 6, name: 'Controle de Qualidade', active: true },
                 { id: 7, name: 'Finalizado', active: true }
             ],
             gestao: [
                 { id: 11, name: 'Cadastrada', active: true },
-                { id: 12, name: 'Em movimentação', active: true },
-                { id: 13, name: 'Em auditoria', active: true },
+                { id: 12, name: 'Em Movimentação', active: true },
+                { id: 13, name: 'Em Auditoria', active: true },
                 { id: 14, name: 'Arquivada', active: true },
                 { id: 15, name: 'Ausente', active: true },
-                { id: 16, name: 'Em refugo', active: false }
+                { id: 16, name: 'Em Refugo', active: false }
             ]
         };
 
@@ -2763,9 +2775,8 @@
         let lastClient = 'anm';
 
         const $ = id => document.getElementById(id);
-        const config = () => active === 'documental' ? { singular: 'etapa', label: 'Nome da etapa', title: 'Fluxo de etapas documentais', chip: 'Etapa documental' } : { singular: 'status', label: 'Nome do status', title: 'Fluxo de status da gestão documental', chip: 'Gestão documental' };
+        const config = () => active === 'documental' ? { singular: 'etapa', label: 'Nome da etapa', title: 'Fluxo de Etapas Documentais', chip: 'Etapa Documental' } : { singular: 'status', label: 'Nome do status', title: 'Fluxo de Status da Gestão Documental', chip: 'Gestão Documental' };
         
-        // Função scopeName atualizada com capitalização
         const scopeName = () => {
             const scopeMap = {
                 system: 'Sistema',
@@ -2800,30 +2811,30 @@
 
             if (scope === 'system') {
                 if (!$('client').disabled) lastClient = $('client').value || lastClient;
-                fillSelect($('client'), [{ id: 'all-clients', name: 'TODOS OS CLIENTES' }], 'all-clients');
-                fillSelect($('project'), [{ id: 'all-projects', name: 'TODOS OS PROJETOS' }], 'all-projects');
+                fillSelect($('client'), [{ id: 'all-clients', name: 'Todos os Clientes' }], 'all-clients');
+                fillSelect($('project'), [{ id: 'all-projects', name: 'Todos os Projetos' }], 'all-projects');
                 $('client').disabled = true;
                 $('project').disabled = true;
                 $('scope-icon').textContent = '◎';
-                $('scope-title').textContent = 'Aplicação em todo o sistema';
-                $('scope-description').textContent = 'As etapas e os status definidos ficarão disponíveis para todos os clientes e todos os projetos do DocZ.';
+                $('scope-title').textContent = 'Aplicação em Todo o Sistema';
+                $('scope-description').textContent = 'As Etapas e os Status Definidos Ficarão Disponíveis para Todos os Clientes e Todos os Projetos do DocZ.';
             } else {
                 if ($('client').disabled) fillSelect($('client'), clients, lastClient);
                 $('client').disabled = false;
                 if (scope === 'client') {
                     lastClient = $('client').value || lastClient;
-                    fillSelect($('project'), [{ id: 'all-client-projects', name: 'TODOS OS PROJETOS DO CLIENTE' }], 'all-client-projects');
+                    fillSelect($('project'), [{ id: 'all-client-projects', name: 'Todos os Projetos do Cliente' }], 'all-client-projects');
                     $('project').disabled = true;
                     $('scope-icon').textContent = '▦';
-                    $('scope-title').textContent = 'Aplicação no cliente selecionado';
-                    $('scope-description').textContent = 'As etapas e os status definidos ficarão disponíveis para o cliente selecionado e para todos os seus projetos.';
+                    $('scope-title').textContent = 'Aplicação no Cliente Selecionado';
+                    $('scope-description').textContent = 'As Etapas e os Status Definidos Ficarão Disponíveis para o Cliente Selecionado e para Todos os Seus Projetos.';
                 } else {
                     lastClient = $('client').value || lastClient;
                     $('project').disabled = false;
                     fillProjects();
                     $('scope-icon').textContent = '▤';
-                    $('scope-title').textContent = 'Aplicação exclusiva no projeto';
-                    $('scope-description').textContent = 'As etapas e os status definidos serão disponibilizados somente para o projeto selecionado.';
+                    $('scope-title').textContent = 'Aplicação Exclusiva no Projeto';
+                    $('scope-description').textContent = 'As Etapas e os Status Definidos Serão Disponibilizados Somente para o Projeto Selecionado.';
                 }
             }
             chip.textContent = `● Escopo: ${scopeName()}`;
@@ -2844,8 +2855,8 @@
         <td>
           <div class="order-cell">
             <span class="order-pill">${data[active].indexOf(x) + 1}</span>
-            <button class="icon-btn move-up" title="Mover para cima">↑</button>
-            <button class="icon-btn move-down" title="Mover para baixo">↓</button>
+            <button class="icon-btn move-up" title="Mover para Cima">↑</button>
+            <button class="icon-btn move-down" title="Mover para Baixo">↓</button>
           </div>
         </td>
         <td><span class="stage-name">${x.name}</span></td>
@@ -2864,7 +2875,7 @@
             const table = $('rows').closest('table');
             if (table) table.style.display = rows.length ? 'table' : 'none';
 
-            $('result-count').textContent = `${rows.length} ${rows.length === 1 ? 'registro' : 'registros'} neste fluxo`;
+            $('result-count').textContent = `${rows.length} ${rows.length === 1 ? 'Registro' : 'Registros'} neste Fluxo`;
             $('count-documental').textContent = data.documental.length;
             $('count-gestao').textContent = data.gestao.length;
 
@@ -2908,7 +2919,7 @@
             $('stage-order').value = data[active].indexOf(x) + 1;
             $('stage-state').value = x.active ? 'Ativa' : 'Inativa';
             $('editor-title').textContent = `Editar ${c.singular}`;
-            $('save').innerHTML = '✓ Salvar alterações';
+            $('save').innerHTML = '✓ Salvar Alterações';
             window.scrollTo({ top: 205, behavior: 'smooth' });
         }
 
@@ -2918,12 +2929,13 @@
             $('stage-name').value = '';
             $('stage-order').value = data[active].length + 1;
             $('stage-state').value = 'Ativa';
-            $('editor-title').textContent = `Nova ${c.singular === 'etapa' ? 'etapa documental' : 'status da gestão documental'}`;
-            $('save').innerHTML = `✓ Salvar ${c.singular}`;
+            $('editor-title').textContent = `Nova ${c.singular === 'etapa' ? 'Etapa Documental' : 'Status da Gestão Documental'}`;
+            $('save').innerHTML = `✓ Salvar ${c.singular.charAt(0).toUpperCase() + c.singular.slice(1)}`;
         }
 
+        // ===== TOAST COM CAPITALIZAÇÃO =====
         function toast(msg) {
-            alert(msg);
+            alert(capitalizeText(msg));
         }
 
         function save() {
@@ -2955,7 +2967,7 @@
             pendingInactivate = id;
             const x = data[active].find(v => v.id === id);
             $('modal').style.display = 'flex';
-            document.querySelector('#modal h3').textContent = x.active ? 'Inativar registro?' : 'Ativar registro?';
+            document.querySelector('#modal h3').textContent = x.active ? 'Inativar Registro?' : 'Ativar Registro?';
             document.querySelector('#modal-confirm').textContent = x.active ? 'Inativar' : 'Ativar';
             document.querySelector('#modal-confirm').style.borderColor = x.active ? '#b95650' : '#7ca82a';
             document.querySelector('#modal-confirm').style.background = x.active ? '#b95650' : '#7ca82a';
@@ -2965,11 +2977,9 @@
             active = tab;
             editing = null;
 
-            // CORRIGIDO: agora aplica a classe 'active' corretamente nas abas
             document.querySelectorAll('.tab').forEach(x => {
                 if (x.dataset.tab === tab) {
                     x.classList.add('active');
-                    // Atualiza o estilo também inline para garantir
                     x.style.color = '#2f718f';
                     x.style.borderBottomColor = '#4b96b8';
                     const badge = x.querySelector('.badge');
@@ -2992,8 +3002,8 @@
             const c = config();
             refreshListTitle();
             $('name-label').innerHTML = `${c.label} <span style="color:#c00">*</span>`;
-            $('stage-name').placeholder = active === 'documental' ? 'Ex.: Preparação documental' : 'Ex.: Em auditoria';
-            $('new-item').textContent = active === 'documental' ? '＋ Nova etapa' : '＋ Novo status';
+            $('stage-name').placeholder = active === 'documental' ? 'Ex.: Preparação Documental' : 'Ex.: Em Auditoria';
+            $('new-item').textContent = active === 'documental' ? '＋ Nova Etapa' : '＋ Novo Status';
             $('search').value = '';
             dirty = false;
             orderState();
