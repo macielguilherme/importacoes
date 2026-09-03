@@ -2902,6 +2902,73 @@
             display: none !important
         }
     </style>
+
+    <style>
+    /* ===== ESTILOS PARA O SISTEMA DE ETAPAS ===== */
+    
+    /* ... todos os estilos existentes ... */
+    
+    /* ===== CENTRALIZAR CABEÇALHOS DA TABELA DE FLUXOS ===== */
+    /* Centralizar todos os cabeçalhos da tabela */
+    .flow-table th {
+        text-align: center !important;
+    }
+
+    /* Ajustar o alinhamento das células do corpo da tabela */
+    .flow-table td {
+        text-align: center !important;
+    }
+
+    /* Exceções: colunas que devem manter alinhamento à esquerda */
+    .flow-table td:first-child,
+    .flow-table th:first-child {
+        text-align: center !important;
+    }
+
+    .flow-table td:nth-child(2),
+    .flow-table th:nth-child(2) {
+        text-align: center !important;
+    }
+
+    .flow-table td:nth-child(3),
+    .flow-table th:nth-child(3) {
+        text-align: left !important;
+    }
+
+    /* Ações - centralizar */
+    .flow-table td:last-child,
+    .flow-table th:last-child {
+        text-align: center !important;
+    }
+
+    /* Ajustes específicos para os contadores */
+    .flow-table td:nth-child(4),
+    .flow-table td:nth-child(5),
+    .flow-table th:nth-child(4),
+    .flow-table th:nth-child(5) {
+        text-align: center !important;
+    }
+
+    /* Ajuste para o nome da configuração */
+    .flow-table td:nth-child(1) .flow-name {
+        text-align: center !important;
+    }
+
+    /* Ajuste para o subtítulo */
+    .flow-table td:nth-child(1) .flow-subtitle {
+        text-align: center !important;
+    }
+
+    /* Botões de ação */
+    .flow-actions {
+        justify-content: center !important;
+    }
+
+    /* Estado (situação) */
+    .flow-state {
+        justify-content: center !important;
+    }
+</style>
     <link rel="canonical" href="https://docz.sosdocs.com.br/Docz/app/view_importacao_list">
     <meta http-equiv="content-security-policy"
         content="default-src &#39;none&#39;; font-src &#39;self&#39; data:; img-src &#39;self&#39; data:; style-src &#39;unsafe-inline&#39;; media-src &#39;self&#39; data:; script-src &#39;unsafe-inline&#39; data:; object-src &#39;self&#39; data:; frame-src &#39;self&#39; data:;">
