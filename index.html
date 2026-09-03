@@ -200,6 +200,110 @@
             background: #fafafa
         }
 
+        /* ===== BOTÕES DA TABELA DE EDIÇÃO COM ÍCONES ===== */
+
+.row-actions {
+    display: flex;
+    gap: 6px;
+    justify-content: flex-end;
+    align-items: center;
+    padding-right: 4px;
+}
+
+.icon-btn {
+    height: 28px;
+    min-width: 60px;
+    border: 1px solid #d5dbde;
+    background: #fff;
+    border-radius: 3px;
+    color: #687681;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 10px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.15s ease;
+    padding: 0 10px;
+    gap: 4px;
+}
+
+.icon-btn svg {
+    width: 14px;
+    height: 14px;
+    display: block;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    flex-shrink: 0;
+}
+
+.icon-btn:hover {
+    border-color: #91b3c4;
+    color: #337492;
+    background: #f5f9fc;
+}
+
+.icon-btn.danger:hover {
+    border-color: #d3a29f;
+    color: #a44d48;
+    background: #fdf6f5;
+}
+
+.icon-btn:active {
+    transform: scale(0.93);
+}
+
+/* Botão de editar com ícone de engrenagem */
+.icon-btn.edit {
+    color: #2f718f;
+}
+
+.icon-btn.edit:hover {
+    background: #eaf3f8;
+    border-color: #4b96b8;
+}
+
+/* Botão de inativar */
+.icon-btn.danger.inactivate {
+    color: #b95650;
+}
+
+.icon-btn.danger.inactivate:hover {
+    background: #fdf6f5;
+    border-color: #d4a09d;
+}
+
+/* Botão de ativar */
+.icon-btn.danger.activate {
+    color: #7ca82a;
+}
+
+.icon-btn.danger.activate:hover {
+    background: #f4f9ed;
+    border-color: #8fc44a;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .icon-btn {
+        min-width: 32px;
+        padding: 0 6px;
+        font-size: 9px;
+    }
+    
+    .icon-btn svg {
+        width: 12px;
+        height: 12px;
+    }
+    
+    .icon-btn span {
+        display: none;
+    }
+}
+
         .ui-dialog .ui-dialog-buttonpane button:hover {
             background-position: 0-283px
         }
@@ -1157,6 +1261,223 @@
             background: #fdfdfd
         }
 
+        /* ===== BOTÕES DA TABELA DE EDIÇÃO COM ÍCONES ===== */
+
+.row-actions {
+    display: flex;
+    gap: 6px;
+    justify-content: flex-end;
+    align-items: center;
+    padding-right: 4px;
+}
+
+.icon-btn {
+    height: 28px;
+    min-width: 60px;
+    border: 1px solid #d5dbde;
+    background: #fff;
+    border-radius: 3px;
+    color: #687681;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 10px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.15s ease;
+    padding: 0 10px;
+    gap: 4px;
+}
+
+.icon-btn svg {
+    width: 14px;
+    height: 14px;
+    display: block;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    flex-shrink: 0;
+}
+
+.icon-btn:hover {
+    border-color: #91b3c4;
+    color: #337492;
+    background: #f5f9fc;
+}
+
+.icon-btn.danger:hover {
+    border-color: #d3a29f;
+    color: #a44d48;
+    background: #fdf6f5;
+}
+
+.icon-btn:active {
+    transform: scale(0.93);
+}
+
+/* Botão de editar com ícone de lápis */
+.icon-btn.edit {
+    color: #2f718f;
+}
+
+.icon-btn.edit:hover {
+    background: #eaf3f8;
+    border-color: #4b96b8;
+}
+
+/* Botão de inativar */
+.icon-btn.danger.inactivate {
+    color: #b95650;
+}
+
+.icon-btn.danger.inactivate:hover {
+    background: #fdf6f5;
+    border-color: #d4a09d;
+}
+
+/* Botão de ativar */
+.icon-btn.danger.activate {
+    color: #7ca82a;
+}
+
+.icon-btn.danger.activate:hover {
+    background: #f4f9ed;
+    border-color: #8fc44a;
+}
+
+
+        /* ===== CENTRALIZAR TABELA DE EDIÇÃO (ETAPAS/STATUS) ===== */
+
+/* Centralizar todos os cabeçalhos e células */
+#table-area table th,
+#table-area table td {
+    text-align: center !important;
+}
+
+/* Ajustar a coluna "Ordem do Fluxo" - centralizar */
+#table-area table th:nth-child(2),
+#table-area table td:nth-child(2) {
+    text-align: center !important;
+}
+
+/* Ajustar a coluna "Etapa / Status" - centralizar */
+#table-area table th:nth-child(3),
+#table-area table td:nth-child(3) {
+    text-align: center !important;
+}
+
+/* Ajustar a coluna "Fluxo" - centralizar */
+#table-area table th:nth-child(4),
+#table-area table td:nth-child(4) {
+    text-align: center !important;
+}
+
+/* Ajustar a coluna "Situação" - centralizar */
+#table-area table th:nth-child(5),
+#table-area table td:nth-child(5) {
+    text-align: center !important;
+}
+
+/* Ajustar a coluna "Ações" - centralizar */
+#table-area table th:nth-child(6),
+#table-area table td:nth-child(6) {
+    text-align: center !important;
+}
+
+/* Centralizar os botões de ação */
+#table-area .row-actions {
+    display: flex;
+    justify-content: center !important;
+    align-items: center;
+    gap: 6px;
+    padding-right: 4px;
+}
+
+/* Centralizar a ordem do fluxo */
+#table-area .order-cell {
+    display: flex;
+    align-items: center;
+    justify-content: center !important;
+    gap: 5px;
+}
+
+/* Centralizar o estado (ativa/inativa) */
+#table-area .state {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center !important;
+    gap: 5px;
+    color: #57822d;
+    font-weight: 700;
+    font-size: 11px;
+}
+
+/* Centralizar o flow-chip */
+#table-area .flow-chip {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center !important;
+    gap: 5px;
+    border-radius: 12px;
+    padding: 3px 8px;
+    font-size: 10px;
+    font-weight: 700;
+    background: #edf4f7;
+    color: #3f7895;
+    line-height: 1.3;
+}
+
+/* Centralizar o stage-name */
+#table-area .stage-name {
+    font-weight: 700;
+    color: #3d4c56;
+    font-size: 12px;
+    display: block;
+    text-align: center !important;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    #table-area table th,
+    #table-area table td {
+        text-align: center !important;
+    }
+    
+    #table-area .row-actions {
+        justify-content: center !important;
+        flex-wrap: wrap;
+    }
+    
+    #table-area .order-cell {
+        justify-content: center !important;
+        flex-wrap: wrap;
+    }
+    
+    #table-area .icon-btn span {
+        display: none;
+    }
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .icon-btn {
+        min-width: 32px;
+        padding: 0 6px;
+        font-size: 9px;
+    }
+    
+    .icon-btn svg {
+        width: 12px;
+        height: 12px;
+    }
+    
+    .icon-btn span {
+        display: none;
+    }
+}
+
         .form input[type=text]:focus,
         .form input[type=password]:focus,
         .form textarea:focus {
@@ -2106,54 +2427,130 @@
         }
 
         /* --- BOTÕES DE AÇÃO --- */
-        .flow-actions {
-            display: flex;
-            justify-content: flex-end;
-            align-items: center;
-            gap: 6px;
-            white-space: nowrap;
-            padding-right: 4px;
-        }
+        /* ===== BOTÕES DE AÇÃO COM ÍCONES SVG ===== */
 
+/* Container dos botões de ação */
+.flow-actions {
+    display: flex;
+    justify-content: center !important;
+    align-items: center;
+    gap: 6px;
+    white-space: nowrap;
+    padding-right: 4px;
+}
 
-        .flow-action {
-            height: 28px;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 4px;
-            border: 1px solid #d0d8dc;
-            border-radius: 3px;
-            background: #fff;
-            color: #5e6d76;
-            padding: 0 10px;
-            font-size: 10px;
-            font-weight: 700;
-            cursor: pointer;
-            transition: all 0.15s ease;
-            line-height: 1;
-            min-width: 55px;
-        }
+/* Botão de ação com ícone - CORRIGIDO */
+.flow-action-icon {
+    width: 32px;
+    height: 32px;
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #bcc7ce !important;
+    border-radius: 4px !important;
+    background: #ffffff !important;
+    color: #4a5a66 !important;
+    cursor: pointer;
+    transition: all 0.15s ease;
+    padding: 0 !important;
+    line-height: 1;
+    text-decoration: none !important;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+}
 
+.flow-action-icon:hover {
+    border-color: #8eb2c4 !important;
+    color: #337492 !important;
+    background: #f5f9fc !important;
+    transform: translateY(-1px);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
 
+.flow-action-icon:active {
+    transform: scale(0.92);
+}
 
-        .flow-action.danger:hover {
-            border-color: #d4a09d;
-            color: #a44d48;
-            background: #fdf6f5;
-        }
+/* Ícone FontAwesome dentro do botão */
+.flow-action-icon i {
+    font-size: 14px !important;
+    line-height: 1 !important;
+    color: inherit !important;
+}
 
+/* Cores específicas para cada ação */
+.flow-action-icon.open {
+    color: #2f718f !important;
+}
 
-        .flow-action.restore-flow {
-            border-color: #b8c9d4;
-            color: #4f7b96;
-        }
+.flow-action-icon.open:hover {
+    background: #eaf3f8 !important;
+    border-color: #4b96b8 !important;
+}
 
-        .flow-action.restore-flow:hover {
-            border-color: #6e9bb8;
-            color: #2a5f7a;
-            background: #f0f6fa;
-        }
+.flow-action-icon.toggle.active {
+    color: #b95650 !important;
+}
+
+.flow-action-icon.toggle.active:hover {
+    background: #fdf6f5 !important;
+    border-color: #d4a09d !important;
+}
+
+.flow-action-icon.toggle.inactive {
+    color: #7ca82a !important;
+}
+
+.flow-action-icon.toggle.inactive:hover {
+    background: #f4f9ed !important;
+    border-color: #8fc44a !important;
+}
+
+.flow-action-icon.restore {
+    color: #4b8eaf !important;
+}
+
+.flow-action-icon.restore:hover {
+    background: #eef6fa !important;
+    border-color: #6aadd0 !important;
+}
+
+/* Tooltip nos botões */
+.flow-action-icon[title] {
+    position: relative;
+}
+
+.flow-action-icon[title]:hover::after {
+    content: attr(title);
+    position: absolute;
+    bottom: calc(100% + 8px);
+    left: 50%;
+    transform: translateX(-50%);
+    background: #26343d;
+    color: #fff;
+    padding: 4px 10px;
+    border-radius: 4px;
+    font-size: 10px;
+    font-weight: 600;
+    white-space: nowrap;
+    pointer-events: none;
+    z-index: 100;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .flow-action-icon {
+        width: 28px;
+        height: 28px;
+    }
+    
+    .flow-action-icon i {
+        font-size: 12px !important;
+    }
+    
+    .flow-actions {
+        gap: 4px;
+    }
+}
 
         /* --- BOTÕES DA TABELA DE EDIÇÃO (ICONES) --- */
         .row-actions {
@@ -3858,7 +4255,7 @@
                                     <td><span class="state" style="">Ativa</span></td>
                                     <td>
                                         <div class="row-actions">
-                                            <button class="icon-btn edit" title="Editar">Editar</button>
+                                            <button class="icon-btn edit" title="Editar">${iconOpen}</button>
                                             <button class="icon-btn danger inactivate"
                                                 title="Inativar">Inativar</button>
                                         </div>
@@ -3879,7 +4276,7 @@
                                     <td><span class="state" style="">Ativa</span></td>
                                     <td>
                                         <div class="row-actions">
-                                            <button class="icon-btn edit" title="Editar">Editar</button>
+                                            <button class="icon-btn edit" title="Editar">${iconOpen}</button>
                                             <button class="icon-btn danger inactivate"
                                                 title="Inativar">Inativar</button>
                                         </div>
@@ -3900,7 +4297,7 @@
                                     <td><span class="state" style="">Ativa</span></td>
                                     <td>
                                         <div class="row-actions">
-                                            <button class="icon-btn edit" title="Editar">Editar</button>
+                                            <button class="icon-btn edit" title="Editar">${iconOpen}</button>
                                             <button class="icon-btn danger inactivate"
                                                 title="Inativar">Inativar</button>
                                         </div>
@@ -3921,7 +4318,7 @@
                                     <td><span class="state" style="">Ativa</span></td>
                                     <td>
                                         <div class="row-actions">
-                                            <button class="icon-btn edit" title="Editar">Editar</button>
+                                            <button class="icon-btn edit" title="Editar">${iconOpen}</button>
                                             <button class="icon-btn danger inactivate"
                                                 title="Inativar">Inativar</button>
                                         </div>
@@ -3942,7 +4339,7 @@
                                     <td><span class="state" style="">Ativa</span></td>
                                     <td>
                                         <div class="row-actions">
-                                            <button class="icon-btn edit" title="Editar">Editar</button>
+                                            <button class="icon-btn edit" title="Editar">${iconOpen}</button>
                                             <button class="icon-btn danger inactivate"
                                                 title="Inativar">Inativar</button>
                                         </div>
@@ -3963,7 +4360,7 @@
                                     <td><span class="state" style="color:#8b969d">Inativa</span></td>
                                     <td>
                                         <div class="row-actions">
-                                            <button class="icon-btn edit" title="Editar">Editar</button>
+                                            <button class="icon-btn edit" title="Editar">${iconOpen}</button>
                                             <button class="icon-btn danger inactivate" title="Ativar">Ativar</button>
                                         </div>
                                     </td>
@@ -4175,343 +4572,376 @@
 
     <script src="./Configuracao das Etapas_files/Sortable.min.js"></script>
     <script>
-        // Função auxiliar para converter texto em iniciais maiúsculas (exceto preposições)
-        function capitalizeWords(text) {
-            const prepositions = ['de', 'da', 'do', 'das', 'dos', 'e', 'em', 'com', 'sem', 'para', 'por', 'perante', 'entre', 'após', 'contra', 'sobre', 'até', 'desde', 'a', 'o', 'as', 'os', 'um', 'uma', 'uns', 'umas'];
-            const words = text.toLowerCase().split(' ');
+    // Função auxiliar para converter texto em iniciais maiúsculas (exceto preposições)
+    function capitalizeWords(text) {
+        const prepositions = ['de', 'da', 'do', 'das', 'dos', 'e', 'em', 'com', 'sem', 'para', 'por', 'perante', 'entre', 'após', 'contra', 'sobre', 'até', 'desde', 'a', 'o', 'as', 'os', 'um', 'uma', 'uns', 'umas'];
+        const words = text.toLowerCase().split(' ');
 
-            return words.map((word, index) => {
-                const cleanWord = word.replace(/[^a-záéíóúâêôãõàç]/g, '');
-                if (index === 0) {
-                    return word.charAt(0).toUpperCase() + word.slice(1);
-                }
-                if (prepositions.includes(cleanWord)) {
-                    return word;
-                }
+        return words.map((word, index) => {
+            const cleanWord = word.replace(/[^a-záéíóúâêôãõàç]/g, '');
+            if (index === 0) {
                 return word.charAt(0).toUpperCase() + word.slice(1);
-            }).join(' ');
-        }
+            }
+            if (prepositions.includes(cleanWord)) {
+                return word;
+            }
+            return word.charAt(0).toUpperCase() + word.slice(1);
+        }).join(' ');
+    }
 
-        // Função para capitalizar textos completos (usada nos toasts)
-        function capitalizeText(text) {
-            const prepositions = ['de', 'da', 'do', 'das', 'dos', 'e', 'em', 'com', 'sem', 'para', 'por', 'perante', 'entre', 'após', 'contra', 'sobre', 'até', 'desde', 'a', 'o', 'as', 'os', 'um', 'uma', 'uns', 'umas'];
-            const words = text.toLowerCase().split(' ');
+    // Função para capitalizar textos completos (usada nos toasts)
+    function capitalizeText(text) {
+        const prepositions = ['de', 'da', 'do', 'das', 'dos', 'e', 'em', 'com', 'sem', 'para', 'por', 'perante', 'entre', 'após', 'contra', 'sobre', 'até', 'desde', 'a', 'o', 'as', 'os', 'um', 'uma', 'uns', 'umas'];
+        const words = text.toLowerCase().split(' ');
 
-            return words.map((word, index) => {
-                const cleanWord = word.replace(/[^a-záéíóúâêôãõàç]/g, '');
-                if (index === 0) {
-                    return word.charAt(0).toUpperCase() + word.slice(1);
-                }
-                if (prepositions.includes(cleanWord)) {
-                    return word;
-                }
+        return words.map((word, index) => {
+            const cleanWord = word.replace(/[^a-záéíóúâêôãõàç]/g, '');
+            if (index === 0) {
                 return word.charAt(0).toUpperCase() + word.slice(1);
-            }).join(' ');
-        }
-
-        const data = {
-            documental: [
-                { id: 1, name: 'Recebimento', active: true },
-                { id: 2, name: 'Preparação Documental', active: true },
-                { id: 3, name: 'Higienização', active: true },
-                { id: 4, name: 'Digitalização', active: true },
-                { id: 5, name: 'Indexação', active: true },
-                { id: 6, name: 'Controle de Qualidade', active: true },
-                { id: 7, name: 'Finalizado', active: true }
-            ],
-            gestao: [
-                { id: 11, name: 'Cadastrada', active: true },
-                { id: 12, name: 'Em Movimentação', active: true },
-                { id: 13, name: 'Em Auditoria', active: true },
-                { id: 14, name: 'Arquivada', active: true },
-                { id: 15, name: 'Ausente', active: true },
-                { id: 16, name: 'Em Refugo', active: false }
-            ]
-        };
-
-        const clients = [
-            { id: 'ANM', name: capitalizeWords('AGÊNCIA NACIONAL DE MINERAÇÃO — ANM') },
-            { id: 'sesi', name: capitalizeWords('SERVIÇO SOCIAL DA INDÚSTRIA — SESI/DN') },
-            { id: 'TCDF', name: capitalizeWords('TRIBUNAL DE CONTAS DO DISTRITO FEDERAL — TCDF') }
-        ];
-
-        const projects = {
-            ANM: [
-                { id: 'ANM-acervo', name: capitalizeWords('ANM — GESTÃO E ORGANIZAÇÃO DO ACERVO DOCUMENTAL') },
-                { id: 'ANM-digitalizacao', name: capitalizeWords('ANM — DIGITALIZAÇÃO DE PROCESSOS MINERÁRIOS') },
-                { id: 'ANM-historico', name: capitalizeWords('ANM — TRATAMENTO DO ACERVO HISTÓRICO') },
-                { id: 'ANM-arquivo-central', name: capitalizeWords('ANM — IMPLANTAÇÃO DO ARQUIVO CENTRAL') },
-                { id: 'ANM-acervo-tecnico', name: capitalizeWords('ANM — CONVERSÃO DO ACERVO TÉCNICO') }
-            ],
-            sesi: [
-                { id: 'sesi-acervo', name: capitalizeWords('SESI/DN — GESTÃO DO ACERVO INSTITUCIONAL') },
-                { id: 'sesi-digitalizacao', name: capitalizeWords('SESI/DN — DIGITALIZAÇÃO DE DOCUMENTOS ADMINISTRATIVOS') },
-                { id: 'sesi-prontuarios', name: capitalizeWords('SESI/DN — ORGANIZAÇÃO DE PRONTUÁRIOS') },
-                { id: 'sesi-central', name: capitalizeWords('SESI/DN — CENTRAL DE DOCUMENTOS CORPORATIVOS') },
-                { id: 'sesi-historico', name: capitalizeWords('SESI/DN — PRESERVAÇÃO DO ACERVO HISTÓRICO') }
-            ],
-            TCDF: [
-                { id: 'TCDF-gestao', name: capitalizeWords('TCDF — GESTÃO DOCUMENTAL') },
-                { id: 'TCDF-digitalizacao', name: capitalizeWords('TCDF — DIGITALIZAÇÃO DE PROCESSOS DE CONTROLE EXTERNO') },
-                { id: 'TCDF-intermediario', name: capitalizeWords('TCDF — ORGANIZAÇÃO DO ARQUIVO INTERMEDIÁRIO') },
-                { id: 'TCDF-memoria', name: capitalizeWords('TCDF — PROJETO MEMÓRIA INSTITUCIONAL') },
-                { id: 'TCDF-prestacoes', name: capitalizeWords('TCDF — CONVERSÃO DIGITAL DE PRESTAÇÕES DE CONTAS') }
-            ]
-        };
-
-        const flowConfigurations = [
-            {
-                id: 101,
-                name: 'Configuração Geral do Sistema',
-                scope: 'system',
-                clientId: null,
-                client: 'Todos os Clientes',
-                projectId: null,
-                project: 'Todos os Projetos',
-                documentalCount: 7,
-                gestaoCount: 6,
-                active: true,
-                deleted: false,
-                updated: '01/09/2026'
-            },
-            {
-                id: 102,
-                name: 'Fluxo SESI/DN — Gestão do Acervo',
-                scope: 'project',
-                clientId: 'sesi',
-                client: 'Serviço Social da Indústria — SESI/DN',
-                projectId: 'sesi-acervo',
-                project: 'Sesi/dn — Gestão do Acervo Documental',
-                documentalCount: 7,
-                gestaoCount: 6,
-                active: true,
-                deleted: false,
-                updated: '01/09/2026'
-            },
-            {
-                id: 103,
-                name: 'Fluxo ANM — Gestão do Acervo',
-                scope: 'project',
-                clientId: 'ANM',
-                client: 'Agência Nacional de Mineração — ANM',
-                projectId: 'ANM-acervo',
-                project: 'ANM — Gestão e Organização do Acervo Documental',
-                documentalCount: 7,
-                gestaoCount: 6,
-                active: true,
-                deleted: false,
-                updated: '30/08/2026'
-            },
-            {
-                id: 104,
-                name: 'Fluxo Padrão da ANM',
-                scope: 'client',
-                clientId: 'ANM',
-                client: 'Agência Nacional de Mineração — ANM',
-                projectId: null,
-                project: 'Todos os Projetos do Cliente',
-                documentalCount: 5,
-                gestaoCount: 4,
-                active: false,
-                deleted: false,
-                updated: '27/08/2026'
-            },
-            {
-                id: 106,
-                name: 'Fluxo ANM — Processos Minerários',
-                scope: 'project',
-                clientId: 'ANM',
-                client: 'Agência Nacional de Mineração — ANM',
-                projectId: 'ANM-digitalizacao',
-                project: 'ANM — Digitalização de Processos Minerários',
-                documentalCount: 8,
-                gestaoCount: 6,
-                active: true,
-                deleted: false,
-                updated: '29/08/2026'
-            },
-            {
-                id: 107,
-                name: 'Fluxo ANM — Acervo Histórico',
-                scope: 'project',
-                clientId: 'ANM',
-                client: 'Agência Nacional de Mineração — ANM',
-                projectId: 'ANM-historico',
-                project: 'ANM — Tratamento do Acervo Histórico',
-                documentalCount: 6,
-                gestaoCount: 5,
-                active: false,
-                deleted: false,
-                updated: '26/08/2026'
-            },
-            {
-                id: 108,
-                name: 'Fluxo SESI/DN — Prontuários',
-                scope: 'project',
-                clientId: 'sesi',
-                client: 'Serviço Social da Indústria — SESI/DN',
-                projectId: 'sesi-prontuarios',
-                project: 'Sesi/dn — Organização de Prontuários',
-                documentalCount: 9,
-                gestaoCount: 7,
-                active: true,
-                deleted: false,
-                updated: '31/08/2026'
-            },
-            {
-                id: 109,
-                name: 'Fluxo SESI/DN — Central Corporativa',
-                scope: 'project',
-                clientId: 'sesi',
-                client: 'Serviço Social da Indústria — SESI/DN',
-                projectId: 'sesi-central',
-                project: 'Sesi/dn — Central de Documentos Corporativos',
-                documentalCount: 7,
-                gestaoCount: 5,
-                active: true,
-                deleted: false,
-                updated: '28/08/2026'
-            },
-            {
-                id: 110,
-                name: 'Fluxo TCDF — Arquivo Intermediário',
-                scope: 'project',
-                clientId: 'TCDF',
-                client: 'Tribunal de Contas do Distrito Federal — TCDF',
-                projectId: 'TCDF-intermediario',
-                project: 'TCDF — Organização do Arquivo Intermediário',
-                documentalCount: 7,
-                gestaoCount: 6,
-                active: true,
-                deleted: false,
-                updated: '30/08/2026'
-            },
-            {
-                id: 111,
-                name: 'Fluxo TCDF — Memória Institucional',
-                scope: 'project',
-                clientId: 'TCDF',
-                client: 'Tribunal de Contas do Distrito Federal — TCDF',
-                projectId: 'TCDF-memoria',
-                project: 'TCDF — Projeto Memória Institucional',
-                documentalCount: 5,
-                gestaoCount: 4,
-                active: false,
-                deleted: false,
-                updated: '24/08/2026'
-            },
-            {
-                id: 112,
-                name: 'Fluxo TCDF — Prestações de Contas',
-                scope: 'project',
-                clientId: 'TCDF',
-                client: 'Tribunal de Contas do Distrito Federal — TCDF',
-                projectId: 'TCDF-prestacoes',
-                project: 'TCDF — Conversão Digital de Prestações de Contas',
-                documentalCount: 8,
-                gestaoCount: 6,
-                active: true,
-                deleted: false,
-                updated: '31/08/2026'
-            },
-            {
-                id: 105,
-                name: 'Fluxo TCDF — Digitalização',
-                scope: 'project',
-                clientId: 'TCDF',
-                client: 'Tribunal de Contas do Distrito Federal — TCDF',
-                projectId: 'TCDF-digitalizacao',
-                project: 'TCDF — Digitalização de Processos',
-                documentalCount: 6,
-                gestaoCount: 5,
-                active: false,
-                deleted: true,
-                updated: '25/08/2026'
             }
-        ];
-
-        let active = 'documental',
-            editing = null,
-            pendingInactivate = null,
-            dirty = false;
-        let lastClient = 'ANM';
-        let pendingFlowAction = null;
-
-        const $ = id => document.getElementById(id);
-        const config = () => active === 'documental' ? { singular: 'etapa', label: 'Nome da etapa', title: 'Fluxo de Etapas Documentais', chip: 'Etapa Documental' } : { singular: 'status', label: 'Nome do status', title: 'Fluxo de Status da Gestão Documental', chip: 'Gestão Documental' };
-
-        const flowScopeLabel = scope => ({ system: 'Sistema', client: 'Cliente', project: 'Projeto' }[scope] || scope);
-
-        function fillFlowClientFilter() {
-            const selected = $('flow-client-filter').value || 'all';
-            fillSelect(
-                $('flow-client-filter'),
-                [{ id: 'all', name: 'Todos os Clientes' }, ...clients],
-                selected
-            );
-        }
-
-        function fillFlowProjectFilter() {
-            const clientId = $('flow-client-filter').value;
-            const selected = $('flow-project-filter').value || 'all';
-
-            if (!clientId || clientId === 'all') {
-                fillSelect($('flow-project-filter'), [{ id: 'all', name: 'Todos os Projetos' }], 'all');
-                $('flow-project-filter').disabled = true;
-                return;
+            if (prepositions.includes(cleanWord)) {
+                return word;
             }
+            return word.charAt(0).toUpperCase() + word.slice(1);
+        }).join(' ');
+    }
 
-            fillSelect(
-                $('flow-project-filter'),
-                [{ id: 'all', name: 'Todos os Projetos do Cliente' }, ...(projects[clientId] || [])],
-                selected
-            );
-            $('flow-project-filter').disabled = false;
+    const data = {
+        documental: [
+            { id: 1, name: 'Recebimento', active: true },
+            { id: 2, name: 'Preparação Documental', active: true },
+            { id: 3, name: 'Higienização', active: true },
+            { id: 4, name: 'Digitalização', active: true },
+            { id: 5, name: 'Indexação', active: true },
+            { id: 6, name: 'Controle de Qualidade', active: true },
+            { id: 7, name: 'Finalizado', active: true }
+        ],
+        gestao: [
+            { id: 11, name: 'Cadastrada', active: true },
+            { id: 12, name: 'Em Movimentação', active: true },
+            { id: 13, name: 'Em Auditoria', active: true },
+            { id: 14, name: 'Arquivada', active: true },
+            { id: 15, name: 'Ausente', active: true },
+            { id: 16, name: 'Em Refugo', active: false }
+        ]
+    };
+
+    const clients = [
+        { id: 'ANM', name: capitalizeWords('AGÊNCIA NACIONAL DE MINERAÇÃO — ANM') },
+        { id: 'sesi', name: capitalizeWords('SERVIÇO SOCIAL DA INDÚSTRIA — SESI/DN') },
+        { id: 'TCDF', name: capitalizeWords('TRIBUNAL DE CONTAS DO DISTRITO FEDERAL — TCDF') }
+    ];
+
+    const projects = {
+        ANM: [
+            { id: 'ANM-acervo', name: capitalizeWords('ANM — GESTÃO E ORGANIZAÇÃO DO ACERVO DOCUMENTAL') },
+            { id: 'ANM-digitalizacao', name: capitalizeWords('ANM — DIGITALIZAÇÃO DE PROCESSOS MINERÁRIOS') },
+            { id: 'ANM-historico', name: capitalizeWords('ANM — TRATAMENTO DO ACERVO HISTÓRICO') },
+            { id: 'ANM-arquivo-central', name: capitalizeWords('ANM — IMPLANTAÇÃO DO ARQUIVO CENTRAL') },
+            { id: 'ANM-acervo-tecnico', name: capitalizeWords('ANM — CONVERSÃO DO ACERVO TÉCNICO') }
+        ],
+        sesi: [
+            { id: 'sesi-acervo', name: capitalizeWords('SESI/DN — GESTÃO DO ACERVO INSTITUCIONAL') },
+            { id: 'sesi-digitalizacao', name: capitalizeWords('SESI/DN — DIGITALIZAÇÃO DE DOCUMENTOS ADMINISTRATIVOS') },
+            { id: 'sesi-prontuarios', name: capitalizeWords('SESI/DN — ORGANIZAÇÃO DE PRONTUÁRIOS') },
+            { id: 'sesi-central', name: capitalizeWords('SESI/DN — CENTRAL DE DOCUMENTOS CORPORATIVOS') },
+            { id: 'sesi-historico', name: capitalizeWords('SESI/DN — PRESERVAÇÃO DO ACERVO HISTÓRICO') }
+        ],
+        TCDF: [
+            { id: 'TCDF-gestao', name: capitalizeWords('TCDF — GESTÃO DOCUMENTAL') },
+            { id: 'TCDF-digitalizacao', name: capitalizeWords('TCDF — DIGITALIZAÇÃO DE PROCESSOS DE CONTROLE EXTERNO') },
+            { id: 'TCDF-intermediario', name: capitalizeWords('TCDF — ORGANIZAÇÃO DO ARQUIVO INTERMEDIÁRIO') },
+            { id: 'TCDF-memoria', name: capitalizeWords('TCDF — PROJETO MEMÓRIA INSTITUCIONAL') },
+            { id: 'TCDF-prestacoes', name: capitalizeWords('TCDF — CONVERSÃO DIGITAL DE PRESTAÇÕES DE CONTAS') }
+        ]
+    };
+
+    const flowConfigurations = [
+        {
+            id: 101,
+            name: 'Configuração Geral do Sistema',
+            scope: 'system',
+            clientId: null,
+            client: 'Todos os Clientes',
+            projectId: null,
+            project: 'Todos os Projetos',
+            documentalCount: 7,
+            gestaoCount: 6,
+            active: true,
+            deleted: false,
+            updated: '01/09/2026'
+        },
+        {
+            id: 102,
+            name: 'Fluxo SESI/DN — Gestão do Acervo',
+            scope: 'project',
+            clientId: 'sesi',
+            client: 'Serviço Social da Indústria — SESI/DN',
+            projectId: 'sesi-acervo',
+            project: 'Sesi/dn — Gestão do Acervo Documental',
+            documentalCount: 7,
+            gestaoCount: 6,
+            active: true,
+            deleted: false,
+            updated: '01/09/2026'
+        },
+        {
+            id: 103,
+            name: 'Fluxo ANM — Gestão do Acervo',
+            scope: 'project',
+            clientId: 'ANM',
+            client: 'Agência Nacional de Mineração — ANM',
+            projectId: 'ANM-acervo',
+            project: 'ANM — Gestão e Organização do Acervo Documental',
+            documentalCount: 7,
+            gestaoCount: 6,
+            active: true,
+            deleted: false,
+            updated: '30/08/2026'
+        },
+        {
+            id: 104,
+            name: 'Fluxo Padrão da ANM',
+            scope: 'client',
+            clientId: 'ANM',
+            client: 'Agência Nacional de Mineração — ANM',
+            projectId: null,
+            project: 'Todos os Projetos do Cliente',
+            documentalCount: 5,
+            gestaoCount: 4,
+            active: false,
+            deleted: false,
+            updated: '27/08/2026'
+        },
+        {
+            id: 106,
+            name: 'Fluxo ANM — Processos Minerários',
+            scope: 'project',
+            clientId: 'ANM',
+            client: 'Agência Nacional de Mineração — ANM',
+            projectId: 'ANM-digitalizacao',
+            project: 'ANM — Digitalização de Processos Minerários',
+            documentalCount: 8,
+            gestaoCount: 6,
+            active: true,
+            deleted: false,
+            updated: '29/08/2026'
+        },
+        {
+            id: 107,
+            name: 'Fluxo ANM — Acervo Histórico',
+            scope: 'project',
+            clientId: 'ANM',
+            client: 'Agência Nacional de Mineração — ANM',
+            projectId: 'ANM-historico',
+            project: 'ANM — Tratamento do Acervo Histórico',
+            documentalCount: 6,
+            gestaoCount: 5,
+            active: false,
+            deleted: false,
+            updated: '26/08/2026'
+        },
+        {
+            id: 108,
+            name: 'Fluxo SESI/DN — Prontuários',
+            scope: 'project',
+            clientId: 'sesi',
+            client: 'Serviço Social da Indústria — SESI/DN',
+            projectId: 'sesi-prontuarios',
+            project: 'Sesi/dn — Organização de Prontuários',
+            documentalCount: 9,
+            gestaoCount: 7,
+            active: true,
+            deleted: false,
+            updated: '31/08/2026'
+        },
+        {
+            id: 109,
+            name: 'Fluxo SESI/DN — Central Corporativa',
+            scope: 'project',
+            clientId: 'sesi',
+            client: 'Serviço Social da Indústria — SESI/DN',
+            projectId: 'sesi-central',
+            project: 'Sesi/dn — Central de Documentos Corporativos',
+            documentalCount: 7,
+            gestaoCount: 5,
+            active: true,
+            deleted: false,
+            updated: '28/08/2026'
+        },
+        {
+            id: 110,
+            name: 'Fluxo TCDF — Arquivo Intermediário',
+            scope: 'project',
+            clientId: 'TCDF',
+            client: 'Tribunal de Contas do Distrito Federal — TCDF',
+            projectId: 'TCDF-intermediario',
+            project: 'TCDF — Organização do Arquivo Intermediário',
+            documentalCount: 7,
+            gestaoCount: 6,
+            active: true,
+            deleted: false,
+            updated: '30/08/2026'
+        },
+        {
+            id: 111,
+            name: 'Fluxo TCDF — Memória Institucional',
+            scope: 'project',
+            clientId: 'TCDF',
+            client: 'Tribunal de Contas do Distrito Federal — TCDF',
+            projectId: 'TCDF-memoria',
+            project: 'TCDF — Projeto Memória Institucional',
+            documentalCount: 5,
+            gestaoCount: 4,
+            active: false,
+            deleted: false,
+            updated: '24/08/2026'
+        },
+        {
+            id: 112,
+            name: 'Fluxo TCDF — Prestações de Contas',
+            scope: 'project',
+            clientId: 'TCDF',
+            client: 'Tribunal de Contas do Distrito Federal — TCDF',
+            projectId: 'TCDF-prestacoes',
+            project: 'TCDF — Conversão Digital de Prestações de Contas',
+            documentalCount: 8,
+            gestaoCount: 6,
+            active: true,
+            deleted: false,
+            updated: '31/08/2026'
+        },
+        {
+            id: 105,
+            name: 'Fluxo TCDF — Digitalização',
+            scope: 'project',
+            clientId: 'TCDF',
+            client: 'Tribunal de Contas do Distrito Federal — TCDF',
+            projectId: 'TCDF-digitalizacao',
+            project: 'TCDF — Digitalização de Processos',
+            documentalCount: 6,
+            gestaoCount: 5,
+            active: false,
+            deleted: true,
+            updated: '25/08/2026'
+        }
+    ];
+
+    let active = 'documental',
+        editing = null,
+        pendingInactivate = null,
+        dirty = false;
+    let lastClient = 'ANM';
+    let pendingFlowAction = null;
+
+    const $ = id => document.getElementById(id);
+    const config = () => active === 'documental' 
+    ? { 
+        singular: 'etapa', 
+        label: 'Nome da etapa', 
+        title: 'Fluxo de Etapas Documentais', 
+        chip: 'Etapa Documental' 
+    } 
+    : { 
+        singular: 'status', 
+        label: 'Nome do status', 
+        title: 'Fluxo de Status da Gestão Documental', 
+        chip: 'Gestão Documental' 
+    };
+
+    const flowScopeLabel = scope => ({ system: 'Sistema', client: 'Cliente', project: 'Projeto' }[scope] || scope);
+
+    // ===== ÍCONES SVG INLINE =====
+   // ===== ÍCONES SVG INLINE =====
+// Ícone de engrenagem para "Abrir"
+const iconOpen = `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
+    <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/>
+</svg>`;
+
+// Ícone de lápis para "Editar"
+const iconEdit = `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M12 20h9"/>
+    <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/>
+</svg>`;
+
+const iconInactivate = `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>`;
+
+const iconActivate = `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>`;
+
+const iconRestore = `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 9-9m0 0v6m0-6h-6"/><path d="M21 12a9 9 0 1 1-9-9"/></svg>`;
+
+    function fillFlowClientFilter() {
+        const selected = $('flow-client-filter').value || 'all';
+        fillSelect(
+            $('flow-client-filter'),
+            [{ id: 'all', name: 'Todos os Clientes' }, ...clients],
+            selected
+        );
+    }
+
+    function fillFlowProjectFilter() {
+        const clientId = $('flow-client-filter').value;
+        const selected = $('flow-project-filter').value || 'all';
+
+        if (!clientId || clientId === 'all') {
+            fillSelect($('flow-project-filter'), [{ id: 'all', name: 'Todos os Projetos' }], 'all');
+            $('flow-project-filter').disabled = true;
+            return;
         }
 
-        function renderFlowConfigurations() {
-            const query = $('flow-search').value.trim().toLowerCase();
-            const scopeFilter = $('flow-scope-filter').value;
-            const stateFilter = $('flow-state-filter').value;
-            const clientFilter = $('flow-client-filter').value;
-            const projectFilter = $('flow-project-filter').value;
+        fillSelect(
+            $('flow-project-filter'),
+            [{ id: 'all', name: 'Todos os Projetos do Cliente' }, ...(projects[clientId] || [])],
+            selected
+        );
+        $('flow-project-filter').disabled = false;
+    }
 
-            const rows = flowConfigurations.filter(flow => {
-                const searchable = [flow.name, flow.client, flow.project, flowScopeLabel(flow.scope)].join(' ').toLowerCase();
-                const matchesQuery = !query || searchable.includes(query);
-                const matchesScope = scopeFilter === 'all' || flow.scope === scopeFilter;
-                const matchesClient = clientFilter === 'all' || flow.clientId === clientFilter;
-                const matchesProject = projectFilter === 'all' || flow.projectId === projectFilter;
-                let matchesState = true;
+    function renderFlowConfigurations() {
+        const query = $('flow-search').value.trim().toLowerCase();
+        const scopeFilter = $('flow-scope-filter').value;
+        const stateFilter = $('flow-state-filter').value;
+        const clientFilter = $('flow-client-filter').value;
+        const projectFilter = $('flow-project-filter').value;
 
-                if (stateFilter === 'current') matchesState = !flow.deleted;
-                if (stateFilter === 'active') matchesState = flow.active && !flow.deleted;
-                if (stateFilter === 'inactive') matchesState = !flow.active && !flow.deleted;
-                if (stateFilter === 'deleted') matchesState = flow.deleted;
+        const rows = flowConfigurations.filter(flow => {
+            const searchable = [flow.name, flow.client, flow.project, flowScopeLabel(flow.scope)].join(' ').toLowerCase();
+            const matchesQuery = !query || searchable.includes(query);
+            const matchesScope = scopeFilter === 'all' || flow.scope === scopeFilter;
+            const matchesClient = clientFilter === 'all' || flow.clientId === clientFilter;
+            const matchesProject = projectFilter === 'all' || flow.projectId === projectFilter;
+            let matchesState = true;
 
-                return matchesQuery && matchesScope && matchesClient && matchesProject && matchesState;
-            });
+            if (stateFilter === 'current') matchesState = !flow.deleted;
+            if (stateFilter === 'active') matchesState = flow.active && !flow.deleted;
+            if (stateFilter === 'inactive') matchesState = !flow.active && !flow.deleted;
+            if (stateFilter === 'deleted') matchesState = flow.deleted;
 
-            $('clear-flow-search').style.display = query ? 'block' : 'none';
-            $('flow-rows').innerHTML = rows.map(flow => {
-                const application = flow.scope === 'system'
-                    ? `<span class="flow-name" style="font-size:11px">Todos os Clientes e Projetos</span>`
-                    : `<span class="flow-name" style="font-size:11px">${flow.client}</span><span class="flow-subtitle">${flow.project}</span>`;
-                const stateText = flow.deleted ? 'Excluída' : (flow.active ? 'Ativa' : 'Inativa');
-                const stateClass = flow.deleted ? 'deleted' : (flow.active ? '' : 'inactive');
-                // Na parte dos actions:
-const actions = flow.deleted
-    ? `<button type="button" class="flow-action-icon restore" title="Restaurar configuração">
-            <i class="fas fa-undo-alt"></i>
-       </button>`
-    : `<button type="button" class="flow-action-icon open" title="Abrir configuração">
-            <i class="fas fa-folder-open"></i>
-       </button>
-       <button type="button" class="flow-action-icon toggle ${flow.active ? 'active' : 'inactive'}" title="${flow.active ? 'Inativar' : 'Ativar'} configuração">
-            <i class="fas ${flow.active ? 'fa-times' : 'fa-check'}"></i>
-       </button>`;
+            return matchesQuery && matchesScope && matchesClient && matchesProject && matchesState;
+        });
 
-                return `<tr data-flow-id="${flow.id}">
+        $('clear-flow-search').style.display = query ? 'block' : 'none';
+        $('flow-rows').innerHTML = rows.map(flow => {
+            const application = flow.scope === 'system'
+                ? `<span class="flow-name" style="font-size:11px">Todos os Clientes e Projetos</span>`
+                : `<span class="flow-name" style="font-size:11px">${flow.client}</span><span class="flow-subtitle">${flow.project}</span>`;
+            const stateText = flow.deleted ? 'Excluída' : (flow.active ? 'Ativa' : 'Inativa');
+            const stateClass = flow.deleted ? 'deleted' : (flow.active ? '' : 'inactive');
+            
+            // ===== BOTÕES COM ÍCONES SVG INLINE =====
+            const actions = flow.deleted
+                ? `<button type="button" class="flow-action-icon restore" title="Restaurar configuração">
+                        ${iconRestore}
+                   </button>`
+                : `<button type="button" class="flow-action-icon open" title="Abrir configuração">
+                        ${iconOpen}
+                   </button>
+                   <button type="button" class="flow-action-icon toggle ${flow.active ? 'active' : 'inactive'}" title="${flow.active ? 'Inativar' : 'Ativar'} configuração">
+                        ${flow.active ? iconInactivate : iconActivate}
+                   </button>`;
+
+            return `<tr data-flow-id="${flow.id}">
                     <td><span class="flow-name">${flow.name}</span><span class="flow-subtitle">Atualizada em ${flow.updated}</span></td>
                     <td><span class="scope-label ${flow.scope}">${flowScopeLabel(flow.scope)}</span></td>
                     <td>${application}</td>
@@ -4520,151 +4950,149 @@ const actions = flow.deleted
                     <td><span class="flow-state ${stateClass}">${stateText}</span></td>
                     <td><div class="flow-actions">${actions}</div></td>
                 </tr>`;
-            }).join('');
+        }).join('');
 
-            $('flow-empty').style.display = rows.length ? 'none' : 'block';
-            const table = $('flow-rows').closest('table');
-            if (table) table.style.display = rows.length ? 'table' : 'none';
-            $('flow-result-count').textContent = `${rows.length} ${rows.length === 1 ? 'configuração encontrada' : 'configurações encontradas'}`;
+        $('flow-empty').style.display = rows.length ? 'none' : 'block';
+        const table = $('flow-rows').closest('table');
+        if (table) table.style.display = rows.length ? 'table' : 'none';
+        $('flow-result-count').textContent = `${rows.length} ${rows.length === 1 ? 'configuração encontrada' : 'configurações encontradas'}`;
 
-            document.querySelectorAll('#flow-rows tr').forEach(row => {
-                const id = Number(row.dataset.flowId);
-                row.querySelector('.open-flow')?.addEventListener('click', () => openFlowEditor(id));
-                row.querySelector('.toggle-flow')?.addEventListener('click', () => askFlowAction(id, 'toggle'));
-                row.querySelector('.delete-flow')?.addEventListener('click', () => askFlowAction(id, 'delete'));
-                row.querySelector('.restore-flow')?.addEventListener('click', () => askFlowAction(id, 'restore'));
-            });
-        }
-
-        function setBreadcrumb(label) {
-            const current = document.querySelector('#breadcrumbs .current a');
-            if (current) current.textContent = label;
-        }
-
-        function selectedOptionText(select) {
-            return select.options[select.selectedIndex]?.text || '';
-        }
-
-        function fillNewFlowProjects() {
-    const clientId = $('new-flow-client').value;
-    const items = projects[clientId] || [];
-    const current = $('new-flow-project').value;
-    const selected = items.some(item => item.id === current) ? current : items[0]?.id;
-    fillSelect($('new-flow-project'), items, selected);
-}
-
-        function updateNewFlowContext() {
-    const scope = document.querySelector('input[name="new-flow-scope"]:checked')?.value || 'project';
-    const targetGrid = $('new-flow-target-grid');
-    const targetTitle = $('new-flow-target-title');
-    const clientRow = $('new-flow-client-row');
-    const projectRow = $('new-flow-project-row');
-    const summary = $('new-flow-context-summary-text');
-
-    document.querySelectorAll('.scope-choice').forEach(card => {
-        card.classList.toggle('selected', card.dataset.newScope === scope);
-    });
-
-    $('new-flow-context-error').style.display = 'none';
-
-    if (scope === 'system') {
-        targetTitle.style.display = 'none';
-        targetGrid.style.display = 'none';
-        summary.innerHTML = '<strong>Aplicação no Sistema:</strong> o fluxo será a configuração geral para todos os clientes e projetos que não possuam configuração mais específica.';
-        return;
+        document.querySelectorAll('#flow-rows tr').forEach(row => {
+            const id = Number(row.dataset.flowId);
+            row.querySelector('.open')?.addEventListener('click', () => openFlowEditor(id));
+            row.querySelector('.toggle')?.addEventListener('click', () => askFlowAction(id, 'toggle'));
+            row.querySelector('.restore')?.addEventListener('click', () => askFlowAction(id, 'restore'));
+        });
     }
 
-    targetTitle.style.display = 'block';
-    targetGrid.style.display = 'grid';
-    clientRow.style.display = 'block';
-
-    const clientName = selectedOptionText($('new-flow-client'));
-    if (scope === 'client') {
-        projectRow.style.display = 'none';
-        targetGrid.style.gridTemplateColumns = '1fr';
-        summary.innerHTML = `<strong>Aplicação no Cliente:</strong> o fluxo será utilizado por “${clientName}” e por todos os seus projetos, salvo quando houver uma configuração específica no projeto.`;
-    } else {
-        projectRow.style.display = 'block';
-        targetGrid.style.gridTemplateColumns = '1fr 1.2fr';
-        const projectName = selectedOptionText($('new-flow-project'));
-        summary.innerHTML = `<strong>Aplicação no Projeto:</strong> o fluxo será exclusivo de “${projectName}”, vinculado ao cliente “${clientName}”.`;
-    }
-}
-
-        function openNewFlowModal() {
-    const defaultClient = clients.some(client => client.id === lastClient) ? lastClient : clients[0]?.id;
-    fillSelect($('new-flow-client'), clients, defaultClient);
-    fillNewFlowProjects();
-    const projectScope = document.querySelector('input[name="new-flow-scope"][value="project"]');
-    if (projectScope) projectScope.checked = true;
-    
-    // Limpa o campo de nome ao abrir
-    $('new-flow-name').value = '';
-    
-    updateNewFlowContext();
-    $('new-flow-modal').style.display = 'flex';
-    
-    // Remove mensagem de erro antiga
-    $('new-flow-context-error').style.display = 'none';
-    
-    setTimeout(() => {
-        // Foca no campo de nome para facilitar o preenchimento
-        $('new-flow-name').focus();
-    }, 100);
-}
-
-        function closeNewFlowModal() {
-    $('new-flow-modal').style.display = 'none';
-    $('new-flow-context-error').style.display = 'none';
-    // Limpa o campo de nome ao fechar
-    $('new-flow-name').value = '';
-}
-
-        function continueNewFlow() {
-    const scope = document.querySelector('input[name="new-flow-scope"]:checked')?.value;
-    const clientId = $('new-flow-client').value;
-    const projectId = $('new-flow-project').value;
-    const name = $('new-flow-name').value.trim();
-
-    // VALIDAÇÃO: Nome é obrigatório
-    if (!name) {
-        $('new-flow-context-error').textContent = 'Informe o nome da configuração antes de continuar.';
-        $('new-flow-context-error').style.display = 'block';
-        $('new-flow-name').focus();
-        $('new-flow-name').style.borderColor = '#b95650';
-        return;
+    function setBreadcrumb(label) {
+        const current = document.querySelector('#breadcrumbs .current a');
+        if (current) current.textContent = label;
     }
 
-    // Limpa o estilo de erro se houver
-    $('new-flow-name').style.borderColor = '#cfd6da';
-
-    // VALIDAÇÃO: Escopo e destino são obrigatórios
-    if (!scope || (scope !== 'system' && !clientId) || (scope === 'project' && !projectId)) {
-        $('new-flow-context-error').textContent = 'Preencha o escopo e o destino da configuração antes de continuar.';
-        $('new-flow-context-error').style.display = 'block';
-        return;
+    function selectedOptionText(select) {
+        return select.options[select.selectedIndex]?.text || '';
     }
 
-    // Fecha a popup e abre o editor com os dados
-    closeNewFlowModal();
-    openFlowEditor(null, {
-        name: name,
-        scope: scope,
-        clientId: scope === 'system' ? null : clientId,
-        projectId: scope === 'project' ? projectId : null
-    });
-}
+    function fillNewFlowProjects() {
+        const clientId = $('new-flow-client').value;
+        const items = projects[clientId] || [];
+        const current = $('new-flow-project').value;
+        const selected = items.some(item => item.id === current) ? current : items[0]?.id;
+        fillSelect($('new-flow-project'), items, selected);
+    }
 
-        function showFlowList() {
-            $('flow-list-view').style.display = 'block';
-            $('editor-widget').style.display = 'none';
-            setBreadcrumb('Configuração de Etapas do Projeto');
-            renderFlowConfigurations();
-            window.scrollTo({ top: 0, behavior: 'smooth' });
+    function updateNewFlowContext() {
+        const scope = document.querySelector('input[name="new-flow-scope"]:checked')?.value || 'project';
+        const targetGrid = $('new-flow-target-grid');
+        const targetTitle = $('new-flow-target-title');
+        const clientRow = $('new-flow-client-row');
+        const projectRow = $('new-flow-project-row');
+        const summary = $('new-flow-context-summary-text');
+
+        document.querySelectorAll('.scope-choice').forEach(card => {
+            card.classList.toggle('selected', card.dataset.newScope === scope);
+        });
+
+        $('new-flow-context-error').style.display = 'none';
+
+        if (scope === 'system') {
+            targetTitle.style.display = 'none';
+            targetGrid.style.display = 'none';
+            summary.innerHTML = '<strong>Aplicação no Sistema:</strong> o fluxo será a configuração geral para todos os clientes e projetos que não possuam configuração mais específica.';
+            return;
         }
 
+        targetTitle.style.display = 'block';
+        targetGrid.style.display = 'grid';
+        clientRow.style.display = 'block';
+
+        const clientName = selectedOptionText($('new-flow-client'));
+        if (scope === 'client') {
+            projectRow.style.display = 'none';
+            targetGrid.style.gridTemplateColumns = '1fr';
+            summary.innerHTML = `<strong>Aplicação no Cliente:</strong> o fluxo será utilizado por “${clientName}” e por todos os seus projetos, salvo quando houver uma configuração específica no projeto.`;
+        } else {
+            projectRow.style.display = 'block';
+            targetGrid.style.gridTemplateColumns = '1fr 1.2fr';
+            const projectName = selectedOptionText($('new-flow-project'));
+            summary.innerHTML = `<strong>Aplicação no Projeto:</strong> o fluxo será exclusivo de “${projectName}”, vinculado ao cliente “${clientName}”.`;
+        }
+    }
+
+    function openNewFlowModal() {
+        const defaultClient = clients.some(client => client.id === lastClient) ? lastClient : clients[0]?.id;
+        fillSelect($('new-flow-client'), clients, defaultClient);
+        fillNewFlowProjects();
+        const projectScope = document.querySelector('input[name="new-flow-scope"][value="project"]');
+        if (projectScope) projectScope.checked = true;
         
-function openFlowEditor(id = null, newContext = null) {
+        // Limpa o campo de nome ao abrir
+        $('new-flow-name').value = '';
+        
+        updateNewFlowContext();
+        $('new-flow-modal').style.display = 'flex';
+        
+        // Remove mensagem de erro antiga
+        $('new-flow-context-error').style.display = 'none';
+        
+        setTimeout(() => {
+            // Foca no campo de nome para facilitar o preenchimento
+            $('new-flow-name').focus();
+        }, 100);
+    }
+
+    function closeNewFlowModal() {
+        $('new-flow-modal').style.display = 'none';
+        $('new-flow-context-error').style.display = 'none';
+        // Limpa o campo de nome ao fechar
+        $('new-flow-name').value = '';
+    }
+
+    function continueNewFlow() {
+        const scope = document.querySelector('input[name="new-flow-scope"]:checked')?.value;
+        const clientId = $('new-flow-client').value;
+        const projectId = $('new-flow-project').value;
+        const name = $('new-flow-name').value.trim();
+
+        // VALIDAÇÃO: Nome é obrigatório
+        if (!name) {
+            $('new-flow-context-error').textContent = 'Informe o nome da configuração antes de continuar.';
+            $('new-flow-context-error').style.display = 'block';
+            $('new-flow-name').focus();
+            $('new-flow-name').style.borderColor = '#b95650';
+            return;
+        }
+
+        // Limpa o estilo de erro se houver
+        $('new-flow-name').style.borderColor = '#cfd6da';
+
+        // VALIDAÇÃO: Escopo e destino são obrigatórios
+        if (!scope || (scope !== 'system' && !clientId) || (scope === 'project' && !projectId)) {
+            $('new-flow-context-error').textContent = 'Preencha o escopo e o destino da configuração antes de continuar.';
+            $('new-flow-context-error').style.display = 'block';
+            return;
+        }
+
+        // Fecha a popup e abre o editor com os dados
+        closeNewFlowModal();
+        openFlowEditor(null, {
+            name: name,
+            scope: scope,
+            clientId: scope === 'system' ? null : clientId,
+            projectId: scope === 'project' ? projectId : null
+        });
+    }
+
+    function showFlowList() {
+        $('flow-list-view').style.display = 'block';
+        $('editor-widget').style.display = 'none';
+        setBreadcrumb('Configuração de Etapas do Projeto');
+        renderFlowConfigurations();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function openFlowEditor(id = null, newContext = null) {
     const flow = id ? flowConfigurations.find(item => item.id === id) : null;
     $('flow-list-view').style.display = 'none';
     $('editor-widget').style.display = 'block';
@@ -4686,6 +5114,9 @@ function openFlowEditor(id = null, newContext = null) {
         }
         // Preenche o nome da configuração no título
         $('editor-widget-title').textContent = `Editar Configuração — ${flow.name}`;
+        
+        // Atualiza o título da listagem com o escopo correto
+        refreshListTitle();
     } else {
         // Nova configuração
         const context = newContext || {
@@ -4719,117 +5150,120 @@ function openFlowEditor(id = null, newContext = null) {
                     : selectedOptionText($('project'));
             $('editor-widget-title').textContent = `Nova Configuração — ${destination}`;
         }
+        
+        // Atualiza o título da listagem com o escopo correto
+        refreshListTitle();
     }
 
     window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
-        function askFlowAction(id, action) {
-            const flow = flowConfigurations.find(item => item.id === id);
-            if (!flow) return;
-            pendingFlowAction = { id, action };
-            $('flow-modal').style.display = 'flex';
-            $('flow-modal-note').style.display = action === 'delete' ? 'block' : 'none';
+    function askFlowAction(id, action) {
+        const flow = flowConfigurations.find(item => item.id === id);
+        if (!flow) return;
+        pendingFlowAction = { id, action };
+        $('flow-modal').style.display = 'flex';
+        $('flow-modal-note').style.display = action === 'delete' ? 'block' : 'none';
 
-            if (action === 'delete') {
-                $('flow-modal-title').textContent = 'Excluir Configuração de Fluxo?';
-                $('flow-modal-text').textContent = `A configuração “${flow.name}” deixará de aparecer entre os fluxos ativos e inativos.`;
-                $('flow-modal-confirm').textContent = 'Excluir';
-                $('flow-modal-confirm').style.background = '#b95650';
-                $('flow-modal-confirm').style.borderColor = '#b95650';
-            } else if (action === 'restore') {
-                $('flow-modal-title').textContent = 'Restaurar Configuração?';
-                $('flow-modal-text').textContent = `A configuração “${flow.name}” será restaurada como inativa. Depois, você poderá revisá-la e ativá-la.`;
-                $('flow-modal-confirm').textContent = 'Restaurar';
-                $('flow-modal-confirm').style.background = '#4b8eaf';
-                $('flow-modal-confirm').style.borderColor = '#4b8eaf';
-            } else {
-                $('flow-modal-title').textContent = flow.active ? 'Inativar Configuração?' : 'Ativar Configuração?';
-                $('flow-modal-text').textContent = flow.active
-                    ? `A configuração “${flow.name}” deixará de ser disponibilizada para novas movimentações, mas continuará preservada no histórico.`
-                    : `A configuração “${flow.name}” voltará a ser disponibilizada neste escopo.`;
-                $('flow-modal-confirm').textContent = flow.active ? 'Inativar' : 'Ativar';
-                $('flow-modal-confirm').style.background = flow.active ? '#b95650' : '#7ca82a';
-                $('flow-modal-confirm').style.borderColor = flow.active ? '#b95650' : '#7ca82a';
-            }
+        if (action === 'delete') {
+            $('flow-modal-title').textContent = 'Excluir Configuração de Fluxo?';
+            $('flow-modal-text').textContent = `A configuração “${flow.name}” deixará de aparecer entre os fluxos ativos e inativos.`;
+            $('flow-modal-confirm').textContent = 'Excluir';
+            $('flow-modal-confirm').style.background = '#b95650';
+            $('flow-modal-confirm').style.borderColor = '#b95650';
+        } else if (action === 'restore') {
+            $('flow-modal-title').textContent = 'Restaurar Configuração?';
+            $('flow-modal-text').textContent = `A configuração “${flow.name}” será restaurada como inativa. Depois, você poderá revisá-la e ativá-la.`;
+            $('flow-modal-confirm').textContent = 'Restaurar';
+            $('flow-modal-confirm').style.background = '#4b8eaf';
+            $('flow-modal-confirm').style.borderColor = '#4b8eaf';
+        } else {
+            $('flow-modal-title').textContent = flow.active ? 'Inativar Configuração?' : 'Ativar Configuração?';
+            $('flow-modal-text').textContent = flow.active
+                ? `A configuração “${flow.name}” deixará de ser disponibilizada para novas movimentações, mas continuará preservada no histórico.`
+                : `A configuração “${flow.name}” voltará a ser disponibilizada neste escopo.`;
+            $('flow-modal-confirm').textContent = flow.active ? 'Inativar' : 'Ativar';
+            $('flow-modal-confirm').style.background = flow.active ? '#b95650' : '#7ca82a';
+            $('flow-modal-confirm').style.borderColor = flow.active ? '#b95650' : '#7ca82a';
         }
+    }
 
-        const scopeName = () => {
-            const scopeMap = {
-                system: 'Sistema',
-                client: 'Cliente',
-                project: 'Projeto'
-            };
-            return capitalizeWords(scopeMap[$('scope').value] || $('scope').value);
+    const scopeName = () => {
+        const scopeMap = {
+            system: 'Sistema',
+            client: 'Cliente',
+            project: 'Projeto'
         };
+        return capitalizeWords(scopeMap[$('scope').value] || $('scope').value);
+    };
 
-        function fillSelect(select, items, selected) {
-            select.innerHTML = items.map(x => `<option value="${x.id}" ${x.id === selected ? 'selected' : ''}>${x.name}</option>`).join('');
-        }
+    function fillSelect(select, items, selected) {
+        select.innerHTML = items.map(x => `<option value="${x.id}" ${x.id === selected ? 'selected' : ''}>${x.name}</option>`).join('');
+    }
 
-        function fillProjects() {
-            const clientId = $('client').value || lastClient;
-            const items = projects[clientId] || [];
-            fillSelect($('project'), items, items[0]?.id);
-        }
+    function fillProjects() {
+        const clientId = $('client').value || lastClient;
+        const items = projects[clientId] || [];
+        fillSelect($('project'), items, items[0]?.id);
+    }
 
-        function refreshListTitle() {
-            $('list-title').textContent = `${config().title} — ${scopeName()}`;
-        }
+    function refreshListTitle() {
+    $('list-title').textContent = `${config().title} — ${scopeName()}`;
+}
 
-        function updateScope(showMessage = true) {
-            const scope = $('scope').value,
-                banner = $('scope-banner'),
-                chip = $('scope-chip');
-            banner.className = `scope-banner ${scope}`;
-            chip.className = `scope-chip ${scope}`;
-            $('client-required').style.display = scope === 'system' ? 'none' : 'inline';
-            $('project-required').style.display = scope === 'project' ? 'inline' : 'none';
+    function updateScope(showMessage = true) {
+        const scope = $('scope').value,
+            banner = $('scope-banner'),
+            chip = $('scope-chip');
+        banner.className = `scope-banner ${scope}`;
+        chip.className = `scope-chip ${scope}`;
+        $('client-required').style.display = scope === 'system' ? 'none' : 'inline';
+        $('project-required').style.display = scope === 'project' ? 'inline' : 'none';
 
-            if (scope === 'system') {
-                if (!$('client').disabled) lastClient = $('client').value || lastClient;
-                fillSelect($('client'), [{ id: 'all-clients', name: 'Todos os Clientes' }], 'all-clients');
-                fillSelect($('project'), [{ id: 'all-projects', name: 'Todos os Projetos' }], 'all-projects');
-                $('client').disabled = true;
+        if (scope === 'system') {
+            if (!$('client').disabled) lastClient = $('client').value || lastClient;
+            fillSelect($('client'), [{ id: 'all-clients', name: 'Todos os Clientes' }], 'all-clients');
+            fillSelect($('project'), [{ id: 'all-projects', name: 'Todos os Projetos' }], 'all-projects');
+            $('client').disabled = true;
+            $('project').disabled = true;
+            $('scope-icon').textContent = '◎';
+            $('scope-title').textContent = 'Aplicação em Todo o Sistema';
+            $('scope-description').textContent = 'As Etapas e os Status Definidos Ficarão Disponíveis para Todos os Clientes e Todos os Projetos do DocZ.';
+        } else {
+            if ($('client').disabled) fillSelect($('client'), clients, lastClient);
+            $('client').disabled = false;
+            if (scope === 'client') {
+                lastClient = $('client').value || lastClient;
+                fillSelect($('project'), [{ id: 'all-client-projects', name: 'Todos os Projetos do Cliente' }], 'all-client-projects');
                 $('project').disabled = true;
-                $('scope-icon').textContent = '◎';
-                $('scope-title').textContent = 'Aplicação em Todo o Sistema';
-                $('scope-description').textContent = 'As Etapas e os Status Definidos Ficarão Disponíveis para Todos os Clientes e Todos os Projetos do DocZ.';
+                $('scope-icon').textContent = '▦';
+                $('scope-title').textContent = 'Aplicação no Cliente Selecionado';
+                $('scope-description').textContent = 'As Etapas e os Status Definidos Ficarão Disponíveis para o Cliente Selecionado e para Todos os Seus Projetos.';
             } else {
-                if ($('client').disabled) fillSelect($('client'), clients, lastClient);
-                $('client').disabled = false;
-                if (scope === 'client') {
-                    lastClient = $('client').value || lastClient;
-                    fillSelect($('project'), [{ id: 'all-client-projects', name: 'Todos os Projetos do Cliente' }], 'all-client-projects');
-                    $('project').disabled = true;
-                    $('scope-icon').textContent = '▦';
-                    $('scope-title').textContent = 'Aplicação no Cliente Selecionado';
-                    $('scope-description').textContent = 'As Etapas e os Status Definidos Ficarão Disponíveis para o Cliente Selecionado e para Todos os Seus Projetos.';
-                } else {
-                    lastClient = $('client').value || lastClient;
-                    $('project').disabled = false;
-                    fillProjects();
-                    $('scope-icon').textContent = '▤';
-                    $('scope-title').textContent = 'Aplicação Exclusiva no Projeto';
-                    $('scope-description').textContent = 'As Etapas e os Status Definidos Serão Disponibilizados Somente para o Projeto Selecionado.';
-                }
+                lastClient = $('client').value || lastClient;
+                $('project').disabled = false;
+                fillProjects();
+                $('scope-icon').textContent = '▤';
+                $('scope-title').textContent = 'Aplicação Exclusiva no Projeto';
+                $('scope-description').textContent = 'As Etapas e os Status Definidos Serão Disponibilizados Somente para o Projeto Selecionado.';
             }
-            chip.textContent = `● Escopo: ${scopeName()}`;
-            refreshListTitle();
-            resetForm();
-            render();
-            if (showMessage) toast(`Escopo de aplicação alterado para ${scopeName()}.`);
         }
+        chip.textContent = `● Escopo: ${scopeName()}`;
+        refreshListTitle();
+        resetForm();
+        render();
+        if (showMessage) toast(`Escopo de aplicação alterado para ${scopeName()}.`);
+    }
 
-        function render() {
-            const q = $('search').value.trim().toLowerCase();
-            const rows = data[active].filter(x => x.name.toLowerCase().includes(q));
-            const c = config();
+    function render() {
+    const q = $('search').value.trim().toLowerCase();
+    const rows = data[active].filter(x => x.name.toLowerCase().includes(q));
+    const c = config();
 
-            $('clear-search').style.display = q ? 'block' : 'none';
+    $('clear-search').style.display = q ? 'block' : 'none';
 
-            $('rows').innerHTML = rows.map((x, i) =>
-                `<tr data-id="${x.id}">
+    $('rows').innerHTML = rows.map((x, i) =>
+        `<tr data-id="${x.id}">
         <td><span class="drag">⠿</span></td>
         <td>
           <div class="order-cell">
@@ -4843,305 +5277,314 @@ function openFlowEditor(id = null, newContext = null) {
         <td><span class="state" style="${x.active ? '' : 'color:#8b969d'}">${x.active ? 'Ativa' : 'Inativa'}</span></td>
         <td>
           <div class="row-actions">
-            <button class="icon-btn edit" title="Editar">Editar</button>
-            <button class="icon-btn danger inactivate" title="${x.active ? 'Inativar' : 'Ativar'}">${x.active ? 'Inativar' : 'Ativar'}</button>
+            <button class="icon-btn edit" title="Editar">
+                ${iconEdit}
+                <span style="margin-left:4px">Editar</span>
+            </button>
+            <button class="icon-btn danger inactivate" title="${x.active ? 'Inativar' : 'Ativar'}">
+                ${x.active ? iconInactivate : iconActivate}
+                <span style="margin-left:4px">${x.active ? 'Inativar' : 'Ativar'}</span>
+            </button>
           </div>
         </td>
       </tr>`
-            ).join('');
+    ).join('');
 
-            $('empty').style.display = rows.length ? 'none' : 'block';
-            const table = $('rows').closest('table');
-            if (table) table.style.display = rows.length ? 'table' : 'none';
+    $('empty').style.display = rows.length ? 'none' : 'block';
+    const table = $('rows').closest('table');
+    if (table) table.style.display = rows.length ? 'table' : 'none';
 
-            $('result-count').textContent = `${rows.length} ${rows.length === 1 ? 'Registro' : 'Registros'} neste Fluxo`;
-            $('count-documental').textContent = data.documental.length;
-            $('count-gestao').textContent = data.gestao.length;
+    $('result-count').textContent = `${rows.length} ${rows.length === 1 ? 'Registro' : 'Registros'} neste Fluxo`;
+    $('count-documental').textContent = data.documental.length;
+    $('count-gestao').textContent = data.gestao.length;
 
-            bindRows();
-            initSortable();
-        }
+    bindRows();
+    initSortable();
+}
 
-        function bindRows() {
-            document.querySelectorAll('#rows tr').forEach(tr => {
-                const id = Number(tr.dataset.id);
-                const idx = data[active].findIndex(x => x.id === id);
-                tr.querySelector('.move-up').onclick = () => move(idx, -1);
-                tr.querySelector('.move-down').onclick = () => move(idx, 1);
-                tr.querySelector('.edit').onclick = () => startEdit(id);
-                tr.querySelector('.inactivate').onclick = () => askState(id);
-            });
-        }
+    function bindRows() {
+        document.querySelectorAll('#rows tr').forEach(tr => {
+            const id = Number(tr.dataset.id);
+            const idx = data[active].findIndex(x => x.id === id);
+            tr.querySelector('.move-up').onclick = () => move(idx, -1);
+            tr.querySelector('.move-down').onclick = () => move(idx, 1);
+            tr.querySelector('.edit').onclick = () => startEdit(id);
+            tr.querySelector('.inactivate').onclick = () => askState(id);
+        });
+    }
 
-        function move(idx, delta) {
-            const n = idx + delta;
-            if (n < 0 || n >= data[active].length) return;
-            [data[active][idx], data[active][n]] = [data[active][n], data[active][idx]];
-            dirty = true;
-            orderState();
-            render();
-        }
+    function move(idx, delta) {
+        const n = idx + delta;
+        if (n < 0 || n >= data[active].length) return;
+        [data[active][idx], data[active][n]] = [data[active][n], data[active][idx]];
+        dirty = true;
+        orderState();
+        render();
+    }
 
-        function orderState() {
-            $('unsaved').style.display = dirty ? 'inline' : 'none';
-            $('save-order').disabled = !dirty;
-            $('restore').disabled = !dirty;
-            $('save-order').style.opacity = dirty ? '1' : '0.4';
-            $('restore').style.opacity = dirty ? '1' : '0.4';
-        }
+    function orderState() {
+        $('unsaved').style.display = dirty ? 'inline' : 'none';
+        $('save-order').disabled = !dirty;
+        $('restore').disabled = !dirty;
+        $('save-order').style.opacity = dirty ? '1' : '0.4';
+        $('restore').style.opacity = dirty ? '1' : '0.4';
+    }
 
-        function startEdit(id) {
-            const x = data[active].find(v => v.id === id),
-                c = config();
-            editing = id;
-            $('stage-name').value = x.name;
-            $('stage-order').value = data[active].indexOf(x) + 1;
-            $('stage-state').value = x.active ? 'Ativa' : 'Inativa';
-            $('editor-title').textContent = `Editar ${c.singular}`;
-            $('save').innerHTML = 'Ativar Salvar Alterações';
-            window.scrollTo({ top: 205, behavior: 'smooth' });
-        }
+    function startEdit(id) {
+        const x = data[active].find(v => v.id === id),
+            c = config();
+        editing = id;
+        $('stage-name').value = x.name;
+        $('stage-order').value = data[active].indexOf(x) + 1;
+        $('stage-state').value = x.active ? 'Ativa' : 'Inativa';
+        $('editor-title').textContent = `Editar ${c.singular}`;
+        $('save').innerHTML = 'Ativar Salvar Alterações';
+        window.scrollTo({ top: 205, behavior: 'smooth' });
+    }
 
-        function resetForm() {
-            const c = config();
-            editing = null;
-            $('stage-name').value = '';
-            $('stage-order').value = data[active].length + 1;
-            $('stage-state').value = 'Ativa';
-            $('editor-title').textContent = `Nova ${c.singular === 'etapa' ? 'Etapa Documental' : 'Status da Gestão Documental'}`;
-            $('save').innerHTML = `Ativar Salvar ${c.singular.charAt(0).toUpperCase() + c.singular.slice(1)}`;
-        }
+    function resetForm() {
+        const c = config();
+        editing = null;
+        $('stage-name').value = '';
+        $('stage-order').value = data[active].length + 1;
+        $('stage-state').value = 'Ativa';
+        $('editor-title').textContent = `Nova ${c.singular === 'etapa' ? 'Etapa Documental' : 'Status da Gestão Documental'}`;
+        $('save').innerHTML = `Ativar Salvar ${c.singular.charAt(0).toUpperCase() + c.singular.slice(1)}`;
+    }
 
-        // ===== TOAST COM CAPITALIZAÇÃO =====
-        function toast(msg) {
-            alert(capitalizeText(msg));
-        }
+    // ===== TOAST COM CAPITALIZAÇÃO =====
+    function toast(msg) {
+        alert(capitalizeText(msg));
+    }
 
-        function save() {
-            const name = $('stage-name').value.trim();
-            let pos = Math.max(1, Math.min(Number($('stage-order').value) || 1, data[active].length + (editing ? 0 : 1)));
+    function save() {
+        const name = $('stage-name').value.trim();
+        let pos = Math.max(1, Math.min(Number($('stage-order').value) || 1, data[active].length + (editing ? 0 : 1)));
 
-            if (!name) {
-                $('stage-name').focus();
-                toast('Informe o nome antes de salvar.');
-                return;
-            }
-
-            if (editing) {
-                const idx = data[active].findIndex(x => x.id === editing);
-                const item = data[active].splice(idx, 1)[0];
-                item.name = name;
-                item.active = $('stage-state').value === 'Ativa';
-                data[active].splice(pos - 1, 0, item);
-                toast(`Alterações salvas no escopo ${scopeName()}.`);
-            } else {
-                data[active].splice(pos - 1, 0, { id: Date.now(), name, active: $('stage-state').value === 'Ativa' });
-                toast(`Registro incluído no escopo ${scopeName()}.`);
-            }
-            resetForm();
-            render();
-        }
-
-        function askState(id) {
-            pendingInactivate = id;
-            const x = data[active].find(v => v.id === id);
-            $('modal').style.display = 'flex';
-            document.querySelector('#modal h3').textContent = x.active ? 'Inativar Registro?' : 'Ativar Registro?';
-            document.querySelector('#modal-confirm').textContent = x.active ? 'Inativar' : 'Ativar';
-            document.querySelector('#modal-confirm').style.borderColor = x.active ? '#b95650' : '#7ca82a';
-            document.querySelector('#modal-confirm').style.background = x.active ? '#b95650' : '#7ca82a';
-        }
-
-        function switchTab(tab) {
-            active = tab;
-            editing = null;
-
-            document.querySelectorAll('.tab').forEach(x => {
-                if (x.dataset.tab === tab) {
-                    x.classList.add('active');
-                    x.style.color = '#2f718f';
-                    x.style.borderBottomColor = '#4b96b8';
-                    const badge = x.querySelector('.badge');
-                    if (badge) {
-                        badge.style.background = '#dceef6';
-                        badge.style.color = '#2f718f';
-                    }
-                } else {
-                    x.classList.remove('active');
-                    x.style.color = '#66747e';
-                    x.style.borderBottomColor = 'transparent';
-                    const badge = x.querySelector('.badge');
-                    if (badge) {
-                        badge.style.background = '#edf1f3';
-                        badge.style.color = '#687681';
-                    }
-                }
-            });
-
-            const c = config();
-            refreshListTitle();
-            $('name-label').innerHTML = `${c.label} <span style="color:#c00">*</span>`;
-            $('stage-name').placeholder = active === 'documental' ? 'Ex.: Preparação Documental' : 'Ex.: Em Auditoria';
-            $('new-item').textContent = active === 'documental' ? '＋ Nova Etapa' : '＋ Novo Status';
-            $('search').value = '';
-            $('search').placeholder = active === 'documental' ? 'Pesquisar etapa documental...' : 'Pesquisar status da gestão documental...';
-            dirty = false;
-            orderState();
-            resetForm();
-            render();
-        }
-
-        function initSortable() {
-            const tableBody = document.getElementById('rows');
-            if (typeof Sortable === 'undefined') {
-                return;
-            }
-            if (tableBody._sortableInstance) {
-                tableBody._sortableInstance.destroy();
-            }
-            tableBody._sortableInstance = new Sortable(tableBody, {
-                handle: '.drag',
-                animation: 150,
-                onEnd: function (evt) {
-                    const itemMoved = data[active].splice(evt.oldIndex, 1)[0];
-                    data[active].splice(evt.newIndex, 0, itemMoved);
-                    dirty = true;
-                    orderState();
-                    render();
-                    toast('Ordenação alterada. Não se esqueça de salvar.');
-                }
-            });
-        }
-
-        // ===== EVENT LISTENERS =====
-        document.querySelectorAll('.tab').forEach(x => x.onclick = () => switchTab(x.dataset.tab));
-        $('search').oninput = render;
-        $('clear-search').onclick = () => {
-            $('search').value = '';
-            render();
-            $('search').focus();
-        };
-        $('save').onclick = save;
-        $('cancel').onclick = resetForm;
-        $('new-item').onclick = () => {
+        if (!name) {
             $('stage-name').focus();
-            resetForm();
-        };
+            toast('Informe o nome antes de salvar.');
+            return;
+        }
 
-        $('minus').onclick = () => { $('stage-order').value = Math.max(1, Number($('stage-order').value) - 1); };
-        $('plus').onclick = () => { $('stage-order').value = Number($('stage-order').value) + 1; };
+        if (editing) {
+            const idx = data[active].findIndex(x => x.id === editing);
+            const item = data[active].splice(idx, 1)[0];
+            item.name = name;
+            item.active = $('stage-state').value === 'Ativa';
+            data[active].splice(pos - 1, 0, item);
+            toast(`Alterações salvas no escopo ${scopeName()}.`);
+        } else {
+            data[active].splice(pos - 1, 0, { id: Date.now(), name, active: $('stage-state').value === 'Ativa' });
+            toast(`Registro incluído no escopo ${scopeName()}.`);
+        }
+        resetForm();
+        render();
+    }
 
-        $('save-order').onclick = () => {
-            dirty = false;
-            orderState();
-            toast(`Ordenação salva no escopo ${scopeName()}.`);
-        };
-        $('restore').onclick = () => {
-            dirty = false;
-            orderState();
-            toast('Alterações de ordem desfeitas.');
-            render();
-        };
+    function askState(id) {
+        pendingInactivate = id;
+        const x = data[active].find(v => v.id === id);
+        $('modal').style.display = 'flex';
+        document.querySelector('#modal h3').textContent = x.active ? 'Inativar Registro?' : 'Ativar Registro?';
+        document.querySelector('#modal-confirm').textContent = x.active ? 'Inativar' : 'Ativar';
+        document.querySelector('#modal-confirm').style.borderColor = x.active ? '#b95650' : '#7ca82a';
+        document.querySelector('#modal-confirm').style.background = x.active ? '#b95650' : '#7ca82a';
+    }
 
-        $('modal-cancel').onclick = () => {
-            $('modal').style.display = 'none';
-            pendingInactivate = null;
-        };
-        $('modal-confirm').onclick = () => {
-            const x = data[active].find(v => v.id === pendingInactivate);
-            x.active = !x.active;
-            $('modal').style.display = 'none';
-            toast(x.active ? 'Registro ativado.' : 'Registro inativado e preservado no histórico.');
-            render();
-        };
+    function switchTab(tab) {
+        active = tab;
+        editing = null;
 
-        $('flow-search').oninput = renderFlowConfigurations;
-        $('flow-scope-filter').onchange = renderFlowConfigurations;
-        $('flow-state-filter').onchange = renderFlowConfigurations;
-        $('flow-client-filter').onchange = () => {
-            fillFlowProjectFilter();
-            renderFlowConfigurations();
-        };
-        $('flow-project-filter').onchange = renderFlowConfigurations;
-        $('clear-flow-search').onclick = () => {
-            $('flow-search').value = '';
-            renderFlowConfigurations();
-            $('flow-search').focus();
-        };
-        $('clear-flow-filters').onclick = () => {
-            $('flow-search').value = '';
-            $('flow-scope-filter').value = 'all';
-            $('flow-state-filter').value = 'current';
-            $('flow-client-filter').value = 'all';
-            fillFlowProjectFilter();
-            renderFlowConfigurations();
-        };
-        $('new-flow').onclick = openNewFlowModal;
-        $('back-to-flows').onclick = showFlowList;
-
-        document.querySelectorAll('input[name="new-flow-scope"]').forEach(input => {
-            input.onchange = updateNewFlowContext;
-        });
-        $('new-flow-client').onchange = () => {
-            fillNewFlowProjects();
-            updateNewFlowContext();
-        };
-        $('new-flow-project').onchange = updateNewFlowContext;
-        $('new-flow-modal-close').onclick = closeNewFlowModal;
-        $('new-flow-modal-cancel').onclick = closeNewFlowModal;
-        $('new-flow-modal-continue').onclick = continueNewFlow;
-        $('new-flow-modal').onclick = event => {
-            if (event.target === $('new-flow-modal')) closeNewFlowModal();
-        };
-
-        document.addEventListener('keydown', event => {
-            if (event.key === 'Escape' && $('new-flow-modal').style.display === 'flex') {
-                closeNewFlowModal();
-            }
-        });
-
-        $('flow-modal-cancel').onclick = () => {
-            $('flow-modal').style.display = 'none';
-            pendingFlowAction = null;
-        };
-        $('flow-modal-confirm').onclick = () => {
-            if (!pendingFlowAction) return;
-            const flow = flowConfigurations.find(item => item.id === pendingFlowAction.id);
-            if (!flow) return;
-
-            if (pendingFlowAction.action === 'delete') {
-                flow.deleted = true;
-                flow.active = false;
-                toast('Configuração excluída logicamente e preservada no histórico.');
-            } else if (pendingFlowAction.action === 'restore') {
-                flow.deleted = false;
-                flow.active = false;
-                toast('Configuração restaurada como inativa.');
+        document.querySelectorAll('.tab').forEach(x => {
+            if (x.dataset.tab === tab) {
+                x.classList.add('active');
+                x.style.color = '#2f718f';
+                x.style.borderBottomColor = '#4b96b8';
+                const badge = x.querySelector('.badge');
+                if (badge) {
+                    badge.style.background = '#dceef6';
+                    badge.style.color = '#2f718f';
+                }
             } else {
-                flow.active = !flow.active;
-                toast(flow.active ? 'Configuração ativada.' : 'Configuração inativada e preservada no histórico.');
+                x.classList.remove('active');
+                x.style.color = '#66747e';
+                x.style.borderBottomColor = 'transparent';
+                const badge = x.querySelector('.badge');
+                if (badge) {
+                    badge.style.background = '#edf1f3';
+                    badge.style.color = '#687681';
+                }
             }
+        });
 
-            $('flow-modal').style.display = 'none';
-            pendingFlowAction = null;
-            renderFlowConfigurations();
-        };
+        const c = config();
+        refreshListTitle();
+        $('name-label').innerHTML = `${c.label} <span style="color:#c00">*</span>`;
+        $('stage-name').placeholder = active === 'documental' ? 'Ex.: Preparação Documental' : 'Ex.: Em Auditoria';
+        $('new-item').textContent = active === 'documental' ? '＋ Nova Etapa' : '＋ Novo Status';
+        $('search').value = '';
+        $('search').placeholder = active === 'documental' ? 'Pesquisar etapa documental...' : 'Pesquisar status da gestão documental...';
+        dirty = false;
+        orderState();
+        resetForm();
+        render();
+    }
 
-        $('scope').onchange = () => updateScope();
-        $('client').onchange = () => {
-            lastClient = $('client').value;
-            if ($('scope').value === 'project') fillProjects();
-            toast($('scope').value === 'client' ? 'Cliente de aplicação atualizado.' : 'Contexto do projeto atualizado.');
-        };
-        $('project').onchange = () => toast('Projeto de aplicação atualizado.');
+    function initSortable() {
+        const tableBody = document.getElementById('rows');
+        if (typeof Sortable === 'undefined') {
+            return;
+        }
+        if (tableBody._sortableInstance) {
+            tableBody._sortableInstance.destroy();
+        }
+        tableBody._sortableInstance = new Sortable(tableBody, {
+            handle: '.drag',
+            animation: 150,
+            onEnd: function (evt) {
+                const itemMoved = data[active].splice(evt.oldIndex, 1)[0];
+                data[active].splice(evt.newIndex, 0, itemMoved);
+                dirty = true;
+                orderState();
+                render();
+                toast('Ordenação alterada. Não se esqueça de salvar.');
+            }
+        });
+    }
 
-        // ===== INICIALIZAÇÃO =====
-        updateScope(false);
-        fillFlowClientFilter();
+    // ===== EVENT LISTENERS =====
+    document.querySelectorAll('.tab').forEach(x => x.onclick = () => switchTab(x.dataset.tab));
+    $('search').oninput = render;
+    $('clear-search').onclick = () => {
+        $('search').value = '';
+        render();
+        $('search').focus();
+    };
+    $('save').onclick = save;
+    $('cancel').onclick = resetForm;
+    $('new-item').onclick = () => {
+        $('stage-name').focus();
+        resetForm();
+    };
+
+    $('minus').onclick = () => { $('stage-order').value = Math.max(1, Number($('stage-order').value) - 1); };
+    $('plus').onclick = () => { $('stage-order').value = Number($('stage-order').value) + 1; };
+
+    $('save-order').onclick = () => {
+        dirty = false;
+        orderState();
+        toast(`Ordenação salva no escopo ${scopeName()}.`);
+    };
+    $('restore').onclick = () => {
+        dirty = false;
+        orderState();
+        toast('Alterações de ordem desfeitas.');
+        render();
+    };
+
+    $('modal-cancel').onclick = () => {
+        $('modal').style.display = 'none';
+        pendingInactivate = null;
+    };
+    $('modal-confirm').onclick = () => {
+        const x = data[active].find(v => v.id === pendingInactivate);
+        x.active = !x.active;
+        $('modal').style.display = 'none';
+        toast(x.active ? 'Registro ativado.' : 'Registro inativado e preservado no histórico.');
+        render();
+    };
+
+    $('flow-search').oninput = renderFlowConfigurations;
+    $('flow-scope-filter').onchange = renderFlowConfigurations;
+    $('flow-state-filter').onchange = renderFlowConfigurations;
+    $('flow-client-filter').onchange = () => {
         fillFlowProjectFilter();
         renderFlowConfigurations();
-    </script>
+    };
+    $('flow-project-filter').onchange = renderFlowConfigurations;
+    $('clear-flow-search').onclick = () => {
+        $('flow-search').value = '';
+        renderFlowConfigurations();
+        $('flow-search').focus();
+    };
+    $('clear-flow-filters').onclick = () => {
+        $('flow-search').value = '';
+        $('flow-scope-filter').value = 'all';
+        $('flow-state-filter').value = 'current';
+        $('flow-client-filter').value = 'all';
+        fillFlowProjectFilter();
+        renderFlowConfigurations();
+    };
+    $('new-flow').onclick = openNewFlowModal;
+    $('back-to-flows').onclick = showFlowList;
 
+    // Event listeners para a popup de nova configuração
+    document.querySelectorAll('input[name="new-flow-scope"]').forEach(input => {
+        input.onchange = updateNewFlowContext;
+    });
+    $('new-flow-client').onchange = () => {
+        fillNewFlowProjects();
+        updateNewFlowContext();
+    };
+    $('new-flow-project').onchange = updateNewFlowContext;
+    $('new-flow-modal-close').onclick = closeNewFlowModal;
+    $('new-flow-modal-cancel').onclick = closeNewFlowModal;
+    $('new-flow-modal-continue').onclick = continueNewFlow;
+    $('new-flow-modal').onclick = event => {
+        if (event.target === $('new-flow-modal')) closeNewFlowModal();
+    };
+
+    // Fechar com ESC
+    document.addEventListener('keydown', event => {
+        if (event.key === 'Escape' && $('new-flow-modal').style.display === 'flex') {
+            closeNewFlowModal();
+        }
+    });
+
+    // Event listeners para o modal de gerenciamento do fluxo
+    $('flow-modal-cancel').onclick = () => {
+        $('flow-modal').style.display = 'none';
+        pendingFlowAction = null;
+    };
+    $('flow-modal-confirm').onclick = () => {
+        if (!pendingFlowAction) return;
+        const flow = flowConfigurations.find(item => item.id === pendingFlowAction.id);
+        if (!flow) return;
+
+        if (pendingFlowAction.action === 'delete') {
+            flow.deleted = true;
+            flow.active = false;
+            toast('Configuração excluída logicamente e preservada no histórico.');
+        } else if (pendingFlowAction.action === 'restore') {
+            flow.deleted = false;
+            flow.active = false;
+            toast('Configuração restaurada como inativa.');
+        } else {
+            flow.active = !flow.active;
+            toast(flow.active ? 'Configuração ativada.' : 'Configuração inativada e preservada no histórico.');
+        }
+
+        $('flow-modal').style.display = 'none';
+        pendingFlowAction = null;
+        renderFlowConfigurations();
+    };
+
+    // Event listeners para escopo, cliente e projeto
+    $('scope').onchange = () => updateScope();
+    $('client').onchange = () => {
+        lastClient = $('client').value;
+        if ($('scope').value === 'project') fillProjects();
+        toast($('scope').value === 'client' ? 'Cliente de aplicação atualizado.' : 'Contexto do projeto atualizado.');
+    };
+    $('project').onchange = () => toast('Projeto de aplicação atualizado.');
+
+    // ===== INICIALIZAÇÃO =====
+    updateScope(false);
+    fillFlowClientFilter();
+    fillFlowProjectFilter();
+    renderFlowConfigurations();
+</script>
 
 
 </body>
