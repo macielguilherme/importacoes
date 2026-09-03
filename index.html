@@ -3847,72 +3847,84 @@
 
             <!-- ===== POP-UP: CONTEXTO DA NOVA CONFIGURAÇÃO ===== -->
             <div class="modal-backdrop" id="new-flow-modal"
-                style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(20,30,36,0.48);justify-content:center;align-items:center;z-index:1002">
-                <div class="modal new-flow-context-modal" role="dialog" aria-modal="true"
-                    aria-labelledby="new-flow-modal-title">
-                    <div class="new-flow-modal-header">
-                        <span class="context-icon" aria-hidden="true">⌖</span>
-                        <div>
-                            <h3 id="new-flow-modal-title">Nova Configuração de Fluxo</h3>
-                            <p>Defina onde e para quem esta configuração será aplicada.</p>
-                        </div>
-                        <button type="button" id="new-flow-modal-close" class="new-flow-modal-close"
-                            aria-label="Fechar">×</button>
-                    </div>
+    style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(20,30,36,0.48);justify-content:center;align-items:center;z-index:1002">
+    <div class="modal new-flow-context-modal" role="dialog" aria-modal="true"
+        aria-labelledby="new-flow-modal-title">
+        <div class="new-flow-modal-header">
+            <span class="context-icon" aria-hidden="true">⌖</span>
+            <div>
+                <h3 id="new-flow-modal-title">Nova Configuração de Fluxo</h3>
+                <p>Defina onde e para quem esta configuração será aplicada.</p>
+            </div>
+            <button type="button" id="new-flow-modal-close" class="new-flow-modal-close"
+                aria-label="Fechar">×</button>
+        </div>
 
-                    <div class="new-flow-modal-body">
-                        <span class="context-step-label">1. Selecione o escopo de aplicação <span
-                                style="color:#c00">*</span></span>
-                        <div class="scope-choice-grid" role="radiogroup" aria-label="Escopo da nova configuração">
-                            <label class="scope-choice" data-new-scope="system">
-                                <input type="radio" name="new-flow-scope" value="system">
-                                <strong>Sistema</strong>
-                                <span>Configuração geral para todos os clientes e projetos.</span>
-                                <small>Somente Administrador</small>
-                            </label>
-                            <label class="scope-choice" data-new-scope="client">
-                                <input type="radio" name="new-flow-scope" value="client">
-                                <strong>Cliente</strong>
-                                <span>Aplicada ao cliente e a todos os seus projetos.</span>
-                            </label>
-                            <label class="scope-choice selected" data-new-scope="project">
-                                <input type="radio" name="new-flow-scope" value="project" checked>
-                                <strong>Projeto</strong>
-                                <span>Aplicada exclusivamente ao projeto selecionado.</span>
-                            </label>
-                        </div>
-
-                        <span class="context-step-label" id="new-flow-target-title">2. Defina o destino da configuração
-                            <span style="color:#c00">*</span></span>
-                        <div class="new-flow-target-grid" id="new-flow-target-grid">
-                            <div id="new-flow-client-row">
-                                <label for="new-flow-client">Cliente <span style="color:#c00">*</span></label>
-                                <select id="new-flow-client" aria-required="true"></select>
-                            </div>
-                            <div id="new-flow-project-row">
-                                <label for="new-flow-project">Projeto <span style="color:#c00">*</span></label>
-                                <select id="new-flow-project" aria-required="true"></select>
-                            </div>
-                        </div>
-
-                        <div class="new-flow-context-summary" id="new-flow-context-summary" role="status"
-                            aria-live="polite">
-                            <span aria-hidden="true">ⓘ</span>
-                            <span id="new-flow-context-summary-text"></span>
-                        </div>
-                        <div id="new-flow-context-error"
-                            style="display:none;margin-top:9px;color:#b44f4a;font-size:10px;font-weight:700"></div>
-                    </div>
-
-                    <div class="new-flow-modal-footer">
-                        <button type="button" id="new-flow-modal-cancel" class="btn"
-                            style="height:36px;border-radius:3px;border:1px solid #cbd3d7;background:#fff;color:#52616b;padding:0 15px;font-size:11px;font-weight:700;cursor:pointer">Cancelar</button>
-                        <button type="button" id="new-flow-modal-continue" class="greenB"
-                            style="height:36px;border-radius:3px;padding:0 17px;font-size:11px;font-weight:700;display:inline-flex;align-items:center;gap:7px;cursor:pointer;background-image:var(--sf-img-39);background-position:0 -425px;border:1px solid #7ca82a;color:#fff">Continuar
-                            para Configuração →</button>
-                    </div>
+        <div class="new-flow-modal-body">
+            <!-- CAMPO: NOME DA CONFIGURAÇÃO (NOVO) -->
+            <div id="new-flow-name-row" style="margin-bottom: 18px;">
+                <label for="new-flow-name" style="display:block;font-weight:700;font-size:11px;color:#555;margin-bottom:4px;">
+                    Nome da Configuração <span style="color:#c00;">*</span>
+                </label>
+                <input type="text" id="new-flow-name" placeholder="Ex.: Fluxo Padrão - ANM" 
+                       style="width:100%;height:36px;border:1px solid #cfd6da;border-radius:3px;padding:0 11px;font-size:12px;box-sizing:border-box;background:#fff;color:#34424c;outline:none;">
+                <div style="font-size:10px;color:#7d8991;margin-top:4px;">
+                    Escolha um nome descritivo para identificar esta configuração.
                 </div>
             </div>
+
+            <span class="context-step-label">1. Selecione o escopo de aplicação <span
+                    style="color:#c00">*</span></span>
+            <div class="scope-choice-grid" role="radiogroup" aria-label="Escopo da nova configuração">
+                <label class="scope-choice" data-new-scope="system">
+                    <input type="radio" name="new-flow-scope" value="system">
+                    <strong>Sistema</strong>
+                    <span>Configuração geral para todos os clientes e projetos.</span>
+                    <small>Somente Administrador</small>
+                </label>
+                <label class="scope-choice" data-new-scope="client">
+                    <input type="radio" name="new-flow-scope" value="client">
+                    <strong>Cliente</strong>
+                    <span>Aplicada ao cliente e a todos os seus projetos.</span>
+                </label>
+                <label class="scope-choice selected" data-new-scope="project">
+                    <input type="radio" name="new-flow-scope" value="project" checked>
+                    <strong>Projeto</strong>
+                    <span>Aplicada exclusivamente ao projeto selecionado.</span>
+                </label>
+            </div>
+
+            <span class="context-step-label" id="new-flow-target-title">2. Defina o destino da configuração
+                <span style="color:#c00">*</span></span>
+            <div class="new-flow-target-grid" id="new-flow-target-grid">
+                <div id="new-flow-client-row">
+                    <label for="new-flow-client">Cliente <span style="color:#c00">*</span></label>
+                    <select id="new-flow-client" aria-required="true"></select>
+                </div>
+                <div id="new-flow-project-row">
+                    <label for="new-flow-project">Projeto <span style="color:#c00">*</span></label>
+                    <select id="new-flow-project" aria-required="true"></select>
+                </div>
+            </div>
+
+            <div class="new-flow-context-summary" id="new-flow-context-summary" role="status"
+                aria-live="polite">
+                <span aria-hidden="true">ⓘ</span>
+                <span id="new-flow-context-summary-text"></span>
+            </div>
+            <div id="new-flow-context-error"
+                style="display:none;margin-top:9px;color:#b44f4a;font-size:10px;font-weight:700"></div>
+        </div>
+
+        <div class="new-flow-modal-footer">
+            <button type="button" id="new-flow-modal-cancel" class="btn"
+                style="height:36px;border-radius:3px;border:1px solid #cbd3d7;background:#fff;color:#52616b;padding:0 15px;font-size:11px;font-weight:700;cursor:pointer">Cancelar</button>
+            <button type="button" id="new-flow-modal-continue" class="greenB"
+                style="height:36px;border-radius:3px;padding:0 17px;font-size:11px;font-weight:700;display:inline-flex;align-items:center;gap:7px;cursor:pointer;background-image:var(--sf-img-39);background-position:0 -425px;border:1px solid #7ca82a;color:#fff">Continuar
+                para Configuração →</button>
+        </div>
+    </div>
+</div>
 
         </div>
 
@@ -4332,85 +4344,114 @@
         }
 
         function fillNewFlowProjects() {
-            const clientId = $('new-flow-client').value;
-            const items = projects[clientId] || [];
-            const current = $('new-flow-project').value;
-            const selected = items.some(item => item.id === current) ? current : items[0]?.id;
-            fillSelect($('new-flow-project'), items, selected);
-        }
+    const clientId = $('new-flow-client').value;
+    const items = projects[clientId] || [];
+    const current = $('new-flow-project').value;
+    const selected = items.some(item => item.id === current) ? current : items[0]?.id;
+    fillSelect($('new-flow-project'), items, selected);
+}
 
         function updateNewFlowContext() {
-            const scope = document.querySelector('input[name="new-flow-scope"]:checked')?.value || 'project';
-            const targetGrid = $('new-flow-target-grid');
-            const targetTitle = $('new-flow-target-title');
-            const clientRow = $('new-flow-client-row');
-            const projectRow = $('new-flow-project-row');
-            const summary = $('new-flow-context-summary-text');
+    const scope = document.querySelector('input[name="new-flow-scope"]:checked')?.value || 'project';
+    const targetGrid = $('new-flow-target-grid');
+    const targetTitle = $('new-flow-target-title');
+    const clientRow = $('new-flow-client-row');
+    const projectRow = $('new-flow-project-row');
+    const summary = $('new-flow-context-summary-text');
 
-            document.querySelectorAll('.scope-choice').forEach(card => {
-                card.classList.toggle('selected', card.dataset.newScope === scope);
-            });
+    document.querySelectorAll('.scope-choice').forEach(card => {
+        card.classList.toggle('selected', card.dataset.newScope === scope);
+    });
 
-            $('new-flow-context-error').style.display = 'none';
+    $('new-flow-context-error').style.display = 'none';
 
-            if (scope === 'system') {
-                targetTitle.style.display = 'none';
-                targetGrid.style.display = 'none';
-                summary.innerHTML = '<strong>Aplicação no Sistema:</strong> o fluxo será a configuração geral para todos os clientes e projetos que não possuam configuração mais específica.';
-                return;
-            }
+    if (scope === 'system') {
+        targetTitle.style.display = 'none';
+        targetGrid.style.display = 'none';
+        summary.innerHTML = '<strong>Aplicação no Sistema:</strong> o fluxo será a configuração geral para todos os clientes e projetos que não possuam configuração mais específica.';
+        return;
+    }
 
-            targetTitle.style.display = 'block';
-            targetGrid.style.display = 'grid';
-            clientRow.style.display = 'block';
+    targetTitle.style.display = 'block';
+    targetGrid.style.display = 'grid';
+    clientRow.style.display = 'block';
 
-            const clientName = selectedOptionText($('new-flow-client'));
-            if (scope === 'client') {
-                projectRow.style.display = 'none';
-                targetGrid.style.gridTemplateColumns = '1fr';
-                summary.innerHTML = `<strong>Aplicação no Cliente:</strong> o fluxo será utilizado por “${clientName}” e por todos os seus projetos, salvo quando houver uma configuração específica no projeto.`;
-            } else {
-                projectRow.style.display = 'block';
-                targetGrid.style.gridTemplateColumns = '1fr 1.2fr';
-                const projectName = selectedOptionText($('new-flow-project'));
-                summary.innerHTML = `<strong>Aplicação no Projeto:</strong> o fluxo será exclusivo de “${projectName}”, vinculado ao cliente “${clientName}”.`;
-            }
-        }
+    const clientName = selectedOptionText($('new-flow-client'));
+    if (scope === 'client') {
+        projectRow.style.display = 'none';
+        targetGrid.style.gridTemplateColumns = '1fr';
+        summary.innerHTML = `<strong>Aplicação no Cliente:</strong> o fluxo será utilizado por “${clientName}” e por todos os seus projetos, salvo quando houver uma configuração específica no projeto.`;
+    } else {
+        projectRow.style.display = 'block';
+        targetGrid.style.gridTemplateColumns = '1fr 1.2fr';
+        const projectName = selectedOptionText($('new-flow-project'));
+        summary.innerHTML = `<strong>Aplicação no Projeto:</strong> o fluxo será exclusivo de “${projectName}”, vinculado ao cliente “${clientName}”.`;
+    }
+}
 
         function openNewFlowModal() {
-            const defaultClient = clients.some(client => client.id === lastClient) ? lastClient : clients[0]?.id;
-            fillSelect($('new-flow-client'), clients, defaultClient);
-            fillNewFlowProjects();
-            const projectScope = document.querySelector('input[name="new-flow-scope"][value="project"]');
-            if (projectScope) projectScope.checked = true;
-            updateNewFlowContext();
-            $('new-flow-modal').style.display = 'flex';
-            setTimeout(() => document.querySelector('input[name="new-flow-scope"]:checked')?.focus(), 0);
-        }
+    const defaultClient = clients.some(client => client.id === lastClient) ? lastClient : clients[0]?.id;
+    fillSelect($('new-flow-client'), clients, defaultClient);
+    fillNewFlowProjects();
+    const projectScope = document.querySelector('input[name="new-flow-scope"][value="project"]');
+    if (projectScope) projectScope.checked = true;
+    
+    // Limpa o campo de nome ao abrir
+    $('new-flow-name').value = '';
+    
+    updateNewFlowContext();
+    $('new-flow-modal').style.display = 'flex';
+    
+    // Remove mensagem de erro antiga
+    $('new-flow-context-error').style.display = 'none';
+    
+    setTimeout(() => {
+        // Foca no campo de nome para facilitar o preenchimento
+        $('new-flow-name').focus();
+    }, 100);
+}
 
         function closeNewFlowModal() {
-            $('new-flow-modal').style.display = 'none';
-            $('new-flow-context-error').style.display = 'none';
-        }
+    $('new-flow-modal').style.display = 'none';
+    $('new-flow-context-error').style.display = 'none';
+    // Limpa o campo de nome ao fechar
+    $('new-flow-name').value = '';
+}
 
         function continueNewFlow() {
-            const scope = document.querySelector('input[name="new-flow-scope"]:checked')?.value;
-            const clientId = $('new-flow-client').value;
-            const projectId = $('new-flow-project').value;
+    const scope = document.querySelector('input[name="new-flow-scope"]:checked')?.value;
+    const clientId = $('new-flow-client').value;
+    const projectId = $('new-flow-project').value;
+    const name = $('new-flow-name').value.trim();
 
-            if (!scope || (scope !== 'system' && !clientId) || (scope === 'project' && !projectId)) {
-                $('new-flow-context-error').textContent = 'Preencha o escopo e o destino da configuração antes de continuar.';
-                $('new-flow-context-error').style.display = 'block';
-                return;
-            }
+    // VALIDAÇÃO: Nome é obrigatório
+    if (!name) {
+        $('new-flow-context-error').textContent = 'Informe o nome da configuração antes de continuar.';
+        $('new-flow-context-error').style.display = 'block';
+        $('new-flow-name').focus();
+        $('new-flow-name').style.borderColor = '#b95650';
+        return;
+    }
 
-            closeNewFlowModal();
-            openFlowEditor(null, {
-                scope,
-                clientId: scope === 'system' ? null : clientId,
-                projectId: scope === 'project' ? projectId : null
-            });
-        }
+    // Limpa o estilo de erro se houver
+    $('new-flow-name').style.borderColor = '#cfd6da';
+
+    // VALIDAÇÃO: Escopo e destino são obrigatórios
+    if (!scope || (scope !== 'system' && !clientId) || (scope === 'project' && !projectId)) {
+        $('new-flow-context-error').textContent = 'Preencha o escopo e o destino da configuração antes de continuar.';
+        $('new-flow-context-error').style.display = 'block';
+        return;
+    }
+
+    // Fecha a popup e abre o editor com os dados
+    closeNewFlowModal();
+    openFlowEditor(null, {
+        name: name,
+        scope: scope,
+        clientId: scope === 'system' ? null : clientId,
+        projectId: scope === 'project' ? projectId : null
+    });
+}
 
         function showFlowList() {
             $('flow-list-view').style.display = 'block';
@@ -4420,53 +4461,66 @@
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
-        function openFlowEditor(id = null, newContext = null) {
-            const flow = id ? flowConfigurations.find(item => item.id === id) : null;
-            $('flow-list-view').style.display = 'none';
-            $('editor-widget').style.display = 'block';
-            setBreadcrumb(flow ? 'Editar Configuração de Fluxo' : 'Nova Configuração de Fluxo');
-            $('editor-widget-title').textContent = flow ? `Editar Configuração — ${flow.name}` : 'Nova Configuração de Etapas do Projeto';
+        
+function openFlowEditor(id = null, newContext = null) {
+    const flow = id ? flowConfigurations.find(item => item.id === id) : null;
+    $('flow-list-view').style.display = 'none';
+    $('editor-widget').style.display = 'block';
+    setBreadcrumb(flow ? 'Editar Configuração de Fluxo' : 'Nova Configuração de Fluxo');
+    $('editor-widget-title').textContent = flow ? `Editar Configuração — ${flow.name}` : 'Nova Configuração de Etapas do Projeto';
 
-            if (flow) {
-                $('scope').value = flow.scope;
-                if (flow.clientId) lastClient = flow.clientId;
-                updateScope(false);
-                if (flow.scope !== 'system' && flow.clientId) {
-                    $('client').value = flow.clientId;
-                    lastClient = flow.clientId;
-                }
-                if (flow.scope === 'project') {
-                    fillProjects();
-                    $('project').value = flow.projectId;
-                }
-            } else {
-                const context = newContext || {
-                    scope: 'project',
-                    clientId: lastClient,
-                    projectId: projects[lastClient]?.[0]?.id
-                };
-                $('scope').value = context.scope;
-                if (context.clientId) lastClient = context.clientId;
-                updateScope(false);
-                if (context.scope !== 'system' && context.clientId) {
-                    $('client').value = context.clientId;
-                    lastClient = context.clientId;
-                }
-                if (context.scope === 'project') {
-                    fillProjects();
-                    $('project').value = context.projectId;
-                }
-
-                const destination = context.scope === 'system'
-                    ? 'Sistema'
-                    : context.scope === 'client'
-                        ? selectedOptionText($('client'))
-                        : selectedOptionText($('project'));
-                $('editor-widget-title').textContent = `Nova Configuração — ${destination}`;
-            }
-
-            window.scrollTo({ top: 0, behavior: 'smooth' });
+    if (flow) {
+        // Configuração existente
+        $('scope').value = flow.scope;
+        if (flow.clientId) lastClient = flow.clientId;
+        updateScope(false);
+        if (flow.scope !== 'system' && flow.clientId) {
+            $('client').value = flow.clientId;
+            lastClient = flow.clientId;
         }
+        if (flow.scope === 'project') {
+            fillProjects();
+            $('project').value = flow.projectId;
+        }
+        // Preenche o nome da configuração no título
+        $('editor-widget-title').textContent = `Editar Configuração — ${flow.name}`;
+    } else {
+        // Nova configuração
+        const context = newContext || {
+            scope: 'project',
+            clientId: lastClient,
+            projectId: projects[lastClient]?.[0]?.id,
+            name: ''
+        };
+        
+        $('scope').value = context.scope;
+        if (context.clientId) lastClient = context.clientId;
+        updateScope(false);
+        
+        if (context.scope !== 'system' && context.clientId) {
+            $('client').value = context.clientId;
+            lastClient = context.clientId;
+        }
+        if (context.scope === 'project') {
+            fillProjects();
+            $('project').value = context.projectId;
+        }
+
+        // Define o título do editor usando o nome fornecido
+        if (context.name) {
+            $('editor-widget-title').textContent = `Nova Configuração — ${context.name}`;
+        } else {
+            const destination = context.scope === 'system'
+                ? 'Sistema'
+                : context.scope === 'client'
+                    ? selectedOptionText($('client'))
+                    : selectedOptionText($('project'));
+            $('editor-widget-title').textContent = `Nova Configuração — ${destination}`;
+        }
+    }
+
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+}
 
         function askFlowAction(id, action) {
             const flow = flowConfigurations.find(item => item.id === id);
