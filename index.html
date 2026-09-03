@@ -4371,10 +4371,9 @@
                 const stateText = flow.deleted ? 'Excluída' : (flow.active ? 'Ativa' : 'Inativa');
                 const stateClass = flow.deleted ? 'deleted' : (flow.active ? '' : 'inactive');
                 const actions = flow.deleted
-                    ? `<button type="button" class="flow-action restore-flow" title="Restaurar a configuração como inativa">Restaurar</button>`
-                    : `<button type="button" class="flow-action open-flow">Abrir</button>
-       <button type="button" class="flow-action toggle-flow">${flow.active ? 'Inativar' : 'Ativar'}</button>
-       <button type="button" class="flow-action danger delete-flow" title="Excluir preservando o histórico">Excluir</button>`;
+    ? `<button type="button" class="flow-action restore-flow" title="Restaurar a configuração como inativa">Restaurar</button>`
+    : `<button type="button" class="flow-action open-flow">Abrir</button>
+       <button type="button" class="flow-action toggle-flow">${flow.active ? 'Inativar' : 'Ativar'}</button>`;
 
                 return `<tr data-flow-id="${flow.id}">
                     <td><span class="flow-name">${flow.name}</span><span class="flow-subtitle">Atualizada em ${flow.updated}</span></td>
