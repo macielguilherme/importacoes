@@ -1,3 +1,4 @@
+
 <!DOCTYPE html
     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <!-- saved from url=(0047)https://macielguilherme.github.io/importacoes/# -->
@@ -11,14 +12,13 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="author" content="SOS TECNOLOGIA">
-    <meta name="description" content="Docz">
+    <meta name="description" content="Protótipo navegável da configuração de etapas, status e regras operacionais dos fluxos documentais do DocZ.">
     <meta http-equiv="cache-control" content="no-cache, no-store, must-revalidate, post-check=0, pre-check=0">
     <meta http-equiv="cache-control" content="max-age=0">
-    <script src="./Configuracao das Etapas_files/Sortable.min.js"></script>
     <meta http-equiv="expires" content="0">
     <meta http-equiv="expires" content="Tue, 01 Jan 1980 1:00:00 GMT">
     <meta http-equiv="pragma" content="no-cache">
-    <title>Docz</title>
+    <title>DocZ — Configuração de Fluxos Documentais</title>
     <style>
         :root {
             --sf-img-2: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIIAAACTCAYAAABCicHDAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2ZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDowMTgwMTE3NDA3MjA2ODExOEJGMkY2QjUxMTM2ODA5MCIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDoyNzU1MDMzMDNFODUxMUUwOEU2RjkzMTJFRjMxNEUwMiIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDoyNDI4M0NDNDNFODMxMUUwOEU2RjkzMTJFRjMxNEUwMiIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1IE1hY2ludG9zaCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOjAzODAxMTc0MDcyMDY4MTE4QkYyRjZCNTExMzY4MDkwIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjAxODAxMTc0MDcyMDY4MTE4QkYyRjZCNTExMzY4MDkwIi8+IDwvcmRmOkRlc2NyaXB0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");
@@ -3494,6 +3494,915 @@
     .flow-state {
         justify-content: center !important;
     }
+
+    /* Regras operacionais da configuração */
+    .operational-rules {
+        display: none;
+        margin: 24px 0 0;
+        border: 1px solid #cdcdcd;
+        border-radius: 3px;
+        background: #f6f8f9;
+        color: #43515a;
+        overflow: hidden;
+        box-shadow: 0 1px 0 #fff;
+    }
+
+    .operational-rules-header {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: 18px;
+        padding: 18px;
+        border-bottom: 1px solid #d7dde0;
+        background: #fff;
+    }
+
+    .operational-rules-header h2 {
+        margin: 0 0 5px;
+        font-size: 14px;
+        color: #40505a;
+    }
+
+    .operational-rules-header p {
+        margin: 0;
+        max-width: 760px;
+        font-size: 11px;
+        line-height: 1.5;
+        color: #74818a;
+    }
+
+    .operational-rules-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 14px;
+        padding: 18px;
+    }
+
+    .operational-rule-card {
+        border: 1px solid #d4dce0;
+        border-radius: 4px;
+        background: #fff;
+        overflow: hidden;
+        box-shadow: 0 1px 1px rgba(41, 58, 69, .04);
+    }
+
+    .operational-rule-card.is-enabled {
+        border-color: #bad6e3;
+        box-shadow: inset 3px 0 0 #4b96b8;
+    }
+
+    .operational-rule-card-head {
+        display: flex;
+        align-items: flex-start;
+        gap: 11px;
+        padding: 14px 15px 12px;
+        border-bottom: 1px solid #edf0f2;
+        background: #fbfcfc;
+    }
+
+    .operational-rule-number {
+        width: 26px;
+        height: 26px;
+        display: grid;
+        place-items: center;
+        flex: 0 0 auto;
+        border: 1px solid #bad6e3;
+        border-radius: 50%;
+        background: #eef7fb;
+        color: #347b9c;
+        font-size: 11px;
+        font-weight: 700;
+    }
+
+    .operational-rule-title {
+        flex: 1;
+        min-width: 0;
+    }
+
+    .operational-rule-title strong {
+        display: block;
+        margin-bottom: 4px;
+        font-size: 12px;
+        color: #40505a;
+    }
+
+    .operational-rule-title span {
+        display: block;
+        font-size: 10px;
+        line-height: 1.4;
+        color: #77848d;
+    }
+
+    .rule-switch {
+        position: relative;
+        width: 38px;
+        height: 20px;
+        flex: 0 0 auto;
+    }
+
+    .rule-switch input {
+        position: absolute;
+        opacity: 0;
+        pointer-events: none;
+    }
+
+    .rule-switch span {
+        position: absolute;
+        inset: 0;
+        border-radius: 11px;
+        background: #cbd3d7;
+        cursor: pointer;
+        transition: .18s ease;
+    }
+
+    .rule-switch span::after {
+        content: '';
+        position: absolute;
+        top: 3px;
+        left: 3px;
+        width: 14px;
+        height: 14px;
+        border-radius: 50%;
+        background: #fff;
+        box-shadow: 0 1px 2px rgba(0, 0, 0, .25);
+        transition: .18s ease;
+    }
+
+    .rule-switch input:checked + span {
+        background: #4b96b8;
+    }
+
+    .rule-switch input:checked + span::after {
+        transform: translateX(18px);
+    }
+
+    .operational-rule-body {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+        padding: 14px 15px 16px;
+    }
+
+    .operational-rule-body.one-column {
+        grid-template-columns: 1fr;
+    }
+
+    .rule-field label {
+        display: block;
+        margin-bottom: 5px;
+        color: #596872;
+        font-size: 10px;
+        font-weight: 700;
+    }
+
+    .rule-field select,
+    .rule-field input {
+        width: 100%;
+        height: 36px;
+        box-sizing: border-box;
+        border: 1px solid #cfd6da;
+        border-radius: 3px;
+        background: #fff;
+        color: #34424c;
+        padding: 0 10px;
+        font-size: 11px;
+        outline: none;
+    }
+
+    .rule-field select:disabled,
+    .rule-field input:disabled {
+        background: #f2f4f5;
+        color: #99a3a9;
+        cursor: not-allowed;
+    }
+
+    .rule-note {
+        grid-column: 1 / -1;
+        display: flex;
+        align-items: flex-start;
+        gap: 7px;
+        padding: 8px 9px;
+        border: 1px solid #ead8ad;
+        border-radius: 3px;
+        background: #fffaf0;
+        color: #886d31;
+        font-size: 10px;
+        line-height: 1.4;
+    }
+
+    .notification-stage-list {
+        border: 1px solid #d9e0e3;
+        border-radius: 3px;
+        background: #fff;
+        overflow: hidden;
+    }
+
+    .notification-stage-list-head {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+        min-height: 34px;
+        padding: 0 11px;
+        border-bottom: 1px solid #dfe5e8;
+        background: #f6f8f9;
+        color: #65737c;
+        font-size: 10px;
+        font-weight: 700;
+    }
+
+    .notification-global-option {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+        padding: 12px 13px;
+        border: 1px solid #bad6e3;
+        border-radius: 3px;
+        background: #f2f8fb;
+    }
+
+    .notification-global-option strong {
+        display: block;
+        margin-bottom: 3px;
+        color: #405965;
+        font-size: 11px;
+    }
+
+    .notification-global-option p {
+        margin: 0;
+        color: #71818a;
+        font-size: 10px;
+        line-height: 1.4;
+    }
+
+    .notification-recipients-panel {
+        padding: 12px 13px;
+        border: 1px solid #d6e1e6;
+        border-radius: 3px;
+        background: #f9fbfc;
+    }
+
+    .notification-recipients-panel[hidden] {
+        display: none;
+    }
+
+    .notification-recipients-panel .rule-field + small {
+        display: block;
+        margin-top: 5px;
+        color: #7a878f;
+        font-size: 9px;
+        line-height: 1.35;
+    }
+
+    .notification-stage-mode-title {
+        margin-bottom: 8px;
+    }
+
+    .notification-stage-mode-title strong {
+        display: block;
+        margin-bottom: 3px;
+        color: #4e5e67;
+        font-size: 11px;
+    }
+
+    .notification-stage-mode-title span {
+        color: #7a878f;
+        font-size: 10px;
+    }
+
+    .notification-stage-item {
+        border-bottom: 1px solid #edf0f2;
+    }
+
+    .notification-stage-item:last-child {
+        border-bottom: 0;
+    }
+
+    .notification-stage-row {
+        display: grid;
+        grid-template-columns: 28px minmax(0, 1fr) auto;
+        align-items: center;
+        gap: 10px;
+        min-height: 43px;
+        padding: 0 11px;
+    }
+
+    .notification-stage-item.is-enabled .notification-stage-row {
+        background: #fbfdfe;
+    }
+
+    .notification-stage-order {
+        width: 22px;
+        height: 22px;
+        display: grid;
+        place-items: center;
+        border-radius: 50%;
+        background: #edf3f6;
+        color: #607580;
+        font-size: 9px;
+        font-weight: 700;
+    }
+
+    .notification-stage-name {
+        color: #485861;
+        font-size: 11px;
+        font-weight: 700;
+    }
+
+    .notification-stage-action {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        color: #6d7b84;
+        font-size: 10px;
+        white-space: nowrap;
+    }
+
+    .notification-stage-recipients {
+        padding: 0 11px 12px 49px;
+        background: #fbfdfe;
+    }
+
+    .notification-stage-recipients[hidden] {
+        display: none;
+    }
+
+    .rule-status-badge {
+        border-radius: 10px;
+        padding: 4px 8px;
+        background: #edf1f3;
+        color: #687681;
+        font-size: 9px;
+        font-weight: 700;
+        white-space: nowrap;
+    }
+
+    .rule-status-badge.has-selection {
+        background: #eaf5fa;
+        color: #347b9c;
+    }
+
+    .operational-rules-footer {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        gap: 8px;
+        height: 58px;
+        padding: 0 18px;
+        border-top: 1px solid #d7dde0;
+        background: #fafbfb;
+    }
+
+    @media (max-width: 1050px) {
+        .operational-rules-grid {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    /* Transições e pré-requisitos */
+    .transition-rules {
+        display: none;
+        margin: 16px 0 0;
+        border: 1px solid #cdcdcd;
+        border-radius: 3px;
+        background: #f6f8f9;
+        color: #43515a;
+        overflow: hidden;
+        box-shadow: 0 1px 0 #fff;
+    }
+
+    .transition-rules-header {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: 18px;
+        padding: 18px;
+        border-bottom: 1px solid #d7dde0;
+        background: #fff;
+    }
+
+    .transition-rules-header h2 {
+        margin: 0 0 5px;
+        font-size: 14px;
+        color: #40505a;
+    }
+
+    .transition-rules-header p {
+        margin: 0;
+        max-width: 800px;
+        font-size: 11px;
+        line-height: 1.5;
+        color: #74818a;
+    }
+
+    .transition-summary {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+        gap: 6px;
+        min-width: 260px;
+    }
+
+    .transition-summary-chip {
+        border: 1px solid #d7e1e5;
+        border-radius: 12px;
+        padding: 4px 9px;
+        background: #f4f8fa;
+        color: #547180;
+        font-size: 9px;
+        font-weight: 700;
+        white-space: nowrap;
+    }
+
+    .transition-summary-chip.success {
+        border-color: #cfe1bf;
+        background: #f2f8ed;
+        color: #5e803e;
+    }
+
+    .transition-summary-chip.warning {
+        border-color: #ead8ad;
+        background: #fffaf0;
+        color: #886d31;
+    }
+
+    .transition-rules-content {
+        padding: 18px;
+    }
+
+    .transition-concept-note {
+        display: flex;
+        align-items: flex-start;
+        gap: 9px;
+        margin-bottom: 14px;
+        padding: 10px 12px;
+        border: 1px solid #bad6e3;
+        border-radius: 3px;
+        background: #f2f8fb;
+        color: #526b78;
+        font-size: 10px;
+        line-height: 1.45;
+    }
+
+    .transition-concept-note strong {
+        color: #347b9c;
+    }
+
+    .transition-context-map {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 10px;
+        margin-bottom: 16px;
+    }
+
+    .transition-context-map.single-flow {
+        grid-template-columns: 1fr;
+    }
+
+    .transition-context-group[hidden] {
+        display: none;
+    }
+
+    .transition-context-group {
+        border: 1px solid #d7dde0;
+        border-radius: 3px;
+        background: #fff;
+        overflow: hidden;
+    }
+
+    .transition-context-title {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 10px;
+        min-height: 34px;
+        padding: 0 11px;
+        border-bottom: 1px solid #e3e8ea;
+        background: #f7f9fa;
+    }
+
+    .transition-context-title strong {
+        color: #53636c;
+        font-size: 10px;
+    }
+
+    .transition-context-title span {
+        color: #71818a;
+        font-size: 9px;
+        font-weight: 700;
+    }
+
+    .transition-state-chips {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+        min-height: 55px;
+        padding: 10px 11px;
+    }
+
+    .transition-state-chip {
+        display: inline-flex;
+        align-items: center;
+        gap: 5px;
+        border: 1px solid #d2e2e9;
+        border-radius: 11px;
+        padding: 4px 8px;
+        background: #f2f8fb;
+        color: #47748a;
+        font-size: 9px;
+        font-weight: 700;
+    }
+
+    .transition-state-chip.box {
+        border-color: #ddd6ed;
+        background: #f5f2fa;
+        color: #6d5d91;
+    }
+
+    .transition-state-chip.inactive {
+        border-color: #dfe3e5;
+        background: #f3f4f5;
+        color: #8b969d;
+        text-decoration: line-through;
+    }
+
+    .transition-state-chip::before {
+        content: '';
+        width: 5px;
+        height: 5px;
+        border-radius: 50%;
+        background: #70a94a;
+    }
+
+    .transition-state-chip.inactive::before {
+        background: #a8b0b5;
+    }
+
+    .transition-toolbar {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 14px;
+        margin-bottom: 10px;
+    }
+
+    .transition-toolbar h3 {
+        margin: 0;
+        color: #4b5b64;
+        font-size: 12px;
+    }
+
+    .transition-toolbar-actions {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+
+    .transition-toolbar-actions select {
+        height: 34px;
+        min-width: 205px;
+        border: 1px solid #cfd6da;
+        border-radius: 3px;
+        background: #fff;
+        color: #4f5e67;
+        padding: 0 9px;
+        font-size: 10px;
+    }
+
+    .transition-list {
+        border: 1px solid #d7dde0;
+        border-radius: 3px;
+        background: #fff;
+        overflow: hidden;
+    }
+
+    .transition-list-head,
+    .transition-record {
+        display: grid;
+        grid-template-columns: minmax(290px, 1.15fr) minmax(290px, 1.35fr) minmax(145px, .65fr) minmax(100px, .45fr);
+        align-items: center;
+        gap: 12px;
+    }
+
+    .transition-list-head {
+        min-height: 34px;
+        padding: 0 12px;
+        border-bottom: 1px solid #dfe5e8;
+        background: #f3f6f7;
+        color: #65737c;
+        font-size: 9px;
+        font-weight: 700;
+    }
+
+    .transition-record {
+        min-height: 66px;
+        padding: 10px 12px;
+        border-bottom: 1px solid #edf0f2;
+        font-size: 10px;
+    }
+
+    .transition-record:last-child {
+        border-bottom: 0;
+    }
+
+    .transition-record:hover {
+        background: #fbfdfe;
+    }
+
+    .transition-route {
+        display: grid;
+        grid-template-columns: auto minmax(0, 1fr) auto minmax(0, 1fr);
+        align-items: center;
+        gap: 7px;
+    }
+
+    .transition-object-badge {
+        grid-column: 1 / -1;
+        justify-self: start;
+        border-radius: 9px;
+        padding: 3px 7px;
+        background: #eaf3f8;
+        color: #347b9c;
+        font-size: 8px;
+        font-weight: 700;
+        text-transform: uppercase;
+    }
+
+    .transition-object-badge.box {
+        background: #f1eef8;
+        color: #6c5b93;
+    }
+
+    .transition-route strong {
+        min-width: 0;
+        overflow: hidden;
+        color: #40505a;
+        font-size: 10px;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+
+    .transition-arrow {
+        color: #4b96b8;
+        font-size: 14px;
+        font-weight: 700;
+    }
+
+    .transition-prerequisite strong,
+    .transition-mode strong {
+        display: block;
+        margin-bottom: 3px;
+        color: #4b5b64;
+        font-size: 10px;
+    }
+
+    .transition-prerequisite span,
+    .transition-mode span {
+        display: block;
+        color: #7a878f;
+        font-size: 9px;
+        line-height: 1.35;
+    }
+
+    .transition-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 4px;
+    }
+
+    .transition-tag {
+        border-radius: 9px;
+        padding: 3px 7px;
+        background: #eef2f4;
+        color: #63717a;
+        font-size: 8px;
+        font-weight: 700;
+        white-space: nowrap;
+    }
+
+    .transition-tag.required {
+        background: #fff3e4;
+        color: #9a6728;
+    }
+
+    .transition-tag.cross {
+        background: #f1eef8;
+        color: #6c5b93;
+    }
+
+    .transition-actions {
+        display: flex;
+        justify-content: flex-end;
+    }
+
+    .transition-empty {
+        padding: 24px;
+        color: #7a878f;
+        font-size: 11px;
+        text-align: center;
+    }
+
+    .transition-editor {
+        margin-top: 14px;
+        border: 1px solid #bad6e3;
+        border-radius: 4px;
+        background: #fff;
+        overflow: hidden;
+    }
+
+    .transition-editor[hidden],
+    .transition-conditional[hidden] {
+        display: none;
+    }
+
+    .transition-editor-head {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+        padding: 12px 14px;
+        border-bottom: 1px solid #dfe8ec;
+        background: #f4f9fb;
+    }
+
+    .transition-editor-head h3 {
+        margin: 0;
+        color: #405965;
+        font-size: 12px;
+    }
+
+    .transition-editor-body {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 12px;
+        padding: 14px;
+    }
+
+    .transition-field.span-2 {
+        grid-column: span 2;
+    }
+
+    .transition-field.span-4 {
+        grid-column: 1 / -1;
+    }
+
+    .transition-field label {
+        display: block;
+        margin-bottom: 5px;
+        color: #596872;
+        font-size: 10px;
+        font-weight: 700;
+    }
+
+    .transition-field-help {
+        display: block;
+        margin-top: 5px;
+        color: #7b878e;
+        font-size: 9px;
+        line-height: 1.35;
+    }
+
+    .transition-field select,
+    .transition-field input[type="text"],
+    .transition-field input[type="number"] {
+        width: 100%;
+        height: 36px;
+        box-sizing: border-box;
+        border: 1px solid #cfd6da;
+        border-radius: 3px;
+        background: #fff;
+        color: #34424c;
+        padding: 0 10px;
+        font-size: 11px;
+        outline: none;
+    }
+
+    .transition-field input:focus,
+    .transition-field select:focus {
+        border-color: #4b96b8;
+        box-shadow: 0 0 0 2px rgba(75, 150, 184, .12);
+    }
+
+    .transition-switch-option {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+        min-height: 36px;
+        padding: 0 10px;
+        border: 1px solid #d7dde0;
+        border-radius: 3px;
+        background: #fafbfb;
+    }
+
+    .transition-switch-option span:first-child {
+        color: #4d5d66;
+        font-size: 10px;
+        font-weight: 700;
+    }
+
+    .transition-validation {
+        grid-column: 1 / -1;
+        display: flex;
+        align-items: flex-start;
+        gap: 8px;
+        padding: 9px 10px;
+        border: 1px solid #d6e1e6;
+        border-radius: 3px;
+        background: #f8fbfc;
+        color: #63737c;
+        font-size: 10px;
+        line-height: 1.4;
+    }
+
+    .transition-validation.warning {
+        border-color: #e2c88c;
+        background: #fff9ec;
+        color: #846521;
+    }
+
+    .transition-validation.error {
+        border-color: #e1b9b5;
+        background: #fff5f4;
+        color: #98534d;
+    }
+
+    .transition-editor-footer {
+        display: flex;
+        justify-content: flex-end;
+        gap: 8px;
+        padding: 11px 14px;
+        border-top: 1px solid #e1e6e8;
+        background: #fafbfb;
+    }
+
+    .transition-rules-footer {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+        min-height: 54px;
+        padding: 0 18px;
+        border-top: 1px solid #d7dde0;
+        background: #fafbfb;
+    }
+
+    .transition-rules-footer span {
+        color: #7b878e;
+        font-size: 9px;
+    }
+
+    @media (max-width: 1120px) {
+        .transition-list {
+            overflow-x: auto;
+        }
+
+        .transition-list-head,
+        .transition-record {
+            min-width: 920px;
+        }
+
+        .transition-editor-body {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        .transition-field.span-4 {
+            grid-column: 1 / -1;
+        }
+    }
+
+    @media (max-width: 700px) {
+        .transition-rules-header,
+        .transition-toolbar,
+        .transition-rules-footer {
+            align-items: stretch;
+            flex-direction: column;
+        }
+
+        .transition-summary {
+            justify-content: flex-start;
+            min-width: 0;
+        }
+
+        .transition-context-map {
+            grid-template-columns: 1fr;
+        }
+
+        .transition-toolbar-actions {
+            align-items: stretch;
+            flex-direction: column;
+        }
+
+        .transition-editor-body {
+            grid-template-columns: 1fr;
+        }
+
+        .transition-field.span-2,
+        .transition-field.span-4 {
+            grid-column: 1;
+        }
+    }
 </style>
     <link rel="canonical" href="https://docz.sosdocs.com.br/Docz/app/view_importacao_list">
     <meta http-equiv="content-security-policy"
@@ -4116,15 +5025,365 @@
                             <span class="scope-chip client" id="scope-chip"
                                 style="align-self:center;display:inline-flex;align-items:center;gap:6px;border-radius:12px;padding:4px 9px;font-size:10px;font-weight:700;margin-left:auto;background:#eaf3f8;color:#3d7793">●
                                 Escopo: Cliente</span>
-                            <div
+                            <div id="tab-context-note"
                                 style="align-self:center;color:#77848d;font-size:11px;display:flex;gap:7px;align-items:center">
                                 A Ordem é Independente para Cada Fluxo.
                             </div>
                         </div>
                     </div>
 
+                    <!-- REGRAS OPERACIONAIS DA CONFIGURAÇÃO -->
+                    <section id="operational-rules" class="operational-rules" aria-labelledby="operational-rules-title">
+                        <header class="operational-rules-header">
+                            <div>
+                                <h2 id="operational-rules-title">Regras Operacionais da Configuração</h2>
+                                <p>Configure os comportamentos que utilizam as Etapas Documentais deste fluxo. Os habilitadores e suas etapas de referência permanecem reunidos nesta configuração.</p>
+                            </div>
+                            <span class="scope-chip client" id="rules-scope-chip"
+                                style="display:inline-flex;align-items:center;gap:6px;border-radius:12px;padding:4px 9px;font-size:10px;font-weight:700;background:#eaf3f8;color:#3d7793;white-space:nowrap">● Escopo: Cliente</span>
+                        </header>
+
+                        <div class="operational-rules-grid">
+                            <article class="operational-rule-card" data-rule-card="stage-notification">
+                                <div class="operational-rule-card-head">
+                                    <span class="operational-rule-number">1</span>
+                                    <div class="operational-rule-title">
+                                        <strong>Notificação por Etapa Documental</strong>
+                                        <span>Permite notificar em etapas específicas ou em todas as Etapas Documentais habilitadas no fluxo.</span>
+                                    </div>
+                                    <span class="rule-status-badge" id="notification-summary">NENHUMA ATIVA</span>
+                                </div>
+                                <div class="operational-rule-body one-column">
+                                    <div class="notification-global-option">
+                                        <div>
+                                            <strong>Notificação em todas as etapas?</strong>
+                                            <p>Ao habilitar, toda movimentação notificará estes destinatários, sem substituir as notificações específicas de cada etapa.</p>
+                                        </div>
+                                        <label class="rule-switch" title="Habilitar notificação em todas as etapas">
+                                            <input type="checkbox" id="notification-all-enabled">
+                                            <span></span>
+                                        </label>
+                                    </div>
+                                    <div class="notification-recipients-panel" id="notification-all-recipients-panel" hidden>
+                                        <div class="rule-field">
+                                            <label for="notification-all-recipients">Destinatários de e-mail <span style="color:#c00">*</span></label>
+                                            <input type="text" id="notification-all-recipients" placeholder="Ex.: usuario@empresa.com.br; gestor@empresa.com.br">
+                                        </div>
+                                        <small>Para informar mais de um destinatário, separe os endereços por ponto e vírgula.</small>
+                                    </div>
+                                    <div class="notification-stage-mode" id="notification-stage-mode">
+                                        <div class="notification-stage-mode-title">
+                                            <strong>Notificação etapa por etapa</strong>
+                                            <span>Habilite somente as etapas desejadas e informe os destinatários correspondentes.</span>
+                                        </div>
+                                        <div class="notification-stage-list" id="notification-stage-list" aria-label="Notificações por Etapa Documental"></div>
+                                    </div>
+                                    <div class="rule-note"><span>!</span><span>As notificações globais e específicas são cumulativas. Se o mesmo e-mail estiver nas duas configurações, será realizado apenas um envio por movimentação.</span></div>
+                                </div>
+                            </article>
+
+                            <article class="operational-rule-card is-enabled" data-rule-card="pdfa-conversion">
+                                <div class="operational-rule-card-head">
+                                    <span class="operational-rule-number">2</span>
+                                    <div class="operational-rule-title">
+                                        <strong>Conversão de Documentos para PDF/A</strong>
+                                        <span>Converte os documentos para PDF/A entre as Etapas Documentais de entrada e saída.</span>
+                                    </div>
+                                    <label class="rule-switch" title="Ativar ou inativar a conversão para PDF/A">
+                                        <input type="checkbox" id="rule-pdfa-enabled" checked>
+                                        <span></span>
+                                    </label>
+                                </div>
+                                <div class="operational-rule-body">
+                                    <div class="rule-field">
+                                        <label for="rule-entry-stage">Etapa Documental de entrada <span style="color:#c00">*</span></label>
+                                        <select id="rule-entry-stage" class="documental-stage-select" data-selected="1"></select>
+                                    </div>
+                                    <div class="rule-field">
+                                        <label for="rule-exit-stage">Etapa Documental de saída <span style="color:#c00">*</span></label>
+                                        <select id="rule-exit-stage" class="documental-stage-select" data-selected="7"></select>
+                                    </div>
+                                    <div class="rule-note"><span>!</span><span>Ao habilitar a conversão para PDF/A, as Etapas Documentais de entrada e saída tornam-se obrigatórias.</span></div>
+                                </div>
+                            </article>
+
+                            <article class="operational-rule-card is-enabled" data-rule-card="collection-order">
+                                <div class="operational-rule-card-head">
+                                    <span class="operational-rule-number">3</span>
+                                    <div class="operational-rule-title">
+                                        <strong>Alterar Etapa Documental após Conclusão de OS de Recolhimento</strong>
+                                        <span>Movimenta o documento após a conclusão da Ordem de Serviço de recolhimento.</span>
+                                    </div>
+                                    <label class="rule-switch" title="Ativar ou inativar a alteração de etapa após a conclusão da OS de recolhimento">
+                                        <input type="checkbox" id="rule-collection-enabled" checked>
+                                        <span></span>
+                                    </label>
+                                </div>
+                                <div class="operational-rule-body one-column">
+                                    <div class="rule-field">
+                                        <label for="rule-collection-stage">Etapa Documental de destino <span style="color:#c00">*</span></label>
+                                        <select id="rule-collection-stage" class="documental-stage-select" data-selected="7"></select>
+                                    </div>
+                                </div>
+                            </article>
+
+                        </div>
+
+                        <footer class="operational-rules-footer">
+                            <button type="button" class="btn" id="restore-rules"
+                                style="height:36px;border-radius:3px;border:1px solid #cbd3d7;background:#fff;color:#52616b;padding:0 15px;font-size:11px;font-weight:700;cursor:pointer">Desfazer Alterações</button>
+                            <button type="button" class="greenB" id="save-rules"
+                                style="height:36px;border-radius:3px;padding:0 15px;font-size:11px;font-weight:700;cursor:pointer;background-image:var(--sf-img-39);background-position:0 -425px;border:1px solid #7ca82a;color:#fff">Salvar Regras Operacionais</button>
+                        </footer>
+                    </section>
+
+                    <!-- TRANSIÇÕES E PRÉ-REQUISITOS -->
+                    <section id="transition-rules" class="transition-rules" aria-labelledby="transition-rules-title">
+                        <header class="transition-rules-header">
+                            <div>
+                                <h2 id="transition-rules-title">Transições e Pré-requisitos</h2>
+                                <p>Defina como o objeto avança entre etapas ou status e quais condições precisam ser atendidas. A obrigatoriedade pertence a cada transição, permitindo utilizar o mesmo mecanismo para operações, integrações e dependências entre Documentos e Caixas.</p>
+                            </div>
+                            <div class="transition-summary" aria-label="Resumo das regras de transição">
+                                <span class="transition-summary-chip success" id="transition-valid-count">4 REGRAS VÁLIDAS</span>
+                                <span class="transition-summary-chip" id="transition-cross-count">1 DEPENDÊNCIA CRUZADA</span>
+                                <span class="transition-summary-chip success" id="transition-cycle-count">0 CICLOS</span>
+                            </div>
+                        </header>
+
+                        <div class="transition-rules-content">
+                            <div class="transition-concept-note">
+                                <strong>Regra:</strong>
+                                <span>se um pré-requisito obrigatório não estiver concluído, a transição não será executada. O documento ou a caixa seguirá o comportamento configurado para a condição não atendida.</span>
+                            </div>
+
+                            <div class="transition-context-map" id="transition-context-map" aria-label="Etapas e status disponíveis nesta configuração">
+                                <div class="transition-context-group" id="transition-documental-group">
+                                    <div class="transition-context-title">
+                                        <strong>Etapas Documentais desta configuração</strong>
+                                        <span id="transition-documental-count">0 ATIVAS</span>
+                                    </div>
+                                    <div class="transition-state-chips" id="transition-documental-states"></div>
+                                </div>
+                                <div class="transition-context-group" id="transition-gestao-group">
+                                    <div class="transition-context-title">
+                                        <strong>Status da Gestão Documental desta configuração</strong>
+                                        <span id="transition-gestao-count">0 ATIVOS</span>
+                                    </div>
+                                    <div class="transition-state-chips" id="transition-gestao-states"></div>
+                                </div>
+                            </div>
+
+                            <div class="transition-toolbar">
+                                <h3>Transições configuradas</h3>
+                                <div class="transition-toolbar-actions">
+                                    <select id="transition-view-filter" aria-label="Filtrar transições por fluxo">
+                                        <option value="all">Todos os fluxos</option>
+                                        <option value="documental">Somente Etapas Documentais</option>
+                                        <option value="gestao">Somente Status da Gestão Documental</option>
+                                    </select>
+                                    <button type="button" class="greenB" id="transition-new"
+                                        style="height:34px;border-radius:3px;padding:0 13px;font-size:10px;font-weight:700;cursor:pointer;background-image:var(--sf-img-39);background-position:0 -425px;border:1px solid #7ca82a;color:#fff">+ Nova Transição</button>
+                                </div>
+                            </div>
+
+                            <div class="transition-list" aria-label="Transições configuradas">
+                                <div class="transition-list-head">
+                                    <span>TRANSIÇÃO</span>
+                                    <span>EVENTO E PRÉ-REQUISITO</span>
+                                    <span>COMPORTAMENTO</span>
+                                    <span style="text-align:right">AÇÕES</span>
+                                </div>
+                                <div id="transition-list-body"></div>
+                            </div>
+
+                            <div class="transition-editor" id="transition-editor" hidden>
+                                <div class="transition-editor-head">
+                                    <h3 id="transition-editor-title">Nova Transição</h3>
+                                    <span class="scope-chip client" id="transition-scope-chip"
+                                        style="display:inline-flex;align-items:center;gap:6px;border-radius:12px;padding:4px 9px;font-size:9px;font-weight:700;background:#eaf3f8;color:#3d7793;white-space:nowrap">● Escopo: Cliente</span>
+                                </div>
+
+                                <div class="transition-editor-body">
+                                    <div class="transition-field">
+                                        <label for="transition-flow-type">Fluxo do objeto <span style="color:#c00">*</span></label>
+                                        <select id="transition-flow-type">
+                                            <option value="documental">Etapa Documental — Documento</option>
+                                            <option value="gestao">Status da Gestão Documental — Caixa</option>
+                                        </select>
+                                        <small class="transition-field-help" id="transition-flow-source-note">Origem e destino serão carregados das Etapas Documentais ativas desta configuração.</small>
+                                    </div>
+                                    <div class="transition-field">
+                                        <label for="transition-origin" id="transition-origin-label">Etapa de origem <span style="color:#c00">*</span></label>
+                                        <select id="transition-origin"></select>
+                                    </div>
+                                    <div class="transition-field">
+                                        <label for="transition-destination" id="transition-destination-label">Etapa de destino <span style="color:#c00">*</span></label>
+                                        <select id="transition-destination"></select>
+                                    </div>
+                                    <div class="transition-field">
+                                        <label for="transition-event">Evento que inicia a ação <span style="color:#c00">*</span></label>
+                                        <select id="transition-event">
+                                            <option value="user_action">Ação manual do usuário</option>
+                                            <option value="state_entry">Entrada automática na etapa de origem</option>
+                                            <option value="operation_completion">Conclusão de operação funcional</option>
+                                            <option value="integration_return">Resultado de integração externa</option>
+                                            <option value="service_order_completion">Encerramento de Ordem de Serviço</option>
+                                            <option value="internal_automation">Execução de rotina interna do DocZ</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="transition-field span-2 transition-conditional" id="transition-user-action-field" hidden>
+                                        <label for="transition-user-action">Ação do usuário <span style="color:#c00">*</span></label>
+                                        <select id="transition-user-action">
+                                            <option value="">Selecione...</option>
+                                            <option value="approve">Aprovar</option>
+                                            <option value="reject">Reprovar</option>
+                                            <option value="advance">Avançar</option>
+                                            <option value="finalize">Finalizar</option>
+                                        </select>
+                                    </div>
+                                    <div class="transition-field span-2 transition-conditional" id="transition-operation-field" hidden>
+                                        <label for="transition-operation">Operação funcional <span style="color:#c00">*</span></label>
+                                        <select id="transition-operation">
+                                            <option value="">Selecione...</option>
+                                            <option value="indexing">Indexação</option>
+                                            <option value="evaluation">Avaliação</option>
+                                            <option value="pdfa_conversion">Conversão para PDF/A</option>
+                                            <option value="signature">Assinatura</option>
+                                        </select>
+                                    </div>
+                                    <div class="transition-field span-2 transition-conditional" id="transition-integration-field" hidden>
+                                        <label for="transition-integration">Integração externa <span style="color:#c00">*</span></label>
+                                        <select id="transition-integration">
+                                            <option value="">Selecione...</option>
+                                            <option value="sei">SEI</option>
+                                            <option value="eternal_rdcarq">Eternal / RDC-Arq</option>
+                                        </select>
+                                        <small class="transition-field-help">Exibe somente integrações disponíveis para o projeto.</small>
+                                    </div>
+                                    <div class="transition-field span-2 transition-conditional" id="transition-integration-result-field" hidden>
+                                        <label for="transition-integration-result">Resultado recebido <span style="color:#c00">*</span></label>
+                                        <select id="transition-integration-result">
+                                            <option value="">Selecione primeiro a integração...</option>
+                                        </select>
+                                        <small class="transition-field-help">Sem uma transição correspondente ao resultado recebido, o objeto permanece na etapa ou no status atual.</small>
+                                    </div>
+                                    <div class="transition-field span-2 transition-conditional" id="transition-service-order-type-field" hidden>
+                                        <label for="transition-service-order-type">Tipo de Ordem de Serviço <span style="color:#c00">*</span></label>
+                                        <select id="transition-service-order-type">
+                                            <option value="">Selecione...</option>
+                                            <option value="digitalization">Digitalização</option>
+                                            <option value="collection">Recolhimento / RDC-Arq</option>
+                                            <option value="disposal">Expurgo</option>
+                                        </select>
+                                    </div>
+                                    <div class="transition-field span-2 transition-conditional" id="transition-service-order-result-field" hidden>
+                                        <label for="transition-service-order-result">Situação de encerramento <span style="color:#c00">*</span></label>
+                                        <select id="transition-service-order-result">
+                                            <option value="">Selecione...</option>
+                                            <option value="completed">Concluída com sucesso</option>
+                                            <option value="completed_with_issues">Concluída com pendências</option>
+                                            <option value="cancelled">Cancelada</option>
+                                        </select>
+                                    </div>
+                                    <div class="transition-field span-2 transition-conditional" id="transition-internal-routine-field" hidden>
+                                        <label for="transition-internal-routine">Rotina interna <span style="color:#c00">*</span></label>
+                                        <select id="transition-internal-routine">
+                                            <option value="">Selecione...</option>
+                                            <option value="automatic_processing">Conclusão automática de processamento</option>
+                                            <option value="deadline_check">Verificação programada de prazo</option>
+                                            <option value="automatic_reprocessing">Reprocessamento automático</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="transition-field span-2">
+                                        <label for="transition-prerequisite-type">Condição adicional para permitir a transição</label>
+                                        <select id="transition-prerequisite-type">
+                                            <option value="none">Nenhuma condição adicional</option>
+                                            <option value="document_stage">Etapa do documento vinculado</option>
+                                            <option value="box_status">Status da caixa vinculada</option>
+                                        </select>
+                                        <small class="transition-field-help">Por enquanto, somente dependências estruturadas entre os fluxos podem ser configuradas.</small>
+                                    </div>
+
+                                    <div class="transition-field transition-conditional" id="transition-cross-criteria-field" hidden>
+                                        <label for="transition-cross-criteria">Critério sobre os documentos <span style="color:#c00">*</span></label>
+                                        <select id="transition-cross-criteria">
+                                            <option value="all">Todos os documentos vinculados</option>
+                                            <option value="at_least_one">Pelo menos um documento</option>
+                                            <option value="none">Nenhum documento</option>
+                                            <option value="quantity">Quantidade mínima</option>
+                                            <option value="percentage">Percentual mínimo</option>
+                                        </select>
+                                    </div>
+                                    <div class="transition-field transition-conditional" id="transition-related-state-field" hidden>
+                                        <label for="transition-related-state" id="transition-related-state-label">Etapa Documental exigida <span style="color:#c00">*</span></label>
+                                        <select id="transition-related-state"></select>
+                                    </div>
+                                    <div class="transition-field transition-conditional" id="transition-threshold-field" hidden>
+                                        <label for="transition-threshold" id="transition-threshold-label">Valor mínimo <span style="color:#c00">*</span></label>
+                                        <input type="number" id="transition-threshold" min="1" placeholder="Ex.: 80">
+                                    </div>
+
+                                    <div class="transition-field transition-conditional" id="transition-required-field" hidden>
+                                        <label>Obrigatório para avançar?</label>
+                                        <div class="transition-switch-option">
+                                            <span id="transition-required-label">Sim</span>
+                                            <label class="rule-switch" title="Definir pré-requisito como obrigatório">
+                                                <input type="checkbox" id="transition-required" checked>
+                                                <span></span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="transition-field">
+                                        <label for="transition-execution">Execução da transição <span style="color:#c00">*</span></label>
+                                        <select id="transition-execution" disabled>
+                                            <option value="user">Mediante ação do usuário</option>
+                                            <option value="automatic">Automática</option>
+                                        </select>
+                                        <small class="transition-field-help">Definida automaticamente conforme o evento que inicia a ação.</small>
+                                    </div>
+                                    <div class="transition-field span-2 transition-conditional" id="transition-failure-behavior-field" hidden>
+                                        <label for="transition-failure-behavior">Comportamento quando não atendido <span style="color:#c00">*</span></label>
+                                        <select id="transition-failure-behavior">
+                                            <option value="stay">Permanecer na etapa atual</option>
+                                            <option value="redirect">Direcionar para outra etapa</option>
+                                            <option value="block_message">Impedir a ação e apresentar mensagem</option>
+                                        </select>
+                                    </div>
+                                    <div class="transition-field span-2 transition-conditional" id="transition-failure-target-field" hidden>
+                                        <label for="transition-failure-target" id="transition-failure-target-label">Etapa alternativa <span style="color:#c00">*</span></label>
+                                        <select id="transition-failure-target"></select>
+                                    </div>
+                                    <div class="transition-field span-4 transition-conditional" id="transition-failure-message-field" hidden>
+                                        <label for="transition-failure-message">Mensagem apresentada ao usuário <span style="color:#c00">*</span></label>
+                                        <input type="text" id="transition-failure-message" placeholder="Ex.: Não é possível avançar. A aprovação ainda não foi concluída.">
+                                    </div>
+
+                                    <div class="transition-validation" id="transition-validation">
+                                        <strong>Validação:</strong>
+                                        <span>Selecione os dados da transição. O sistema verificará referências, incompatibilidades e dependências circulares.</span>
+                                    </div>
+                                </div>
+
+                                <div class="transition-editor-footer">
+                                    <button type="button" class="btn" id="transition-cancel"
+                                        style="height:34px;border-radius:3px;border:1px solid #cbd3d7;background:#fff;color:#52616b;padding:0 14px;font-size:10px;font-weight:700;cursor:pointer">Cancelar</button>
+                                    <button type="button" class="greenB" id="transition-save"
+                                        style="height:34px;border-radius:3px;padding:0 14px;font-size:10px;font-weight:700;cursor:pointer;background-image:var(--sf-img-39);background-position:0 -425px;border:1px solid #7ca82a;color:#fff">Salvar Transição</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <footer class="transition-rules-footer">
+                            <span>As referências utilizam somente Etapas e Status ativos desta configuração.</span>
+                            <span>Dependências circulares ou incompatíveis deverão ser corrigidas antes da ativação.</span>
+                        </footer>
+                    </section>
+
                     <!-- EDITOR -->
-                    <div style="padding:18px;background:#f8fafb;border-bottom:1px solid #cdcdcd;margin:0 -14px">
+                    <div id="stage-editor-section" style="padding:18px;background:#f8fafb;border-bottom:1px solid #cdcdcd;margin:0 -14px">
                         <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:14px">
                             <h2 style="font-size:13px;margin:0;color:#40505a" id="editor-title">Nova Status da Gestão
                                 Documental</h2>
@@ -4188,7 +5447,7 @@
                     </div>
 
                     <!-- TABLE TOOLBAR -->
-                    <div class="table-toolbar"
+                    <div class="table-toolbar" id="stage-table-toolbar"
                         style="min-height:56px;padding:8px 18px;display:flex;align-items:center;gap:10px;border-bottom:1px solid #cdcdcd;background:#f9f9f9;margin:0 -14px;box-sizing:border-box">
                         <h3 style="font-size:13px;margin:0" id="list-title">Fluxo de Status da Gestão Documental —
                             Cliente</h3>
@@ -4374,7 +5633,7 @@
                     </div>
 
                     <!-- TABLE FOOTER -->
-                    <div
+                    <div id="stage-table-footer"
                         style="height:54px;display:flex;align-items:center;padding:0 18px;background:#fafbfb;border-top:1px solid #e8ecef;font-size:11px;color:#7b878f;margin:0 -14px">
                         <span id="result-count">6 Registros neste Fluxo</span>
                         <span id="unsaved"
@@ -4550,11 +5809,6 @@
     <div id="jsd-widget-description" aria-hidden="true"
         style="position:absolute;left:-10000px;width:1px;height:1px;overflow:hidden">Jira Service Management Widget
     </div>
-    <iframe scrolling="no" name="JSD widget" id="jsd-widget" title="JSD widget" aria-label="JSD widget"
-        role="application" aria-describedby="jsd-widget-description" tabindex="0"
-        style="height:80px;width:128px;position:fixed;border:0px;bottom:0px;right:0px;z-index:2147483647;outline:none;background:transparent"
-        sandbox="allow-popups allow-top-navigation-by-user-activation"
-        src="./Configuracao das Etapas_files/saved_resource.html"></iframe>
     <div class="ui-dialog ui-widget ui-widget-content ui-corner-all ui-draggable wijmo-wijdialog" tabindex="-1"
         role="dialog" aria-labelledby="ui-dialog-title-loadingPage" style="display:none;z-index:1000;outline:0px"></div>
     <div class="ui-dialog ui-widget ui-widget-content ui-corner-all ui-draggable ui-resizable wijmo-wijdialog"
@@ -4570,7 +5824,6 @@
     </div>
 
 
-    <script src="./Configuracao das Etapas_files/Sortable.min.js"></script>
     <script>
     // Função auxiliar para converter texto em iniciais maiúsculas (exceto preposições)
     function capitalizeWords(text) {
@@ -4849,6 +6102,868 @@
         chip: 'Gestão Documental' 
     };
 
+    const initialOperationalRules = {
+        pdfaConversion: { enabled: true, entryStageId: 1, exitStageId: 7 },
+        collectionOrder: { enabled: true, stageId: 7 },
+        stageNotification: { allStages: false, allRecipients: '', stages: {} }
+    };
+
+    let operationalRules = JSON.parse(JSON.stringify(initialOperationalRules));
+
+    function setRuleCardState(toggleId, selectId, cardName) {
+        const enabled = $(toggleId).checked;
+        $(selectId).disabled = !enabled;
+        const card = document.querySelector(`[data-rule-card="${cardName}"]`);
+        if (card) card.classList.toggle('is-enabled', enabled);
+    }
+
+    function setPdfaRuleState() {
+        const enabled = $('rule-pdfa-enabled').checked;
+        $('rule-entry-stage').disabled = !enabled;
+        $('rule-exit-stage').disabled = !enabled;
+        const card = document.querySelector('[data-rule-card="pdfa-conversion"]');
+        if (card) card.classList.toggle('is-enabled', enabled);
+    }
+
+    function escapeAttribute(value) {
+        return String(value || '')
+            .replace(/&/g, '&amp;')
+            .replace(/"/g, '&quot;')
+            .replace(/</g, '&lt;')
+            .replace(/>/g, '&gt;');
+    }
+
+    function getNotificationStageSettings() {
+        const settings = {};
+        document.querySelectorAll('[data-notification-stage]').forEach(input => {
+            if (!input.checked) return;
+            const recipients = document.querySelector(`[data-notification-recipients="${input.dataset.notificationStage}"]`);
+            settings[input.dataset.notificationStage] = recipients ? recipients.value.trim() : '';
+        });
+        return settings;
+    }
+
+    function hasValidEmailList(value) {
+        const emails = String(value || '').split(/[;,]/).map(email => email.trim()).filter(Boolean);
+        return emails.length > 0 && emails.every(email => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email));
+    }
+
+    function updateNotificationSummary() {
+        const notifyAll = $('notification-all-enabled').checked;
+        const selectedIds = Object.keys(getNotificationStageSettings());
+        const total = document.querySelectorAll('[data-notification-stage]').length;
+        const summary = $('notification-summary');
+        summary.textContent = notifyAll
+            ? selectedIds.length
+                ? `TODAS + ${selectedIds.length} ESPECÍFICA${selectedIds.length === 1 ? '' : 'S'}`
+                : 'TODAS AS ETAPAS'
+            : selectedIds.length
+                ? `${selectedIds.length} DE ${total} ATIVA${selectedIds.length === 1 ? '' : 'S'}`
+                : 'NENHUMA ATIVA';
+        summary.classList.toggle('has-selection', notifyAll || selectedIds.length > 0);
+        const card = document.querySelector('[data-rule-card="stage-notification"]');
+        if (card) card.classList.toggle('is-enabled', notifyAll || selectedIds.length > 0);
+    }
+
+    function setStageNotificationState(toggle, focusRecipients = false) {
+        const item = toggle.closest('.notification-stage-item');
+        const status = item.querySelector('.notification-stage-action > span:first-child');
+        const panel = item.querySelector('.notification-stage-recipients');
+        const recipients = item.querySelector('[data-notification-recipients]');
+        item.classList.toggle('is-enabled', toggle.checked);
+        status.textContent = toggle.checked ? 'Ativada' : 'Desativada';
+        panel.hidden = !toggle.checked;
+        toggle.disabled = false;
+        recipients.disabled = !toggle.checked;
+        updateNotificationSummary();
+        if (focusRecipients && toggle.checked) recipients.focus();
+    }
+
+    function setNotificationModeState(focusRecipients = false) {
+        const notifyAll = $('notification-all-enabled').checked;
+        $('notification-all-recipients-panel').hidden = !notifyAll;
+        $('notification-all-recipients').disabled = !notifyAll;
+        document.querySelectorAll('[data-notification-stage]').forEach(toggle => setStageNotificationState(toggle));
+        updateNotificationSummary();
+        if (focusRecipients && notifyAll) $('notification-all-recipients').focus();
+    }
+
+    function renderNotificationStages(stageSettings) {
+        const availableStages = data.documental.filter(stage => stage.active);
+        const settings = stageSettings || {};
+        const list = $('notification-stage-list');
+        list.innerHTML = `
+            <div class="notification-stage-list-head">
+                <span>ETAPAS DOCUMENTAIS HABILITADAS NO FLUXO</span>
+                <span>NOTIFICAR USUÁRIO</span>
+            </div>
+            ${availableStages.map((stage, index) => {
+                const enabled = Object.prototype.hasOwnProperty.call(settings, String(stage.id));
+                const recipients = enabled ? settings[String(stage.id)] : '';
+                return `
+                    <div class="notification-stage-item ${enabled ? 'is-enabled' : ''}">
+                        <div class="notification-stage-row">
+                            <span class="notification-stage-order">${index + 1}</span>
+                            <span class="notification-stage-name">${stage.name}</span>
+                            <span class="notification-stage-action">
+                                <span>${enabled ? 'Ativada' : 'Desativada'}</span>
+                                <label class="rule-switch" title="Notificar usuário ao entrar em ${stage.name}">
+                                    <input type="checkbox" data-notification-stage="${stage.id}" ${enabled ? 'checked' : ''}>
+                                    <span></span>
+                                </label>
+                            </span>
+                        </div>
+                        <div class="notification-stage-recipients" ${enabled ? '' : 'hidden'}>
+                            <div class="rule-field">
+                                <label for="notification-recipients-${stage.id}">Destinatários de e-mail <span style="color:#c00">*</span></label>
+                                <input type="text" id="notification-recipients-${stage.id}" data-notification-recipients="${stage.id}" value="${escapeAttribute(recipients)}" placeholder="Ex.: usuario@empresa.com.br; gestor@empresa.com.br">
+                            </div>
+                        </div>
+                    </div>
+                `;
+            }).join('')}
+        `;
+        list.querySelectorAll('[data-notification-stage]').forEach(input => {
+            input.onchange = () => setStageNotificationState(input, true);
+        });
+        setNotificationModeState();
+    }
+
+    function updateRuleOptions(notificationStageSettings = null) {
+        const existingNotificationInputs = document.querySelectorAll('[data-notification-stage]');
+        const currentNotificationSettings = notificationStageSettings && typeof notificationStageSettings === 'object'
+            ? notificationStageSettings
+            : existingNotificationInputs.length
+                ? getNotificationStageSettings()
+                : operationalRules.stageNotification.stages;
+        const availableStages = data.documental.filter(stage => stage.active);
+        document.querySelectorAll('.documental-stage-select').forEach(select => {
+            const currentValue = select.value || select.dataset.selected || '';
+            select.innerHTML = '<option value="">Selecione uma Etapa Documental</option>' + availableStages
+                .map(stage => `<option value="${stage.id}">${stage.name}</option>`)
+                .join('');
+            if (availableStages.some(stage => String(stage.id) === String(currentValue))) {
+                select.value = String(currentValue);
+            }
+        });
+        $('rules-scope-chip').className = `scope-chip ${$('scope').value}`;
+        $('rules-scope-chip').textContent = `● Escopo: ${scopeName()}`;
+        renderNotificationStages(currentNotificationSettings);
+    }
+
+    function restoreOperationalRules(showMessage = true) {
+        operationalRules = JSON.parse(JSON.stringify(initialOperationalRules));
+        $('rule-pdfa-enabled').checked = operationalRules.pdfaConversion.enabled;
+        $('notification-all-enabled').checked = operationalRules.stageNotification.allStages;
+        $('notification-all-recipients').value = operationalRules.stageNotification.allRecipients;
+        updateRuleOptions(operationalRules.stageNotification.stages);
+        $('rule-entry-stage').value = String(operationalRules.pdfaConversion.entryStageId);
+        $('rule-exit-stage').value = String(operationalRules.pdfaConversion.exitStageId);
+        $('rule-collection-enabled').checked = operationalRules.collectionOrder.enabled;
+        $('rule-collection-stage').value = String(operationalRules.collectionOrder.stageId);
+        setPdfaRuleState();
+        setRuleCardState('rule-collection-enabled', 'rule-collection-stage', 'collection-order');
+        setNotificationModeState();
+        if (showMessage) toast('Alterações das regras operacionais desfeitas.');
+    }
+
+    function saveOperationalRules() {
+        const required = [
+            [$('rule-pdfa-enabled').checked, $('rule-entry-stage'), 'Selecione a Etapa Documental de entrada para a conversão em PDF/A.'],
+            [$('rule-pdfa-enabled').checked, $('rule-exit-stage'), 'Selecione a Etapa Documental de saída para a conversão em PDF/A.'],
+            [$('rule-collection-enabled').checked, $('rule-collection-stage'), 'Selecione a etapa de destino após a conclusão da OS de recolhimento.']
+        ];
+
+        const invalid = required.find(item => item[0] && !item[1].value);
+        if (invalid) {
+            toast(invalid[2]);
+            invalid[1].focus();
+            return;
+        }
+
+        if ($('notification-all-enabled').checked && !hasValidEmailList($('notification-all-recipients').value)) {
+            toast('Informe ao menos um destinatário de e-mail válido para a notificação em todas as etapas.');
+            $('notification-all-recipients').focus();
+            return;
+        }
+
+        const enabledNotification = Array.from(document.querySelectorAll('[data-notification-stage]'))
+            .find(toggle => toggle.checked && !hasValidEmailList(
+                document.querySelector(`[data-notification-recipients="${toggle.dataset.notificationStage}"]`).value
+            ));
+        if (enabledNotification) {
+            const item = enabledNotification.closest('.notification-stage-item');
+            const stageName = item.querySelector('.notification-stage-name').textContent;
+            const recipients = item.querySelector('[data-notification-recipients]');
+            toast(`Informe ao menos um destinatário de e-mail válido para a etapa ${stageName}.`);
+            recipients.focus();
+            return;
+        }
+
+        operationalRules = {
+            pdfaConversion: {
+                enabled: $('rule-pdfa-enabled').checked,
+                entryStageId: Number($('rule-entry-stage').value) || null,
+                exitStageId: Number($('rule-exit-stage').value) || null
+            },
+            collectionOrder: {
+                enabled: $('rule-collection-enabled').checked,
+                stageId: Number($('rule-collection-stage').value) || null
+            },
+            stageNotification: {
+                allStages: $('notification-all-enabled').checked,
+                allRecipients: $('notification-all-recipients').value.trim(),
+                stages: getNotificationStageSettings()
+            }
+        };
+        toast(`Regras operacionais salvas no escopo ${scopeName()}.`);
+    }
+
+    const initialTransitionRules = [
+        {
+            id: 1,
+            flowType: 'documental',
+            originId: 4,
+            destinationId: 5,
+            event: 'operation_completion',
+            operation: 'digitalization',
+            prerequisiteType: 'none',
+            required: false,
+            failureBehavior: 'stay',
+            failureTargetId: null,
+            failureMessage: '',
+            executionMode: 'automatic',
+            crossCriteria: null,
+            relatedStateId: null,
+            threshold: null
+        },
+        {
+            id: 2,
+            flowType: 'documental',
+            originId: 5,
+            destinationId: 6,
+            event: 'user_action',
+            userAction: 'approve',
+            prerequisiteType: 'none',
+            required: false,
+            failureBehavior: 'stay',
+            failureTargetId: null,
+            failureMessage: '',
+            executionMode: 'user',
+            crossCriteria: null,
+            relatedStateId: null,
+            threshold: null
+        },
+        {
+            id: 3,
+            flowType: 'documental',
+            originId: 6,
+            destinationId: 7,
+            event: 'integration_return',
+            integration: 'sei',
+            integrationResult: 'send_success',
+            prerequisiteType: 'none',
+            required: false,
+            failureBehavior: 'stay',
+            failureTargetId: null,
+            failureMessage: '',
+            executionMode: 'automatic',
+            crossCriteria: null,
+            relatedStateId: null,
+            threshold: null
+        },
+        {
+            id: 4,
+            flowType: 'gestao',
+            originId: 11,
+            destinationId: 14,
+            event: 'user_action',
+            userAction: 'advance',
+            prerequisiteType: 'document_stage',
+            required: true,
+            failureBehavior: 'block_message',
+            failureTargetId: null,
+            failureMessage: 'A caixa possui documentos que ainda não atingiram a etapa Finalizado.',
+            executionMode: 'user',
+            crossCriteria: 'all',
+            relatedStateId: 7,
+            threshold: null
+        }
+    ];
+
+    let transitionRules = JSON.parse(JSON.stringify(initialTransitionRules));
+    let editingTransitionId = null;
+
+    const transitionEventLabels = {
+        user_action: 'Ação manual do usuário',
+        operation_completion: 'Conclusão de operação funcional',
+        integration_return: 'Resultado de integração externa',
+        service_order_completion: 'Encerramento de Ordem de Serviço',
+        internal_automation: 'Execução de rotina interna do DocZ'
+    };
+
+    const transitionUserActionLabels = {
+        approve: 'Aprovar',
+        reject: 'Reprovar',
+        advance: 'Avançar',
+        finalize: 'Finalizar'
+    };
+
+    const transitionOperationLabels = {
+        indexing: 'Indexação',
+        evaluation: 'Avaliação',
+        pdfa_conversion: 'Conversão para PDF/A',
+        signature: 'Assinatura'
+    };
+
+    const transitionIntegrationLabels = {
+        sei: 'SEI',
+        eternal_rdcarq: 'Eternal / RDC-Arq'
+    };
+
+    const transitionIntegrationResults = {
+        sei: [
+            { value: 'send_success', label: 'Envio concluído com sucesso' },
+            { value: 'signature_completed', label: 'Assinatura concluída' },
+            { value: 'processing_failed', label: 'Processamento recusado ou com falha' }
+        ],
+        eternal_rdcarq: [
+            { value: 'preservation_success', label: 'Preservação concluída com sucesso' },
+            { value: 'preservation_failed', label: 'Preservação recusada ou com falha' }
+        ]
+    };
+
+    const transitionServiceOrderLabels = {
+        digitalization: 'Digitalização',
+        collection: 'Recolhimento / RDC-Arq',
+        disposal: 'Expurgo'
+    };
+
+    const transitionServiceOrderResultLabels = {
+        completed: 'Concluída com sucesso',
+        completed_with_issues: 'Concluída com pendências',
+        cancelled: 'Cancelada'
+    };
+
+    const transitionInternalRoutineLabels = {
+        automatic_processing: 'Conclusão automática de processamento',
+        deadline_check: 'Verificação programada de prazo',
+        automatic_reprocessing: 'Reprocessamento automático'
+    };
+
+    function getTransitionTerminology(flowType) {
+        return flowType === 'gestao'
+            ? {
+                originLabel: 'Status de origem',
+                destinationLabel: 'Status de destino',
+                stateEntry: 'Entrada automática no status de origem',
+                stay: 'Permanecer no status atual',
+                redirect: 'Direcionar para outro status',
+                alternativeLabel: 'Status alternativo',
+                unavailable: 'Status indisponível',
+                missingRoute: 'Informe os status de origem e destino da transição.',
+                sameRoute: 'O status de destino deve ser diferente do status de origem.',
+                selectAlternative: 'Selecione o status alternativo para o redirecionamento.',
+                sameAlternative: 'O status alternativo não pode ser igual ao destino principal.'
+            }
+            : {
+                originLabel: 'Etapa de origem',
+                destinationLabel: 'Etapa de destino',
+                stateEntry: 'Entrada automática na etapa de origem',
+                stay: 'Permanecer na etapa atual',
+                redirect: 'Direcionar para outra etapa',
+                alternativeLabel: 'Etapa alternativa',
+                unavailable: 'Etapa indisponível',
+                missingRoute: 'Informe as etapas de origem e destino da transição.',
+                sameRoute: 'A etapa de destino deve ser diferente da etapa de origem.',
+                selectAlternative: 'Selecione a etapa alternativa para o redirecionamento.',
+                sameAlternative: 'A etapa alternativa não pode ser igual ao destino principal.'
+            };
+    }
+
+    function getTransitionEventLabel(rule) {
+        return rule.event === 'state_entry'
+            ? getTransitionTerminology(rule.flowType).stateEntry
+            : transitionEventLabels[rule.event] || rule.event;
+    }
+
+    function getTransitionIntegrationResultLabel(integration, result) {
+        return transitionIntegrationResults[integration]
+            ?.find(item => item.value === result)?.label || result || '';
+    }
+
+    function getTransitionEventDetailDescription(rule) {
+        if (rule.event === 'user_action') {
+            return transitionUserActionLabels[rule.userAction] || 'Ação não informada';
+        }
+        if (rule.event === 'operation_completion') {
+            return transitionOperationLabels[rule.operation] || 'Operação não informada';
+        }
+        if (rule.event === 'integration_return') {
+            const integration = transitionIntegrationLabels[rule.integration] || 'Integração não informada';
+            const result = getTransitionIntegrationResultLabel(rule.integration, rule.integrationResult) || 'resultado não informado';
+            return `${integration}: ${result}`;
+        }
+        if (rule.event === 'service_order_completion') {
+            const type = transitionServiceOrderLabels[rule.serviceOrderType] || 'Tipo não informado';
+            const result = transitionServiceOrderResultLabels[rule.serviceOrderResult] || 'situação não informada';
+            return `${type}: ${result}`;
+        }
+        if (rule.event === 'internal_automation') {
+            return transitionInternalRoutineLabels[rule.internalRoutine] || 'Rotina não informada';
+        }
+        return 'A origem da transição identifica automaticamente o evento';
+    }
+
+    function updateTransitionTerminology(flowType) {
+        const terminology = getTransitionTerminology(flowType);
+        $('transition-origin-label').innerHTML = `${terminology.originLabel} <span style="color:#c00">*</span>`;
+        $('transition-destination-label').innerHTML = `${terminology.destinationLabel} <span style="color:#c00">*</span>`;
+        $('transition-failure-target-label').innerHTML = `${terminology.alternativeLabel} <span style="color:#c00">*</span>`;
+        document.querySelector('#transition-event option[value="state_entry"]').textContent = terminology.stateEntry;
+        document.querySelector('#transition-failure-behavior option[value="stay"]').textContent = terminology.stay;
+        document.querySelector('#transition-failure-behavior option[value="redirect"]').textContent = terminology.redirect;
+    }
+
+    const transitionPrerequisiteLabels = {
+        none: 'Sem condição adicional',
+        document_stage: 'Etapa do documento vinculado',
+        box_status: 'Status da caixa vinculada'
+    };
+
+    const transitionCriteriaLabels = {
+        all: 'Todos os documentos vinculados',
+        at_least_one: 'Pelo menos um documento',
+        none: 'Nenhum documento',
+        quantity: 'Quantidade mínima',
+        percentage: 'Percentual mínimo'
+    };
+
+    function getTransitionStates(flowType, activeOnly = true) {
+        const states = data[flowType] || [];
+        return activeOnly ? states.filter(state => state.active) : states;
+    }
+
+    function getTransitionStateName(flowType, id) {
+        return (data[flowType] || []).find(state => Number(state.id) === Number(id))?.name
+            || getTransitionTerminology(flowType).unavailable;
+    }
+
+    function isCrossTransitionRule(rule) {
+        return rule.prerequisiteType === 'document_stage' || rule.prerequisiteType === 'box_status';
+    }
+
+    function hasValidTransitionReferences(rule) {
+        const ownStates = getTransitionStates(rule.flowType);
+        const ownValid = ownStates.some(state => Number(state.id) === Number(rule.originId))
+            && ownStates.some(state => Number(state.id) === Number(rule.destinationId));
+        if (!ownValid) return false;
+        if (rule.prerequisiteType === 'document_stage') {
+            return getTransitionStates('documental').some(state => Number(state.id) === Number(rule.relatedStateId));
+        }
+        if (rule.prerequisiteType === 'box_status') {
+            return getTransitionStates('gestao').some(state => Number(state.id) === Number(rule.relatedStateId));
+        }
+        return true;
+    }
+
+    function findCircularTransition(candidate, excludedId = null, rules = transitionRules) {
+        if (candidate.prerequisiteType === 'box_status' && candidate.flowType === 'documental') {
+            return rules.find(rule => rule.id !== excludedId
+                && rule.flowType === 'gestao'
+                && rule.prerequisiteType === 'document_stage'
+                && Number(rule.destinationId) === Number(candidate.relatedStateId)
+                && Number(rule.relatedStateId) === Number(candidate.destinationId));
+        }
+        if (candidate.prerequisiteType === 'document_stage' && candidate.flowType === 'gestao') {
+            return rules.find(rule => rule.id !== excludedId
+                && rule.flowType === 'documental'
+                && rule.prerequisiteType === 'box_status'
+                && Number(rule.destinationId) === Number(candidate.relatedStateId)
+                && Number(rule.relatedStateId) === Number(candidate.destinationId));
+        }
+        return null;
+    }
+
+    function getTransitionPrerequisiteDescription(rule) {
+        if (rule.prerequisiteType === 'none') return '';
+        if (rule.prerequisiteType === 'document_stage') {
+            const state = getTransitionStateName('documental', rule.relatedStateId);
+            const threshold = rule.crossCriteria === 'quantity' || rule.crossCriteria === 'percentage'
+                ? `: ${rule.threshold}${rule.crossCriteria === 'percentage' ? '%' : ''}`
+                : '';
+            return `${transitionCriteriaLabels[rule.crossCriteria] || 'Documentos vinculados'} em “${state}”${threshold}`;
+        }
+        if (rule.prerequisiteType === 'box_status') {
+            return `Caixa vinculada em “${getTransitionStateName('gestao', rule.relatedStateId)}”`;
+        }
+        return '';
+    }
+
+    function getTransitionFailureDescription(rule) {
+        if (rule.prerequisiteType === 'none') return 'Sem condição adicional';
+        if (rule.failureBehavior === 'redirect') {
+            return `Direcionar para ${getTransitionStateName(rule.flowType, rule.failureTargetId)}`;
+        }
+        if (rule.failureBehavior === 'block_message') return 'Impedir e apresentar mensagem';
+        return getTransitionTerminology(rule.flowType).stay;
+    }
+
+    function countCircularTransitionPairs() {
+        const keys = new Set();
+        transitionRules.forEach(rule => {
+            const pair = findCircularTransition(rule, rule.id);
+            if (pair) keys.add([rule.id, pair.id].sort((a, b) => a - b).join('-'));
+        });
+        return keys.size;
+    }
+
+    function renderTransitionSummary() {
+        const cycles = countCircularTransitionPairs();
+        const valid = transitionRules.filter(rule => hasValidTransitionReferences(rule) && !findCircularTransition(rule, rule.id)).length;
+        const cross = transitionRules.filter(isCrossTransitionRule).length;
+        $('transition-valid-count').textContent = `${valid} ${valid === 1 ? 'REGRA VÁLIDA' : 'REGRAS VÁLIDAS'}`;
+        $('transition-cross-count').textContent = `${cross} ${cross === 1 ? 'DEPENDÊNCIA CRUZADA' : 'DEPENDÊNCIAS CRUZADAS'}`;
+        $('transition-cycle-count').textContent = `${cycles} ${cycles === 1 ? 'CICLO' : 'CICLOS'}`;
+        $('transition-cycle-count').className = `transition-summary-chip ${cycles ? 'warning' : 'success'}`;
+    }
+
+    function renderTransitionContextMap() {
+        const renderStates = (flowType, containerId, countId, label) => {
+            const states = getTransitionStates(flowType, false);
+            const activeStates = states.filter(state => state.active);
+            $(countId).textContent = `${activeStates.length} ${label}`;
+            $(containerId).innerHTML = states.map(state => `
+                <span class="transition-state-chip ${flowType === 'gestao' ? 'box' : ''} ${state.active ? '' : 'inactive'}"
+                    title="${state.active ? 'Disponível para uso nas transições' : 'Inativo — não disponível para novas transições'}">
+                    ${escapeAttribute(state.name)}${state.active ? '' : ' · Inativo'}
+                </span>
+            `).join('');
+        };
+        renderStates('documental', 'transition-documental-states', 'transition-documental-count', 'ATIVAS');
+        renderStates('gestao', 'transition-gestao-states', 'transition-gestao-count', 'ATIVOS');
+
+        const selectedFlow = $('transition-view-filter')?.value || active;
+        const showAllFlows = selectedFlow === 'all';
+        $('transition-documental-group').hidden = !showAllFlows && selectedFlow !== 'documental';
+        $('transition-gestao-group').hidden = !showAllFlows && selectedFlow !== 'gestao';
+        $('transition-context-map').classList.toggle('single-flow', !showAllFlows);
+    }
+
+    function renderTransitionRules() {
+        const body = $('transition-list-body');
+        if (!body) return;
+        renderTransitionContextMap();
+        const selectedFlow = $('transition-view-filter')?.value || 'all';
+        const visibleRules = selectedFlow === 'all'
+            ? transitionRules
+            : transitionRules.filter(rule => rule.flowType === selectedFlow);
+        body.innerHTML = visibleRules.length ? visibleRules.map(rule => {
+            const isCross = isCrossTransitionRule(rule);
+            const validReference = hasValidTransitionReferences(rule);
+            const circular = findCircularTransition(rule, rule.id);
+            return `
+                <div class="transition-record" data-transition-id="${rule.id}">
+                    <div class="transition-route">
+                        <span class="transition-object-badge ${rule.flowType === 'gestao' ? 'box' : ''}">${rule.flowType === 'gestao' ? 'Caixa · Status da Gestão' : 'Documento · Etapa Documental'}</span>
+                        <strong title="${escapeAttribute(getTransitionStateName(rule.flowType, rule.originId))}">${escapeAttribute(getTransitionStateName(rule.flowType, rule.originId))}</strong>
+                        <span class="transition-arrow">→</span>
+                        <strong title="${escapeAttribute(getTransitionStateName(rule.flowType, rule.destinationId))}">${escapeAttribute(getTransitionStateName(rule.flowType, rule.destinationId))}</strong>
+                    </div>
+                    <div class="transition-prerequisite">
+                        <strong>${escapeAttribute(getTransitionEventLabel(rule))}${rule.prerequisiteType !== 'none' ? ` · ${escapeAttribute(transitionPrerequisiteLabels[rule.prerequisiteType] || rule.prerequisiteType)}` : ''}</strong>
+                        <span>${escapeAttribute(getTransitionEventDetailDescription(rule))}${getTransitionPrerequisiteDescription(rule) ? ` · ${escapeAttribute(getTransitionPrerequisiteDescription(rule))}` : ''}</span>
+                    </div>
+                    <div class="transition-mode">
+                        <strong>${rule.executionMode === 'automatic' ? 'Execução automática' : 'Ação do usuário'}</strong>
+                        <span>${escapeAttribute(getTransitionFailureDescription(rule))}</span>
+                        <div class="transition-tags" style="margin-top:5px">
+                            ${rule.prerequisiteType === 'none' ? '<span class="transition-tag">SEM CONDIÇÃO</span>' : rule.required ? '<span class="transition-tag required">OBRIGATÓRIO</span>' : '<span class="transition-tag">OPCIONAL</span>'}
+                            ${isCross ? '<span class="transition-tag cross">CRUZADA</span>' : ''}
+                            ${!validReference ? '<span class="transition-tag required">REFERÊNCIA INVÁLIDA</span>' : ''}
+                            ${circular ? '<span class="transition-tag required">CICLO</span>' : ''}
+                        </div>
+                    </div>
+                    <div class="transition-actions">
+                        <button type="button" class="btn" data-transition-edit="${rule.id}"
+                            style="height:30px;border-radius:3px;border:1px solid #cbd3d7;background:#fff;color:#52616b;padding:0 10px;font-size:9px;font-weight:700;cursor:pointer">Editar</button>
+                    </div>
+                </div>
+            `;
+        }).join('') : `<div class="transition-empty">Nenhuma transição configurada para ${selectedFlow === 'gestao' ? 'os Status da Gestão Documental' : selectedFlow === 'documental' ? 'as Etapas Documentais' : 'este contexto'}.</div>`;
+
+        body.querySelectorAll('[data-transition-edit]').forEach(button => {
+            button.onclick = () => openTransitionEditor(Number(button.dataset.transitionEdit));
+        });
+        renderTransitionSummary();
+    }
+
+    function fillTransitionSelect(select, states, selectedValue = '') {
+        select.innerHTML = '<option value="">Selecione...</option>' + states
+            .map(state => `<option value="${state.id}">${escapeAttribute(state.name)}</option>`)
+            .join('');
+        if (states.some(state => String(state.id) === String(selectedValue))) select.value = String(selectedValue);
+    }
+
+    function updateTransitionStateOptions(values = {}) {
+        const flowType = $('transition-flow-type').value;
+        const states = getTransitionStates(flowType);
+        updateTransitionTerminology(flowType);
+        fillTransitionSelect($('transition-origin'), states, values.originId ?? $('transition-origin').value);
+        fillTransitionSelect($('transition-destination'), states, values.destinationId ?? $('transition-destination').value);
+        fillTransitionSelect($('transition-failure-target'), states, values.failureTargetId ?? $('transition-failure-target').value);
+
+        const prerequisiteType = $('transition-prerequisite-type').value;
+        const relatedFlow = prerequisiteType === 'document_stage' ? 'documental' : 'gestao';
+        fillTransitionSelect($('transition-related-state'), getTransitionStates(relatedFlow), values.relatedStateId ?? $('transition-related-state').value);
+        $('transition-related-state-label').innerHTML = prerequisiteType === 'document_stage'
+            ? 'Etapa Documental exigida <span style="color:#c00">*</span>'
+            : 'Status da Gestão Documental exigido <span style="color:#c00">*</span>';
+        $('transition-flow-source-note').textContent = flowType === 'documental'
+            ? `Origem e destino carregados das ${states.length} Etapas Documentais ativas desta configuração.`
+            : `Origem e destino carregados dos ${states.length} Status da Gestão Documental ativos desta configuração.`;
+    }
+
+    function updateTransitionIntegrationResults(selectedValue = '') {
+        const integration = $('transition-integration').value;
+        const results = transitionIntegrationResults[integration] || [];
+        $('transition-integration-result').innerHTML = results.length
+            ? '<option value="">Selecione...</option>' + results
+                .map(item => `<option value="${item.value}">${escapeAttribute(item.label)}</option>`)
+                .join('')
+            : '<option value="">Selecione primeiro a integração...</option>';
+        if (results.some(item => item.value === selectedValue)) {
+            $('transition-integration-result').value = selectedValue;
+        }
+    }
+
+    function updateTransitionEventFields(values = {}) {
+        const event = $('transition-event').value;
+        $('transition-user-action-field').hidden = event !== 'user_action';
+        $('transition-operation-field').hidden = event !== 'operation_completion';
+        $('transition-integration-field').hidden = event !== 'integration_return';
+        $('transition-integration-result-field').hidden = event !== 'integration_return';
+        $('transition-service-order-type-field').hidden = event !== 'service_order_completion';
+        $('transition-service-order-result-field').hidden = event !== 'service_order_completion';
+        $('transition-internal-routine-field').hidden = event !== 'internal_automation';
+
+        if (Object.prototype.hasOwnProperty.call(values, 'userAction')) {
+            $('transition-user-action').value = values.userAction || '';
+        }
+        if (Object.prototype.hasOwnProperty.call(values, 'operation')) {
+            $('transition-operation').value = values.operation || '';
+        }
+        if (Object.prototype.hasOwnProperty.call(values, 'integration')) {
+            $('transition-integration').value = values.integration || '';
+        }
+        updateTransitionIntegrationResults(values.integrationResult || '');
+        if (Object.prototype.hasOwnProperty.call(values, 'serviceOrderType')) {
+            $('transition-service-order-type').value = values.serviceOrderType || '';
+        }
+        if (Object.prototype.hasOwnProperty.call(values, 'serviceOrderResult')) {
+            $('transition-service-order-result').value = values.serviceOrderResult || '';
+        }
+        if (Object.prototype.hasOwnProperty.call(values, 'internalRoutine')) {
+            $('transition-internal-routine').value = values.internalRoutine || '';
+        }
+
+        $('transition-execution').value = event === 'user_action' ? 'user' : 'automatic';
+    }
+
+    function getTransitionCandidate() {
+        return {
+            id: editingTransitionId,
+            flowType: $('transition-flow-type').value,
+            originId: Number($('transition-origin').value) || null,
+            destinationId: Number($('transition-destination').value) || null,
+            event: $('transition-event').value,
+            userAction: $('transition-user-action').value,
+            operation: $('transition-operation').value,
+            integration: $('transition-integration').value,
+            integrationResult: $('transition-integration-result').value,
+            serviceOrderType: $('transition-service-order-type').value,
+            serviceOrderResult: $('transition-service-order-result').value,
+            internalRoutine: $('transition-internal-routine').value,
+            prerequisiteType: $('transition-prerequisite-type').value,
+            required: $('transition-required').checked,
+            failureBehavior: $('transition-failure-behavior').value,
+            failureTargetId: Number($('transition-failure-target').value) || null,
+            failureMessage: $('transition-failure-message').value.trim(),
+            executionMode: $('transition-execution').value,
+            crossCriteria: $('transition-cross-criteria').value,
+            relatedStateId: Number($('transition-related-state').value) || null,
+            threshold: Number($('transition-threshold').value) || null
+        };
+    }
+
+    function validateTransitionCandidate(candidate) {
+        const terminology = getTransitionTerminology(candidate.flowType);
+        if (!candidate.originId || !candidate.destinationId) {
+            return { valid: false, severity: 'error', message: terminology.missingRoute };
+        }
+        if (candidate.originId === candidate.destinationId) {
+            return { valid: false, severity: 'error', message: terminology.sameRoute };
+        }
+        if (candidate.event === 'user_action' && !candidate.userAction) {
+            return { valid: false, severity: 'error', message: 'Selecione a ação manual do usuário que inicia a transição.' };
+        }
+        if (candidate.event === 'operation_completion' && !candidate.operation) {
+            return { valid: false, severity: 'error', message: 'Selecione a operação funcional cuja conclusão inicia a transição.' };
+        }
+        if (candidate.event === 'integration_return' && !candidate.integration) {
+            return { valid: false, severity: 'error', message: 'Selecione a integração externa que inicia a transição.' };
+        }
+        if (candidate.event === 'integration_return' && !candidate.integrationResult) {
+            return { valid: false, severity: 'error', message: 'Selecione o resultado recebido da integração externa.' };
+        }
+        if (candidate.event === 'service_order_completion' && !candidate.serviceOrderType) {
+            return { valid: false, severity: 'error', message: 'Selecione o tipo de Ordem de Serviço.' };
+        }
+        if (candidate.event === 'service_order_completion' && !candidate.serviceOrderResult) {
+            return { valid: false, severity: 'error', message: 'Selecione a situação de encerramento da Ordem de Serviço.' };
+        }
+        if (candidate.event === 'internal_automation' && !candidate.internalRoutine) {
+            return { valid: false, severity: 'error', message: 'Selecione a rotina interna do DocZ que inicia a transição.' };
+        }
+        if (candidate.prerequisiteType === 'document_stage' && candidate.flowType !== 'gestao') {
+            return { valid: false, severity: 'error', message: 'A Etapa do documento vinculado somente pode condicionar uma transição do fluxo de Caixas.' };
+        }
+        if (candidate.prerequisiteType === 'box_status' && candidate.flowType !== 'documental') {
+            return { valid: false, severity: 'error', message: 'O Status da caixa vinculada somente pode condicionar uma transição do fluxo de Documentos.' };
+        }
+        if (isCrossTransitionRule(candidate) && !candidate.relatedStateId) {
+            return { valid: false, severity: 'error', message: 'Selecione a Etapa ou o Status exigido do objeto relacionado.' };
+        }
+        if (candidate.prerequisiteType === 'document_stage'
+            && ['quantity', 'percentage'].includes(candidate.crossCriteria)
+            && !candidate.threshold) {
+            return { valid: false, severity: 'error', message: 'Informe a quantidade ou o percentual mínimo exigido.' };
+        }
+        const hasPrerequisite = candidate.prerequisiteType !== 'none';
+        if (hasPrerequisite && candidate.failureBehavior === 'redirect' && !candidate.failureTargetId) {
+            return { valid: false, severity: 'error', message: terminology.selectAlternative };
+        }
+        if (hasPrerequisite && candidate.failureBehavior === 'redirect' && candidate.failureTargetId === candidate.destinationId) {
+            return { valid: false, severity: 'error', message: terminology.sameAlternative };
+        }
+        if (hasPrerequisite && candidate.failureBehavior === 'block_message' && !candidate.failureMessage) {
+            return { valid: false, severity: 'error', message: 'Informe a mensagem que será apresentada quando o pré-requisito não for atendido.' };
+        }
+        const circular = findCircularTransition(candidate, editingTransitionId);
+        if (circular) {
+            return {
+                valid: false,
+                severity: 'error',
+                message: `Dependência circular detectada com a transição ${getTransitionStateName(circular.flowType, circular.originId)} → ${getTransitionStateName(circular.flowType, circular.destinationId)}.`
+            };
+        }
+        if (hasPrerequisite && !candidate.required) {
+            return { valid: true, severity: 'warning', message: 'O pré-requisito está configurado como opcional e não impedirá o avanço.' };
+        }
+        return {
+            valid: true,
+            severity: 'success',
+            message: hasPrerequisite
+                ? 'Configuração válida. Nenhuma referência incompatível ou dependência circular foi identificada.'
+                : 'Configuração válida. A transição será executada somente pelo evento informado, sem condição adicional.'
+        };
+    }
+
+    function updateTransitionValidation() {
+        const candidate = getTransitionCandidate();
+        const result = validateTransitionCandidate(candidate);
+        const validation = $('transition-validation');
+        validation.className = `transition-validation ${result.severity === 'success' ? '' : result.severity}`.trim();
+        validation.innerHTML = `<strong>${result.valid ? 'Validação:' : 'Atenção:'}</strong><span>${escapeAttribute(result.message)}</span>`;
+        return result;
+    }
+
+    function updateTransitionConditionalFields() {
+        const flowType = $('transition-flow-type').value;
+        const prerequisiteType = $('transition-prerequisite-type').value;
+        const hasPrerequisite = prerequisiteType !== 'none';
+        const isCross = prerequisiteType === 'document_stage' || prerequisiteType === 'box_status';
+        $('transition-related-state-field').hidden = !isCross;
+        $('transition-cross-criteria-field').hidden = prerequisiteType !== 'document_stage';
+        const showThreshold = prerequisiteType === 'document_stage'
+            && ['quantity', 'percentage'].includes($('transition-cross-criteria').value);
+        $('transition-threshold-field').hidden = !showThreshold;
+        $('transition-threshold-label').innerHTML = $('transition-cross-criteria').value === 'percentage'
+            ? 'Percentual mínimo <span style="color:#c00">*</span>'
+            : 'Quantidade mínima <span style="color:#c00">*</span>';
+
+        const failureBehavior = $('transition-failure-behavior').value;
+        $('transition-required-field').hidden = !hasPrerequisite;
+        $('transition-failure-behavior-field').hidden = !hasPrerequisite;
+        $('transition-failure-target-field').hidden = !hasPrerequisite || failureBehavior !== 'redirect';
+        $('transition-failure-message-field').hidden = !hasPrerequisite || failureBehavior !== 'block_message';
+        $('transition-required-label').textContent = $('transition-required').checked ? 'Sim' : 'Não';
+
+        updateTransitionStateOptions();
+        updateTransitionValidation();
+    }
+
+    function openTransitionEditor(id = null) {
+        editingTransitionId = id;
+        const rule = id ? transitionRules.find(item => item.id === id) : null;
+        $('transition-editor').hidden = false;
+        $('transition-editor-title').textContent = rule ? 'Editar Transição' : 'Nova Transição';
+        $('transition-flow-type').value = rule?.flowType || active;
+        $('transition-event').value = rule?.event || 'user_action';
+        $('transition-user-action').value = rule?.userAction || '';
+        $('transition-operation').value = rule?.operation || '';
+        $('transition-integration').value = rule?.integration || '';
+        $('transition-service-order-type').value = rule?.serviceOrderType || '';
+        $('transition-service-order-result').value = rule?.serviceOrderResult || '';
+        $('transition-internal-routine').value = rule?.internalRoutine || '';
+        $('transition-prerequisite-type').value = rule?.prerequisiteType || 'none';
+        $('transition-required').checked = rule?.required ?? false;
+        $('transition-failure-behavior').value = rule?.failureBehavior || 'block_message';
+        $('transition-failure-message').value = rule?.failureMessage || '';
+        $('transition-execution').value = rule?.executionMode || 'user';
+        $('transition-cross-criteria').value = rule?.crossCriteria || 'all';
+        $('transition-threshold').value = rule?.threshold || '';
+        $('transition-scope-chip').className = `scope-chip ${$('scope').value}`;
+        $('transition-scope-chip').textContent = `● Escopo: ${scopeName()}`;
+        updateTransitionStateOptions(rule || {});
+        updateTransitionEventFields({
+            userAction: rule?.userAction || '',
+            operation: rule?.operation || '',
+            integration: rule?.integration || '',
+            integrationResult: rule?.integrationResult || '',
+            serviceOrderType: rule?.serviceOrderType || '',
+            serviceOrderResult: rule?.serviceOrderResult || '',
+            internalRoutine: rule?.internalRoutine || ''
+        });
+        updateTransitionConditionalFields();
+        $('transition-editor').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }
+
+    function closeTransitionEditor() {
+        editingTransitionId = null;
+        $('transition-editor').hidden = true;
+    }
+
+    function saveTransitionRule() {
+        const candidate = getTransitionCandidate();
+        const validation = validateTransitionCandidate(candidate);
+        updateTransitionValidation();
+        if (!validation.valid) {
+            toast(validation.message);
+            return;
+        }
+
+        if (editingTransitionId) {
+            const index = transitionRules.findIndex(rule => rule.id === editingTransitionId);
+            transitionRules[index] = { ...candidate, id: editingTransitionId };
+        } else {
+            transitionRules.push({ ...candidate, id: Date.now() });
+        }
+        renderTransitionRules();
+        closeTransitionEditor();
+        toast('Transição e pré-requisito salvos nesta configuração.');
+    }
+
     const flowScopeLabel = scope => ({ system: 'Sistema', client: 'Cliente', project: 'Projeto' }[scope] || scope);
 
     // ===== ÍCONES SVG INLINE =====
@@ -5087,6 +7202,9 @@ const iconRestore = `<svg width="16" height="16" viewBox="0 0 24 24" fill="none"
     function showFlowList() {
         $('flow-list-view').style.display = 'block';
         $('editor-widget').style.display = 'none';
+        $('operational-rules').style.display = 'none';
+        $('transition-rules').style.display = 'none';
+        closeTransitionEditor();
         setBreadcrumb('Configuração de Etapas do Projeto');
         renderFlowConfigurations();
         window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -5096,6 +7214,10 @@ const iconRestore = `<svg width="16" height="16" viewBox="0 0 24 24" fill="none"
     const flow = id ? flowConfigurations.find(item => item.id === id) : null;
     $('flow-list-view').style.display = 'none';
     $('editor-widget').style.display = 'block';
+    $('operational-rules').style.display = 'block';
+    $('transition-rules').style.display = 'block';
+    closeTransitionEditor();
+    $('transition-view-filter').value = active;
     setBreadcrumb(flow ? 'Editar Configuração de Fluxo' : 'Nova Configuração de Fluxo');
     $('editor-widget-title').textContent = flow ? `Editar Configuração — ${flow.name}` : 'Nova Configuração de Etapas do Projeto';
 
@@ -5155,6 +7277,7 @@ const iconRestore = `<svg width="16" height="16" viewBox="0 0 24 24" fill="none"
         refreshListTitle();
     }
 
+    updateRuleOptions();
     window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
@@ -5208,8 +7331,8 @@ const iconRestore = `<svg width="16" height="16" viewBox="0 0 24 24" fill="none"
     }
 
     function refreshListTitle() {
-    $('list-title').textContent = `${config().title} — ${scopeName()}`;
-}
+        $('list-title').textContent = `${config().title} — ${scopeName()}`;
+    }
 
     function updateScope(showMessage = true) {
         const scope = $('scope').value,
@@ -5252,6 +7375,7 @@ const iconRestore = `<svg width="16" height="16" viewBox="0 0 24 24" fill="none"
         refreshListTitle();
         resetForm();
         render();
+        updateRuleOptions();
         if (showMessage) toast(`Escopo de aplicação alterado para ${scopeName()}.`);
     }
 
@@ -5300,6 +7424,7 @@ const iconRestore = `<svg width="16" height="16" viewBox="0 0 24 24" fill="none"
 
     bindRows();
     initSortable();
+    renderTransitionRules();
 }
 
     function bindRows() {
@@ -5395,6 +7520,8 @@ const iconRestore = `<svg width="16" height="16" viewBox="0 0 24 24" fill="none"
     function switchTab(tab) {
         active = tab;
         editing = null;
+        closeTransitionEditor();
+        $('transition-view-filter').value = tab;
 
         document.querySelectorAll('.tab').forEach(x => {
             if (x.dataset.tab === tab) {
@@ -5417,6 +7544,12 @@ const iconRestore = `<svg width="16" height="16" viewBox="0 0 24 24" fill="none"
                 }
             }
         });
+
+        $('stage-editor-section').style.display = 'block';
+        $('stage-table-toolbar').style.display = 'flex';
+        $('table-area').style.display = 'block';
+        $('stage-table-footer').style.display = 'flex';
+        $('tab-context-note').textContent = 'A Ordem é Independente para Cada Fluxo.';
 
         const c = config();
         refreshListTitle();
@@ -5455,6 +7588,53 @@ const iconRestore = `<svg width="16" height="16" viewBox="0 0 24 24" fill="none"
 
     // ===== EVENT LISTENERS =====
     document.querySelectorAll('.tab').forEach(x => x.onclick = () => switchTab(x.dataset.tab));
+    $('rule-pdfa-enabled').onchange = setPdfaRuleState;
+    $('rule-collection-enabled').onchange = () => setRuleCardState('rule-collection-enabled', 'rule-collection-stage', 'collection-order');
+    $('notification-all-enabled').onchange = () => setNotificationModeState(true);
+    $('restore-rules').onclick = () => restoreOperationalRules();
+    $('save-rules').onclick = saveOperationalRules;
+    $('transition-new').onclick = () => openTransitionEditor();
+    $('transition-view-filter').onchange = renderTransitionRules;
+    $('transition-cancel').onclick = closeTransitionEditor;
+    $('transition-save').onclick = saveTransitionRule;
+    $('transition-flow-type').onchange = () => {
+        updateTransitionStateOptions({ originId: '', destinationId: '', failureTargetId: '', relatedStateId: '' });
+        updateTransitionConditionalFields();
+    };
+    $('transition-event').onchange = () => {
+        updateTransitionEventFields();
+        updateTransitionValidation();
+    };
+    $('transition-integration').onchange = () => {
+        updateTransitionIntegrationResults();
+        updateTransitionValidation();
+    };
+    $('transition-prerequisite-type').onchange = () => {
+        $('transition-required').checked = $('transition-prerequisite-type').value !== 'none';
+        updateTransitionStateOptions({ relatedStateId: '' });
+        updateTransitionConditionalFields();
+    };
+    $('transition-cross-criteria').onchange = updateTransitionConditionalFields;
+    $('transition-failure-behavior').onchange = updateTransitionConditionalFields;
+    $('transition-required').onchange = updateTransitionConditionalFields;
+    [
+        'transition-origin',
+        'transition-destination',
+        'transition-event',
+        'transition-user-action',
+        'transition-operation',
+        'transition-integration-result',
+        'transition-service-order-type',
+        'transition-service-order-result',
+        'transition-internal-routine',
+        'transition-related-state',
+        'transition-threshold',
+        'transition-execution',
+        'transition-failure-target',
+        'transition-failure-message'
+    ].forEach(id => {
+        $(id).addEventListener($(id).tagName === 'INPUT' ? 'input' : 'change', updateTransitionValidation);
+    });
     $('search').oninput = render;
     $('clear-search').onclick = () => {
         $('search').value = '';
@@ -5577,16 +7757,22 @@ const iconRestore = `<svg width="16" height="16" viewBox="0 0 24 24" fill="none"
         if ($('scope').value === 'project') fillProjects();
         toast($('scope').value === 'client' ? 'Cliente de aplicação atualizado.' : 'Contexto do projeto atualizado.');
     };
-    $('project').onchange = () => toast('Projeto de aplicação atualizado.');
+    $('project').onchange = () => {
+        toast('Projeto de aplicação atualizado.');
+    };
 
     // ===== INICIALIZAÇÃO =====
+    $('editor-widget').insertAdjacentElement('afterend', $('transition-rules'));
+    $('transition-rules').insertAdjacentElement('afterend', $('operational-rules'));
     updateScope(false);
+    restoreOperationalRules(false);
+    renderTransitionRules();
     fillFlowClientFilter();
     fillFlowProjectFilter();
     renderFlowConfigurations();
 </script>
 
 
-</body>
+<script>(function(){function c(){var b=a.contentDocument||(a.contentWindow&&a.contentWindow.document);if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a3b004d67b88f20e',t:'MTc4OTM5NTQ4NQ=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 
 </html>
