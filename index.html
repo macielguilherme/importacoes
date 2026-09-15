@@ -3935,7 +3935,7 @@
         }
     }
 
-   /* ===== TRANSIÇÕES E PRÉ-REQUISITOS ===== */
+  /* ===== TRANSIÇÕES E PRÉ-REQUISITOS ===== */
 
 .transition-rules {
     display: none;
@@ -3970,6 +3970,8 @@
     margin: 0 0 3px;
     font-size: 14px;
     color: #40505a;
+    text-transform: uppercase;
+    letter-spacing: .3px;
 }
 
 .transition-rules-header h2 .info-badge {
@@ -3984,6 +3986,7 @@
     font-weight: 700;
     cursor: help;
     position: relative;
+    text-transform: none;
 }
 
 .transition-rules-header h2 .info-badge:hover::after {
@@ -4001,6 +4004,8 @@
     line-height: 1.45;
     z-index: 50;
     box-shadow: 0 4px 14px rgba(0,0,0,.18);
+    text-transform: none;
+    letter-spacing: normal;
 }
 
 .transition-rules-header p {
@@ -4010,7 +4015,7 @@
     color: #74818a;
 }
 
-/* ---------- RESUMO (NEUTRO) ---------- */
+/* ---------- RESUMO ---------- */
 .transition-summary-inline {
     display: flex;
     align-items: center;
@@ -4028,6 +4033,8 @@
 .transition-summary-inline .stat {
     color: #6d7b84;
     font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: .3px;
 }
 
 /* ---------- ACCORDION DE CONTEXTO ---------- */
@@ -4046,6 +4053,8 @@
     text-align: left;
     cursor: pointer;
     transition: background .15s;
+    text-transform: uppercase;
+    letter-spacing: .3px;
 }
 
 .transition-context-toggle:hover { background: #f0f4f6; }
@@ -4066,11 +4075,13 @@
     color: #8b969d;
     font-weight: 400;
     font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: .3px;
 }
 
 .transition-context-map {
     display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns: 1fr;   /* ⬅️ uma coluna só */
     gap: 10px;
     padding: 12px 18px;
     background: #fbfcfc;
@@ -4099,8 +4110,20 @@
     background: #f7f9fa;
 }
 
-.transition-context-title strong { color: #53636c; font-size: 10px; }
-.transition-context-title span { color: #71818a; font-size: 9px; font-weight: 700; }
+.transition-context-title strong { 
+    color: #53636c; 
+    font-size: 10px; 
+    text-transform: uppercase;
+    letter-spacing: .3px;
+}
+
+.transition-context-title span { 
+    color: #71818a; 
+    font-size: 9px; 
+    font-weight: 700; 
+    text-transform: uppercase;
+    letter-spacing: .3px;
+}
 
 .transition-state-chips {
     display: flex;
@@ -4121,6 +4144,8 @@
     color: #546a75;
     font-size: 9px;
     font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: .3px;
 }
 
 .transition-state-chip.inactive {
@@ -4160,6 +4185,8 @@
     font-weight: 700;
     cursor: pointer;
     transition: all .15s;
+    text-transform: uppercase;
+    letter-spacing: .3px;
 }
 
 .transition-inner-tab:hover { color: #3f7895; }
@@ -4186,7 +4213,7 @@
     color: #2f718f;
 }
 
-/* ---------- LISTA DE CARDS COMPACTOS ---------- */
+/* ---------- LISTA DE CARDS — 3 COLUNAS ---------- */
 .transition-list {
     padding: 12px 18px 4px;
     background: #fff;
@@ -4209,38 +4236,43 @@
 .transition-card.has-warning { border-left: 3px solid #d4a94a; }
 .transition-card.has-error { border-left: 3px solid #c05c53; }
 
-/* Linha-resumo */
+/* ---------- CABEÇALHO DAS COLUNAS (opcional, se quiser rótulos) ---------- */
+.transition-list-header {
+    display: grid;
+    grid-template-columns: 1.4fr 2fr 1fr 32px;
+    gap: 16px;
+    padding: 8px 16px;
+    background: #f7f9fa;
+    border-bottom: 1px solid #e3e8ea;
+    font-size: 9px;
+    font-weight: 700;
+    color: #7b878e;
+    text-transform: uppercase;
+    letter-spacing: .4px;
+}
+
+/* ---------- LINHA-RESUMO — 3 COLUNAS ---------- */
 .transition-card-summary {
-    display: flex;
+    display: grid;
+    grid-template-columns: 1.4fr 2fr 1fr 32px;
     align-items: center;
-    gap: 10px;
-    padding: 10px 13px;
+    gap: 16px;
+    padding: 12px 16px;
     cursor: pointer;
     user-select: none;
 }
 
+/* Badge DOC/CX — REMOVIDO */
 .transition-card-type-badge {
-    flex-shrink: 0;
-    display: inline-grid;
-    place-items: center;
-    width: 26px;
-    height: 26px;
-    border-radius: 4px;
-    border: 1px solid #dfe5e8;
-    background: #f5f7f8;
-    color: #6d7b84;
-    font-size: 9px;
-    font-weight: 700;
-    letter-spacing: .3px;
+    display: none !important;
 }
 
+/* ----- COLUNA 1: TRANSIÇÃO ----- */
 .transition-card-route {
     display: flex;
     align-items: center;
     gap: 7px;
     min-width: 0;
-    flex: 1;
-    font-size: 11px;
 }
 
 .transition-card-route .from,
@@ -4250,7 +4282,10 @@
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    max-width: 200px;
+    font-size: 11.5px;
+    text-transform: uppercase;
+    letter-spacing: .2px;
+    max-width: 100%;
 }
 
 .transition-card-route .arrow {
@@ -4260,31 +4295,65 @@
     flex-shrink: 0;
 }
 
-/* Metadados neutros (sem badges coloridos) */
-.transition-card-meta {
+/* ----- COLUNA 2: EVENTO E PRÉ-REQUISITO ----- */
+.transition-card-event {
     display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    flex-shrink: 0;
-    font-size: 10px;
-    color: #6d7b84;
+    flex-direction: column;
+    gap: 2px;
+    min-width: 0;
 }
 
-.transition-card-meta .meta-item {
-    white-space: nowrap;
-}
-
-.transition-card-meta .meta-item strong {
-    color: #4b5b64;
+.transition-card-event .event-main {
+    color: #3d4c56;
     font-weight: 700;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: .2px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
-.transition-card-meta .meta-item.danger {
-    color: #a35d58;
+.transition-card-event .event-detail {
+    color: #7d8991;
+    font-weight: 400;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: .2px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
+/* ----- COLUNA 3: COMPORTAMENTO ----- */
+.transition-card-behavior {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    min-width: 0;
+}
+
+.transition-card-behavior .behavior-main {
+    color: #3d4c56;
+    font-weight: 700;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: .2px;
+}
+
+.transition-card-behavior .behavior-detail {
+    color: #7d8991;
+    font-weight: 400;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: .2px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* ----- COLUNA 4: CHEVRON ----- */
 .transition-card-expand {
-    margin-left: 4px;
     width: 24px;
     height: 24px;
     display: grid;
@@ -4295,16 +4364,17 @@
     cursor: pointer;
     flex-shrink: 0;
     transition: transform .2s;
+    justify-self: end;
 }
 
 .transition-card.is-open .transition-card-expand {
     transform: rotate(180deg);
 }
 
-/* Detalhe expansível */
+/* ---------- DETALHE EXPANSÍVEL ---------- */
 .transition-card-detail {
     display: none;
-    padding: 0 13px 12px 48px;
+    padding: 0 16px 12px 16px;
     border-top: 1px dashed #e4eaed;
     background: #fbfcfc;
 }
@@ -4333,7 +4403,12 @@
     letter-spacing: .3px;
 }
 
-.transition-detail-row .value { color: #4b5b64; }
+.transition-detail-row .value { 
+    color: #4b5b64; 
+    text-transform: uppercase;
+    letter-spacing: .2px;
+    font-size: 10.5px;
+}
 
 .transition-detail-actions {
     display: flex;
@@ -4355,7 +4430,14 @@
     border-radius: 4px;
     margin: 0 18px 12px;
 }
-.transition-empty strong { display:block; color: #52616b; font-size: 12px; margin-bottom: 4px; }
+.transition-empty strong { 
+    display:block; 
+    color: #52616b; 
+    font-size: 12px; 
+    margin-bottom: 4px; 
+    text-transform: uppercase;
+    letter-spacing: .3px;
+}
 
 /* ---------- FOOTER ---------- */
 .transition-rules-footer {
@@ -4368,6 +4450,8 @@
     background: #fafbfb;
     color: #7b878e;
     font-size: 9px;
+    text-transform: uppercase;
+    letter-spacing: .3px;
 }
 
 /* ---------- MODAL DO EDITOR ---------- */
@@ -4410,6 +4494,8 @@
     font-size: 14px;
     color: #344650;
     flex: 1;
+    text-transform: uppercase;
+    letter-spacing: .3px;
 }
 
 .transition-editor-head .close-btn {
@@ -4448,6 +4534,8 @@
     color: #8b969d;
     transition: all .18s;
     white-space: nowrap;
+    text-transform: uppercase;
+    letter-spacing: .3px;
 }
 
 .transition-step .num {
@@ -4494,6 +4582,8 @@
     margin: 0 0 4px;
     font-size: 12px;
     color: #40505a;
+    text-transform: uppercase;
+    letter-spacing: .3px;
 }
 
 .transition-step-panel .step-hint {
@@ -4517,6 +4607,8 @@
     color: #596872;
     font-size: 10px;
     font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: .3px;
 }
 
 .transition-field label .req { color: #c00; }
@@ -4542,6 +4634,7 @@
     padding: 0 10px;
     font-size: 11px;
     outline: none;
+    text-transform: uppercase;
 }
 
 .transition-field input:focus,
@@ -4566,6 +4659,8 @@
     color: #4d5d66;
     font-size: 10px;
     font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: .3px;
 }
 
 .transition-validation {
@@ -4624,19 +4719,29 @@
     .transition-summary-inline {
         justify-content: center;
     }
+    .transition-card-summary {
+        grid-template-columns: 1fr;
+        gap: 8px;
+    }
     .transition-card-route .from,
-    .transition-card-route .to { max-width: 120px; }
+    .transition-card-route .to { max-width: 100%; }
     .transition-detail-grid { grid-template-columns: 1fr; }
-    .transition-card-detail { padding-left: 13px; }
+    .transition-card-detail { padding-left: 16px; }
     .transition-editor-body .transition-editor-grid { grid-template-columns: 1fr; }
     .transition-field.span-2 { grid-column: 1; }
     .transition-steps { overflow-x: auto; }
+    .transition-list-header { display: none; }
 }
 
 @media (max-width: 600px) {
-    .transition-card-summary { flex-wrap: wrap; }
     .transition-editor-box { max-height: 96vh; }
+    .transition-card-summary { padding: 10px 12px; }
+    .transition-card-event .event-main,
+    .transition-card-behavior .behavior-main { font-size: 10.5px; }
+    .transition-card-event .event-detail,
+    .transition-card-behavior .behavior-detail { font-size: 9.5px; }
 }
+     
 </style>
     <link rel="canonical" href="https://docz.sosdocs.com.br/Docz/app/view_importacao_list">
     <meta http-equiv="content-security-policy" content="default-src &#39;none&#39;; font-src &#39;self&#39; data:; img-src &#39;self&#39; data:; style-src &#39;unsafe-inline&#39;; media-src &#39;self&#39; data:; script-src &#39;unsafe-inline&#39; data:; object-src &#39;self&#39; data:; frame-src &#39;self&#39; data:;">
@@ -4942,10 +5047,10 @@
                         <li><span><strong>Demo</strong></span></li>
 
 
-                        <li><span><strong>99999 | DEMO - POC CODEBA</strong></span></li>
+                        <li><span><strong>99999 | Demo - POC CODEBA</strong></span></li>
 
 
-                        <li><a href="https://docz.sosdocs.com.br/Docz/app/usuario" title="Minha Conta"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAsAAAALCAYAAACprHcmAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2RpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo2MDUyN0ZDMjhCMDFFMTExQkJCMEM0MjQxQ0E2QjQ3MCIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDpGRkFENkI0OTAyMUMxMUUxODc4MkNGQTA2QkQ0RURGRSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDpGRkFENkI0ODAyMUMxMUUxODc4MkNGQTA2QkQ0RURGRSIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1IFdpbmRvd3MiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo2MDUyN0ZDMjhCMDFFMTExQkJCMEM0MjQxQ0E2QjQ3MCIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo2MDUyN0ZDMjhCMDFFMTExQkJCMEM0MjQxQ0E2QjQ3MCIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PrOYkxcAAAEDSURBVHjaYmBAAMZp06YJP3/+fPu7d+/+P3nyZOWpU6f0QOIwBUxIipm0tLS82NnZPUAcLi6uMA4OjiggkxWbYnYBAQFvJD5Ig0tmZqYozHRkxZzS0tKByIoFBQUNNTU1FZCdAgPis2fP7ge5F4bnzp07DSguB8TM6Ir5gNji4MGDJ0AKL1++fAfItwFZgM0Z37Kzs/+Ki4vzg93EycmSkJDwA8j8DMT/wcHV39/P5e/vHwsMhUCg710ZGRnhBvz////3jx8/dn/9+nXt0aNHlzM+evRoHQ8PTyADAfDt27ctjK9evfrIwsLCR0jxv3///oAc7gDEMkDMgkftXyB+ChBgAHFCWwDshGJMAAAAAElFTkSuQmCC" alt="Minha Conta"><span>GUILHERME FARIAS MACIEL RIBEIRO</span></a></li>
+                        <li><a href="https://docz.sosdocs.com.br/Docz/app/usuario" title="Minha Conta"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAsAAAALCAYAAACprHcmAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2RpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo2MDUyN0ZDMjhCMDFFMTExQkJCMEM0MjQxQ0E2QjQ3MCIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDpGRkFENkI0OTAyMUMxMUUxODc4MkNGQTA2QkQ0RURGRSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDpGRkFENkI0ODAyMUMxMUUxODc4MkNGQTA2QkQ0RURGRSIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1IFdpbmRvd3MiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo2MDUyN0ZDMjhCMDFFMTExQkJCMEM0MjQxQ0E2QjQ3MCIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo2MDUyN0ZDMjhCMDFFMTExQkJCMEM0MjQxQ0E2QjQ3MCIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PrOYkxcAAAEDSURBVHjaYmBAAMZp06YJP3/+fPu7d+/+P3nyZOWpU6f0QOIwBUxIipm0tLS82NnZPUAcLi6uMA4OjiggkxWbYnYBAQFvJD5Ig0tmZqYozHRkxZzS0tKByIoFBQUNNTU1FZCdAgPis2fP7ge5F4bnzp07DSguB8TM6Ir5gNji4MGDJ0AKL1++fAfItwFZgM0Z37Kzs/+Ki4vzg93EycmSkJDwA8j8DMT/wcHV39/P5e/vHwsMhUCg710ZGRnhBvz////3jx8/dn/9+nXt0aNHlzM+evRoHQ8PTyADAfDt27ctjK9evfrIwsLCR0jxv3///oAc7gDEMkDMgkftXyB+ChBgAHFCWwDshGJMAAAAAElFTkSuQmCC" alt="Minha Conta"><span>Guilherme Farias Maciel Ribeiro</span></a></li>
                         <li><a href="https://docz.sosdocs.com.br/Docz/login" title="Pesquisa"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2RpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo2MDUyN0ZDMjhCMDFFMTExQkJCMEM0MjQxQ0E2QjQ3MCIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDo2MTkyNjE3NzE2QTgxMUUxQTI3QUI3RkU4Q0RDODA2QSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDo2MTkyNjE3NjE2QTgxMUUxQTI3QUI3RkU4Q0RDODA2QSIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1IFdpbmRvd3MiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo2MDUyN0ZDMjhCMDFFMTExQkJCMEM0MjQxQ0E2QjQ3MCIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo2MDUyN0ZDMjhCMDFFMTExQkJCMEM0MjQxQ0E2QjQ3MCIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/Po3fl+IAAAEGSURBVHjaYmBAAMbLly/rPH36tBbIZmHAAZiOHz9u+/r167c3b95cAuTzYFV0+vRprzdv3nx99+7d/3v37l0HasrYs2ePMMgWuKrz58/Hvn379hdIETIGiT158mTxqlWrREEaGK9du7ZOQkIiEJebfv78eWffvn32IKNNd+3a1W1iYmIPkvj+/fvXZxDwnJeXl0lHR8fw/fv3q0By0kDssmbNmu0gK3fs2HEIyA8BYg8g9g4MDMx8+fLlG5BCViCWAmKHqVOnzjx48OBGIFsNiEWAWAKIDW/fvn0K5hRQuIkBsZ65ubkJkOaDhS3IkAsXLixFdjczNPxAitiQxAXXrl0bDRBgANunfjVDiATTAAAAAElFTkSuQmCC" alt=""><span>Voltar para Home </span></a></li>
                         <li><a href="javascript:void(0)" title=""><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAsAAAALCAYAAACprHcmAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2RpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo2MDUyN0ZDMjhCMDFFMTExQkJCMEM0MjQxQ0E2QjQ3MCIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDo4NDUwN0IwRDAyMUMxMUUxOTEyRjk5NzBEOEIzQUY3RCIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDo4NDUwN0IwQzAyMUMxMUUxOTEyRjk5NzBEOEIzQUY3RCIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1IFdpbmRvd3MiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo2MDUyN0ZDMjhCMDFFMTExQkJCMEM0MjQxQ0E2QjQ3MCIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo2MDUyN0ZDMjhCMDFFMTExQkJCMEM0MjQxQ0E2QjQ3MCIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/Pj+Kxy0AAAEcSURBVHjaYmbADlifP3/ez8/Pf3j//v2/GQgAwTdv3nx69uzZhR07dsgD+YzYFDGeOXNGZt++fbmvX7/++e7du/+vXr16DRSzB8oxwXQw37x5M0xAQKCZlZVVGd2Ef//+/Xz06FE0U1NTE/fDhw/ni4qKLsOmEASYmJjYubm5kxivXr3aJiEhUf7gwYMLb9++/c7BwcEH5EuKAAFM8aFDh7YHBATUMwB9/bSvr68DKOYPxJ5A7AvEcVD3/urp6ZkH5DsCsTQD0C13gQwLIJYFYlEgFgNio8ePH7+Jj4+vB7ItoWIsDEBnbAUy5ECeRHKmuJ2dnRuQNgAFI1xu3rx5YUBKGM1PHEAsBMQ8IP8hS4AEOdHDGwnDAUCAAQCkz2eP37LmXwAAAABJRU5ErkJggg==" alt=""><span>Logout</span></a></li>
 
@@ -5002,7 +5107,7 @@
                 </div>
 
                 <div class="flow-list-intro">
-                    Consulte e gerencie as configurações de etapas documentais e de status da gestão documental por
+                    Consulte e Gerencie as Configurações de Etapas Documentais e de Status da Gestão Documental por
                     Sistema, Cliente ou Projeto.
                 </div>
 
@@ -5036,7 +5141,7 @@
                     </div>
                     <div>
                         <label for="flow-client-filter">Cliente</label>
-                        <select id="flow-client-filter"><option value="all" selected="">Todos os Clientes</option><option value="ANM">Agência Nacional de Mineração — Anm</option><option value="sesi">Serviço Social da Indústria — Sesi/dn</option><option value="TCDF">Tribunal de Contas do Distrito Federal — Tcdf</option></select>
+                        <select id="flow-client-filter"><option value="all" selected="">Todos os Clientes</option><option value="ANM">Agência Nacional de Mineração — Anm</option><option value="sesi">Serviço Social da Indústria — Sesi/Dn</option><option value="TCDF">Tribunal de Contas do Distrito Federal — Tcdf</option></select>
                     </div>
                     <div>
                         <label for="flow-project-filter">Projeto</label>
@@ -5048,8 +5153,8 @@
 
                 <div class="flow-list-toolbar">
                     <h3>Fluxos Configurados</h3>
-                    <span class="flow-history-note" title="Os registros excluídos permanecem disponíveis para auditoria">◷ Exclusões preservam o
-                        histórico</span>
+                    <span class="flow-history-note" title="Os registros excluídos permanecem disponíveis para auditoria">◷ Exclusões Preservam o
+                        Histórico</span>
                     <div style="flex:1"></div>
                     <button type="button" id="new-flow" class="greenB" style="height:36px;border-radius:3px;padding:0 15px;font-size:11px;font-weight:700;display:inline-flex;align-items:center;gap:7px;cursor:pointer;background-image:var(--sf-img-39);background-position:0 -425px;border:1px solid #7ca82a;color:#fff">＋
                         Nova Configuração</button>
@@ -5085,7 +5190,7 @@
             </tr><tr data-flow-id="102">
                 <td><span class="flow-name">Fluxo SESI/DN — Gestão do Acervo</span><span class="flow-subtitle">Atualizada em 01/09/2026</span></td>
                 <td><span class="scope-label project">Projeto</span></td>
-                <td><span class="flow-name" style="font-size:11px">Serviço Social da Indústria — SESI/DN</span><span class="flow-subtitle">Sesi/dn — Gestão do Acervo Documental</span></td>
+                <td><span class="flow-name" style="font-size:11px">Serviço Social da Indústria — SESI/DN</span><span class="flow-subtitle">Sesi/Dn — Gestão do Acervo Documental</span></td>
                 <td style="text-align:center"><span class="flow-count">7</span></td>
                 <td style="text-align:center"><span class="flow-count">6</span></td>
                 <td><span class="flow-state ">Ativa</span></td>
@@ -5155,7 +5260,7 @@
             </tr><tr data-flow-id="108">
                 <td><span class="flow-name">Fluxo SESI/DN — Prontuários</span><span class="flow-subtitle">Atualizada em 31/08/2026</span></td>
                 <td><span class="scope-label project">Projeto</span></td>
-                <td><span class="flow-name" style="font-size:11px">Serviço Social da Indústria — SESI/DN</span><span class="flow-subtitle">Sesi/dn — Organização de Prontuários</span></td>
+                <td><span class="flow-name" style="font-size:11px">Serviço Social da Indústria — SESI/DN</span><span class="flow-subtitle">Sesi/Dn — Organização de Prontuários</span></td>
                 <td style="text-align:center"><span class="flow-count">9</span></td>
                 <td style="text-align:center"><span class="flow-count">7</span></td>
                 <td><span class="flow-state ">Ativa</span></td>
@@ -5169,7 +5274,7 @@
             </tr><tr data-flow-id="109">
                 <td><span class="flow-name">Fluxo SESI/DN — Central Corporativa</span><span class="flow-subtitle">Atualizada em 28/08/2026</span></td>
                 <td><span class="scope-label project">Projeto</span></td>
-                <td><span class="flow-name" style="font-size:11px">Serviço Social da Indústria — SESI/DN</span><span class="flow-subtitle">Sesi/dn — Central de Documentos Corporativos</span></td>
+                <td><span class="flow-name" style="font-size:11px">Serviço Social da Indústria — SESI/DN</span><span class="flow-subtitle">Sesi/Dn — Central de Documentos Corporativos</span></td>
                 <td style="text-align:center"><span class="flow-count">7</span></td>
                 <td style="text-align:center"><span class="flow-count">5</span></td>
                 <td><span class="flow-state ">Ativa</span></td>
@@ -5225,13 +5330,13 @@
             </tr></tbody>
                     </table>
                     <div id="flow-empty" style="display:none;padding:52px 24px;text-align:center;color:#7a8790;font-size:11px">
-                        Nenhuma configuração corresponde aos filtros informados.
+                        Nenhuma Configuração Corresponde aos Filtros Informados.
                     </div>
                 </div>
 
                 <div class="flow-list-footer">
-                    <span id="flow-result-count">11 configurações encontradas</span>
-                    <span style="margin-left:auto">Use “Abrir” para configurar as etapas e os status do fluxo.</span>
+                    <span id="flow-result-count">11 Configurações Encontradas</span>
+                    <span style="margin-left:auto">Use “Abrir” para Configurar as Etapas e os Status do Fluxo.</span>
                 </div>
             </section>
 
@@ -5318,7 +5423,7 @@
                             </button>
                             <span class="scope-chip project" id="scope-chip" style="align-self:center;display:inline-flex;align-items:center;gap:6px;border-radius:12px;padding:4px 9px;font-size:10px;font-weight:700;margin-left:auto;background:#eaf3f8;color:#3d7793">● Escopo: Projeto</span>
                             <div id="tab-context-note" style="align-self:center;color:#77848d;font-size:11px;display:flex;gap:7px;align-items:center">
-                                A Ordem é Independente para Cada Fluxo.
+                                A Ordem É Independente para Cada Fluxo.
                             </div>
                         </div>
                     </div>
@@ -5328,7 +5433,7 @@
                         <header class="operational-rules-header">
                             <div>
                                 <h2 id="operational-rules-title">Regras Operacionais da Configuração</h2>
-                                <p>Configure os comportamentos que utilizam as Etapas Documentais deste fluxo. Os habilitadores e suas etapas de referência permanecem reunidos nesta configuração.</p>
+                                <p>Configure os Comportamentos que Utilizam as Etapas Documentais Deste Fluxo. os Habilitadores e Suas Etapas de Referência Permanecem Reunidos Nesta Configuração.</p>
                             </div>
                             <span class="scope-chip project" id="rules-scope-chip" style="display:inline-flex;align-items:center;gap:6px;border-radius:12px;padding:4px 9px;font-size:10px;font-weight:700;background:#eaf3f8;color:#3d7793;white-space:nowrap">● Escopo: Projeto</span>
                         </header>
@@ -5339,9 +5444,9 @@
     <span class="operational-rule-number">1</span>
     <div class="operational-rule-title">
         <strong>Notificação por Etapa Documental</strong>
-        <span>Permite notificar em etapas específicas ou em todas as Etapas Documentais habilitadas no fluxo.</span>
+        <span>Permite Notificar em Etapas Específicas ou em Todas as Etapas Documentais Habilitadas no Fluxo.</span>
     </div>
-    <span class="rule-status-badge" id="notification-summary">NENHUMA ATIVA</span>
+    <span class="rule-status-badge" id="notification-summary">Nenhuma Ativa</span>
     <button type="button" class="rule-collapse-toggle" aria-expanded="false" aria-controls="rule-body-1" title="Expandir/Recolher regra">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
             <polyline points="6 9 12 15 18 9"></polyline>
@@ -5351,8 +5456,8 @@
                                 <div class="operational-rule-body one-column" id="rule-body-1">
                                     <div class="notification-global-option">
                                         <div>
-                                            <strong>Notificação em todas as etapas?</strong>
-                                            <p>Ao habilitar, toda movimentação notificará estes destinatários, sem substituir as notificações específicas de cada etapa.</p>
+                                            <strong>Notificação em Todas as Etapas?</strong>
+                                            <p>Ao Habilitar, Toda Movimentação Notificará Estes Destinatários, sem Substituir as Notificações Específicas de Cada Etapa.</p>
                                         </div>
                                         <label class="rule-switch" title="Habilitar notificação em todas as etapas">
                                             <input type="checkbox" id="notification-all-enabled">
@@ -5361,20 +5466,20 @@
                                     </div>
                                     <div class="notification-recipients-panel" id="notification-all-recipients-panel" hidden="">
                                         <div class="rule-field">
-                                            <label for="notification-all-recipients">Destinatários de e-mail <span style="color:#c00">*</span></label>
+                                            <label for="notification-all-recipients">Destinatários de E-Mail <span style="color:#c00">*</span></label>
                                             <input type="text" id="notification-all-recipients" placeholder="Ex.: usuario@empresa.com.br; gestor@empresa.com.br" disabled="">
                                         </div>
-                                        <small>Para informar mais de um destinatário, separe os endereços por ponto e vírgula.</small>
+                                        <small>Para Informar Mais de um Destinatário, Separe os Endereços por Ponto e Vírgula.</small>
                                     </div>
                                     <div class="notification-stage-mode" id="notification-stage-mode">
                                         <div class="notification-stage-mode-title">
-                                            <strong>Notificação etapa por etapa</strong>
-                                            <span>Habilite somente as etapas desejadas e informe os destinatários correspondentes.</span>
+                                            <strong>Notificação Etapa por Etapa</strong>
+                                            <span>Habilite Somente as Etapas Desejadas e Informe os Destinatários Correspondentes.</span>
                                         </div>
                                         <div class="notification-stage-list" id="notification-stage-list" aria-label="Notificações por Etapa Documental">
         <div class="notification-stage-list-head">
-            <span>ETAPAS DOCUMENTAIS HABILITADAS NO FLUXO</span>
-            <span>NOTIFICAR USUÁRIO</span>
+            <span>Etapas Documentais Habilitadas no Fluxo</span>
+            <span>Notificar Usuário</span>
         </div>
         
                 <div class="notification-stage-item ">
@@ -5391,7 +5496,7 @@
                     </div>
                     <div class="notification-stage-recipients" hidden="">
                         <div class="rule-field">
-                            <label for="notification-recipients-1">Destinatários de e-mail <span style="color:#c00">*</span></label>
+                            <label for="notification-recipients-1">Destinatários de E-Mail <span style="color:#c00">*</span></label>
                             <input type="text" id="notification-recipients-1" data-notification-recipients="1" value="" placeholder="Ex.: usuario@empresa.com.br; gestor@empresa.com.br" disabled="">
                         </div>
                     </div>
@@ -5411,7 +5516,7 @@
                     </div>
                     <div class="notification-stage-recipients" hidden="">
                         <div class="rule-field">
-                            <label for="notification-recipients-2">Destinatários de e-mail <span style="color:#c00">*</span></label>
+                            <label for="notification-recipients-2">Destinatários de E-Mail <span style="color:#c00">*</span></label>
                             <input type="text" id="notification-recipients-2" data-notification-recipients="2" value="" placeholder="Ex.: usuario@empresa.com.br; gestor@empresa.com.br" disabled="">
                         </div>
                     </div>
@@ -5431,7 +5536,7 @@
                     </div>
                     <div class="notification-stage-recipients" hidden="">
                         <div class="rule-field">
-                            <label for="notification-recipients-3">Destinatários de e-mail <span style="color:#c00">*</span></label>
+                            <label for="notification-recipients-3">Destinatários de E-Mail <span style="color:#c00">*</span></label>
                             <input type="text" id="notification-recipients-3" data-notification-recipients="3" value="" placeholder="Ex.: usuario@empresa.com.br; gestor@empresa.com.br" disabled="">
                         </div>
                     </div>
@@ -5451,7 +5556,7 @@
                     </div>
                     <div class="notification-stage-recipients" hidden="">
                         <div class="rule-field">
-                            <label for="notification-recipients-4">Destinatários de e-mail <span style="color:#c00">*</span></label>
+                            <label for="notification-recipients-4">Destinatários de E-Mail <span style="color:#c00">*</span></label>
                             <input type="text" id="notification-recipients-4" data-notification-recipients="4" value="" placeholder="Ex.: usuario@empresa.com.br; gestor@empresa.com.br" disabled="">
                         </div>
                     </div>
@@ -5471,7 +5576,7 @@
                     </div>
                     <div class="notification-stage-recipients" hidden="">
                         <div class="rule-field">
-                            <label for="notification-recipients-5">Destinatários de e-mail <span style="color:#c00">*</span></label>
+                            <label for="notification-recipients-5">Destinatários de E-Mail <span style="color:#c00">*</span></label>
                             <input type="text" id="notification-recipients-5" data-notification-recipients="5" value="" placeholder="Ex.: usuario@empresa.com.br; gestor@empresa.com.br" disabled="">
                         </div>
                     </div>
@@ -5491,7 +5596,7 @@
                     </div>
                     <div class="notification-stage-recipients" hidden="">
                         <div class="rule-field">
-                            <label for="notification-recipients-6">Destinatários de e-mail <span style="color:#c00">*</span></label>
+                            <label for="notification-recipients-6">Destinatários de E-Mail <span style="color:#c00">*</span></label>
                             <input type="text" id="notification-recipients-6" data-notification-recipients="6" value="" placeholder="Ex.: usuario@empresa.com.br; gestor@empresa.com.br" disabled="">
                         </div>
                     </div>
@@ -5511,7 +5616,7 @@
                     </div>
                     <div class="notification-stage-recipients" hidden="">
                         <div class="rule-field">
-                            <label for="notification-recipients-7">Destinatários de e-mail <span style="color:#c00">*</span></label>
+                            <label for="notification-recipients-7">Destinatários de E-Mail <span style="color:#c00">*</span></label>
                             <input type="text" id="notification-recipients-7" data-notification-recipients="7" value="" placeholder="Ex.: usuario@empresa.com.br; gestor@empresa.com.br" disabled="">
                         </div>
                     </div>
@@ -5519,7 +5624,7 @@
             
     </div>
                                     </div>
-                                    <div class="rule-note"><span>!</span><span>As notificações globais e específicas são cumulativas. Se o mesmo e-mail estiver nas duas configurações, será realizado apenas um envio por movimentação.</span></div>
+                                    <div class="rule-note"><span>!</span><span>As Notificações Globais e Específicas São Cumulativas. se o Mesmo E-Mail Estiver nas Duas Configurações, Será Realizado Apenas um Envio por Movimentação.</span></div>
                                 </div>
                             </article>
 
@@ -5528,7 +5633,7 @@
     <span class="operational-rule-number">2</span>
     <div class="operational-rule-title">
         <strong>Conversão de Documentos para PDF/A</strong>
-        <span>Converte os documentos para PDF/A entre as Etapas Documentais de entrada e saída.</span>
+        <span>Converte os Documentos para PDF/A entre as Etapas Documentais de Entrada e Saída.</span>
     </div>
     <label class="rule-switch" title="Ativar ou inativar a conversão para PDF/A">
         <input type="checkbox" id="rule-pdfa-enabled" checked="">
@@ -5542,14 +5647,14 @@
 </div>
                                 <div class="operational-rule-body" id="rule-body-2">
                                     <div class="rule-field">
-                                        <label for="rule-entry-stage">Etapa Documental de entrada <span style="color:#c00">*</span></label>
+                                        <label for="rule-entry-stage">Etapa Documental de Entrada <span style="color:#c00">*</span></label>
                                         <select id="rule-entry-stage" class="documental-stage-select" data-selected="1"><option value="">Selecione uma Etapa Documental</option><option value="1">Recebimento</option><option value="2">Preparação Documental</option><option value="3">Higienização</option><option value="4">Digitalização</option><option value="5">Indexação</option><option value="6">Controle de Qualidade</option><option value="7">Finalizado</option></select>
                                     </div>
                                     <div class="rule-field">
-                                        <label for="rule-exit-stage">Etapa Documental de saída <span style="color:#c00">*</span></label>
+                                        <label for="rule-exit-stage">Etapa Documental de Saída <span style="color:#c00">*</span></label>
                                         <select id="rule-exit-stage" class="documental-stage-select" data-selected="7"><option value="">Selecione uma Etapa Documental</option><option value="1">Recebimento</option><option value="2">Preparação Documental</option><option value="3">Higienização</option><option value="4">Digitalização</option><option value="5">Indexação</option><option value="6">Controle de Qualidade</option><option value="7">Finalizado</option></select>
                                     </div>
-                                    <div class="rule-note"><span>!</span><span>Ao habilitar a conversão para PDF/A, as Etapas Documentais de entrada e saída tornam-se obrigatórias.</span></div>
+                                    <div class="rule-note"><span>!</span><span>Ao Habilitar a Conversão para PDF/A, as Etapas Documentais de Entrada e Saída Tornam-Se Obrigatórias.</span></div>
                                 </div>
                             </article>
 
@@ -5558,7 +5663,7 @@
     <span class="operational-rule-number">3</span>
     <div class="operational-rule-title">
         <strong>Alterar Etapa Documental após Conclusão de OS de Recolhimento</strong>
-        <span>Movimenta o documento após a conclusão da Ordem de Serviço de recolhimento.</span>
+        <span>Movimenta o Documento após a Conclusão da Ordem de Serviço de Recolhimento.</span>
     </div>
     <label class="rule-switch" title="Ativar ou inativar a alteração de etapa após a conclusão da OS de recolhimento">
         <input type="checkbox" id="rule-collection-enabled" checked="">
@@ -5572,7 +5677,7 @@
 </div>
                                 <div class="operational-rule-body one-column" id="rule-body-3">
                                     <div class="rule-field">
-                                        <label for="rule-collection-stage">Etapa Documental de destino <span style="color:#c00">*</span></label>
+                                        <label for="rule-collection-stage">Etapa Documental de Destino <span style="color:#c00">*</span></label>
                                         <select id="rule-collection-stage" class="documental-stage-select" data-selected="7"><option value="">Selecione uma Etapa Documental</option><option value="1">Recebimento</option><option value="2">Preparação Documental</option><option value="3">Higienização</option><option value="4">Digitalização</option><option value="5">Indexação</option><option value="6">Controle de Qualidade</option><option value="7">Finalizado</option></select>
                                     </div>
                                 </div>
@@ -5594,29 +5699,29 @@
     <header class="transition-rules-header">
         <div class="header-copy">
             <h2 id="transition-rules-title">
-                Transições e Pré-requisitos
+                Transições e Pré-Requisitos
                 <span class="info-badge" data-tooltip="Se um pré-requisito obrigatório não estiver concluído, a transição não será executada. O documento ou a caixa seguirá o comportamento configurado para a condição não atendida.">?</span>
             </h2>
-            <p>Defina como os objetos avançam entre etapas ou status e quais condições precisam ser atendidas.</p>
+            <p>Defina como os Objetos Avançam entre Etapas ou Status e Quais Condições Precisam Ser Atendidas.</p>
         </div>
         <div class="transition-summary-inline" aria-label="Resumo das regras">
-            <span class="stat" id="transition-valid-count">4 válidas</span>
-            <span class="stat" id="transition-cross-count">1 cruzada</span>
-            <span class="stat" id="transition-cycle-count">0 ciclos</span>
+            <span class="stat" id="transition-valid-count">4 Válidas</span>
+            <span class="stat" id="transition-cross-count">1 Cruzada</span>
+            <span class="stat" id="transition-cycle-count">0 Ciclos</span>
         </div>
     </header>
 
     <button type="button" class="transition-context-toggle" id="transition-context-toggle" aria-expanded="true" aria-controls="transition-context-map">
         <span class="chevron">▶</span>
-        <span>Ver etapas e status disponíveis nesta configuração</span>
-        <span class="toggle-meta" id="transition-context-toggle-meta">7 etapas · 5 status</span>
+        <span>Ver Etapas e Status Disponíveis Nesta Configuração</span>
+        <span class="toggle-meta" id="transition-context-toggle-meta">7 Etapas · 5 Status</span>
     </button>
 
     <div class="transition-context-map" id="transition-context-map">
         <div class="transition-context-group" id="transition-documental-group">
             <div class="transition-context-title">
                 <strong>Etapas Documentais</strong>
-                <span id="transition-documental-count">7 ATIVAS</span>
+                <span id="transition-documental-count">7 Ativas</span>
             </div>
             <div class="transition-state-chips" id="transition-documental-states">
                 <span class="transition-state-chip  " title="Disponível para uso nas transições">
@@ -5651,7 +5756,7 @@
         <div class="transition-context-group" id="transition-gestao-group">
             <div class="transition-context-title">
                 <strong>Status da Gestão Documental</strong>
-                <span id="transition-gestao-count">5 ATIVOS</span>
+                <span id="transition-gestao-count">5 Ativos</span>
             </div>
             <div class="transition-state-chips" id="transition-gestao-states">
                 <span class="transition-state-chip box " title="Disponível para uso nas transições">
@@ -5699,13 +5804,13 @@
     <div class="transition-list" id="transition-list-body" aria-label="Transições configuradas">
             <article class="transition-card " data-transition-id="1">
                 <div class="transition-card-summary" data-transition-toggle="1">
-                    <span class="transition-card-type-badge" title="Documento">DOC</span>
+                    
                     <div class="transition-card-route">
                         <span class="from" title="Digitalização">Digitalização</span>
                         <span class="arrow">→</span>
                         <span class="to" title="Indexação">Indexação</span>
                     </div>
-                    <div class="transition-card-meta"><span class="meta-item"><strong>Automática</strong></span><span class="meta-item">Sem condição</span></div>
+                    <div class="transition-card-meta"><span class="meta-item"><strong>Automática</strong></span><span class="meta-item">Sem Condição</span></div>
                     <button type="button" class="transition-card-expand" aria-label="Expandir detalhes" tabindex="-1">
                         <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
                     </button>
@@ -5714,19 +5819,19 @@
                     <div class="transition-detail-grid">
                         <div class="transition-detail-row">
                             <span class="label">Evento</span>
-                            <span class="value">Conclusão de operação funcional</span>
+                            <span class="value">Conclusão de Operação Funcional</span>
                         </div>
                         <div class="transition-detail-row">
-                            <span class="label">Detalhe do evento</span>
-                            <span class="value">Operação não informada</span>
+                            <span class="label">Detalhe do Evento</span>
+                            <span class="value">Operação Não Informada</span>
                         </div>
                         <div class="transition-detail-row">
-                            <span class="label">Pré-requisito</span>
-                            <span class="value">Sem condição adicional</span>
+                            <span class="label">Pré-Requisito</span>
+                            <span class="value">Sem Condição Adicional</span>
                         </div>
                         <div class="transition-detail-row">
-                            <span class="label">Se não atendido</span>
-                            <span class="value">Sem condição adicional</span>
+                            <span class="label">Se Não Atendido</span>
+                            <span class="value">Sem Condição Adicional</span>
                         </div>
                         
                     </div>
@@ -5739,13 +5844,13 @@
         
             <article class="transition-card " data-transition-id="2">
                 <div class="transition-card-summary" data-transition-toggle="2">
-                    <span class="transition-card-type-badge" title="Documento">DOC</span>
+                    
                     <div class="transition-card-route">
                         <span class="from" title="Indexação">Indexação</span>
                         <span class="arrow">→</span>
                         <span class="to" title="Controle de Qualidade">Controle de Qualidade</span>
                     </div>
-                    <div class="transition-card-meta"><span class="meta-item"><strong>Manual</strong></span><span class="meta-item">Sem condição</span></div>
+                    <div class="transition-card-meta"><span class="meta-item"><strong>Manual</strong></span><span class="meta-item">Sem Condição</span></div>
                     <button type="button" class="transition-card-expand" aria-label="Expandir detalhes" tabindex="-1">
                         <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
                     </button>
@@ -5754,19 +5859,19 @@
                     <div class="transition-detail-grid">
                         <div class="transition-detail-row">
                             <span class="label">Evento</span>
-                            <span class="value">Ação manual do usuário</span>
+                            <span class="value">Ação Manual do Usuário</span>
                         </div>
                         <div class="transition-detail-row">
-                            <span class="label">Detalhe do evento</span>
+                            <span class="label">Detalhe do Evento</span>
                             <span class="value">Aprovar</span>
                         </div>
                         <div class="transition-detail-row">
-                            <span class="label">Pré-requisito</span>
-                            <span class="value">Sem condição adicional</span>
+                            <span class="label">Pré-Requisito</span>
+                            <span class="value">Sem Condição Adicional</span>
                         </div>
                         <div class="transition-detail-row">
-                            <span class="label">Se não atendido</span>
-                            <span class="value">Sem condição adicional</span>
+                            <span class="label">Se Não Atendido</span>
+                            <span class="value">Sem Condição Adicional</span>
                         </div>
                         
                     </div>
@@ -5779,13 +5884,13 @@
         
             <article class="transition-card " data-transition-id="3">
                 <div class="transition-card-summary" data-transition-toggle="3">
-                    <span class="transition-card-type-badge" title="Documento">DOC</span>
+                    
                     <div class="transition-card-route">
                         <span class="from" title="Controle de Qualidade">Controle de Qualidade</span>
                         <span class="arrow">→</span>
                         <span class="to" title="Finalizado">Finalizado</span>
                     </div>
-                    <div class="transition-card-meta"><span class="meta-item"><strong>Automática</strong></span><span class="meta-item">Sem condição</span></div>
+                    <div class="transition-card-meta"><span class="meta-item"><strong>Automática</strong></span><span class="meta-item">Sem Condição</span></div>
                     <button type="button" class="transition-card-expand" aria-label="Expandir detalhes" tabindex="-1">
                         <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
                     </button>
@@ -5794,19 +5899,19 @@
                     <div class="transition-detail-grid">
                         <div class="transition-detail-row">
                             <span class="label">Evento</span>
-                            <span class="value">Resultado de integração externa</span>
+                            <span class="value">Resultado de Integração Externa</span>
                         </div>
                         <div class="transition-detail-row">
-                            <span class="label">Detalhe do evento</span>
-                            <span class="value">SEI: Envio concluído com sucesso</span>
+                            <span class="label">Detalhe do Evento</span>
+                            <span class="value">SEI: Envio Concluído com Sucesso</span>
                         </div>
                         <div class="transition-detail-row">
-                            <span class="label">Pré-requisito</span>
-                            <span class="value">Sem condição adicional</span>
+                            <span class="label">Pré-Requisito</span>
+                            <span class="value">Sem Condição Adicional</span>
                         </div>
                         <div class="transition-detail-row">
-                            <span class="label">Se não atendido</span>
-                            <span class="value">Sem condição adicional</span>
+                            <span class="label">Se Não Atendido</span>
+                            <span class="value">Sem Condição Adicional</span>
                         </div>
                         
                     </div>
@@ -5819,8 +5924,8 @@
         </div>
 
     <footer class="transition-rules-footer">
-        <span>As referências utilizam somente Etapas e Status ativos desta configuração.</span>
-        <span>Dependências circulares deverão ser corrigidas antes da ativação.</span>
+        <span>As Referências Utilizam Somente Etapas e Status Ativos Desta Configuração.</span>
+        <span>Dependências Circulares Deverão Ser Corrigidas Antes da Ativação.</span>
     </footer>
 </section>
 
@@ -5848,10 +5953,10 @@
             <!-- STEP 1: ROTA -->
             <div class="transition-step-panel active" data-step-panel="1">
                 <h4>Rota da Transição</h4>
-                <p class="step-hint">Escolha o tipo de objeto e informe de onde para onde ele avança.</p>
+                <p class="step-hint">Escolha o Tipo de Objeto e Informe de Onde para Onde Ele Avança.</p>
                 <div class="transition-editor-grid">
                     <div class="transition-field span-2">
-                        <label for="transition-flow-type">Fluxo do objeto <span class="req">*</span></label>
+                        <label for="transition-flow-type">Fluxo do Objeto <span class="req">*</span></label>
                         <select id="transition-flow-type">
                             <option value="documental">Etapa Documental — Documento</option>
                             <option value="gestao">Status da Gestão Documental — Caixa</option>
@@ -5859,11 +5964,11 @@
                         <small class="transition-field-help" id="transition-flow-source-note"></small>
                     </div>
                     <div class="transition-field">
-                        <label for="transition-origin" id="transition-origin-label">Etapa de origem <span class="req">*</span></label>
+                        <label for="transition-origin" id="transition-origin-label">Etapa de Origem <span class="req">*</span></label>
                         <select id="transition-origin"></select>
                     </div>
                     <div class="transition-field">
-                        <label for="transition-destination" id="transition-destination-label">Etapa de destino <span class="req">*</span></label>
+                        <label for="transition-destination" id="transition-destination-label">Etapa de Destino <span class="req">*</span></label>
                         <select id="transition-destination"></select>
                     </div>
                 </div>
@@ -5872,22 +5977,22 @@
             <!-- STEP 2: EVENTO -->
             <div class="transition-step-panel" data-step-panel="2">
                 <h4>Evento que Inicia a Ação</h4>
-                <p class="step-hint">Escolha o que dispara a transição. Os campos abaixo mudam conforme o evento selecionado.</p>
+                <p class="step-hint">Escolha o que Dispara a Transição. os Campos Abaixo Mudam Conforme o Evento Selecionado.</p>
                 <div class="transition-editor-grid">
                     <div class="transition-field span-2">
                         <label for="transition-event">Evento <span class="req">*</span></label>
                         <select id="transition-event">
-                            <option value="user_action">Ação manual do usuário</option>
-                            <option value="state_entry">Entrada automática na etapa de origem</option>
-                            <option value="operation_completion">Conclusão de operação funcional</option>
-                            <option value="integration_return">Resultado de integração externa</option>
+                            <option value="user_action">Ação Manual do Usuário</option>
+                            <option value="state_entry">Entrada Automática na Etapa de Origem</option>
+                            <option value="operation_completion">Conclusão de Operação Funcional</option>
+                            <option value="integration_return">Resultado de Integração Externa</option>
                             <option value="service_order_completion">Encerramento de Ordem de Serviço</option>
-                            <option value="internal_automation">Execução de rotina interna do DocZ</option>
+                            <option value="internal_automation">Execução de Rotina Interna do DocZ</option>
                         </select>
                     </div>
 
                     <div class="transition-field span-2 transition-conditional" id="transition-user-action-field" hidden="">
-                        <label for="transition-user-action">Ação do usuário <span class="req">*</span></label>
+                        <label for="transition-user-action">Ação do Usuário <span class="req">*</span></label>
                         <select id="transition-user-action">
                             <option value="">Selecione...</option>
                             <option value="approve">Aprovar</option>
@@ -5897,7 +6002,7 @@
                         </select>
                     </div>
                     <div class="transition-field span-2 transition-conditional" id="transition-operation-field" hidden="">
-                        <label for="transition-operation">Operação funcional <span class="req">*</span></label>
+                        <label for="transition-operation">Operação Funcional <span class="req">*</span></label>
                         <select id="transition-operation">
                             <option value="">Selecione...</option>
                             <option value="indexing">Indexação</option>
@@ -5907,7 +6012,7 @@
                         </select>
                     </div>
                     <div class="transition-field span-2 transition-conditional" id="transition-integration-field" hidden="">
-                        <label for="transition-integration">Integração externa <span class="req">*</span></label>
+                        <label for="transition-integration">Integração Externa <span class="req">*</span></label>
                         <select id="transition-integration">
                             <option value="">Selecione...</option>
                             <option value="sei">SEI</option>
@@ -5915,11 +6020,11 @@
                         </select>
                     </div>
                     <div class="transition-field span-2 transition-conditional" id="transition-integration-result-field" hidden="">
-                        <label for="transition-integration-result">Resultado recebido <span class="req">*</span></label>
+                        <label for="transition-integration-result">Resultado Recebido <span class="req">*</span></label>
                         <select id="transition-integration-result">
-                            <option value="">Selecione primeiro a integração...</option>
+                            <option value="">Selecione Primeiro a Integração...</option>
                         </select>
-                        <small class="transition-field-help">Sem uma transição correspondente ao resultado, o objeto permanece na etapa atual.</small>
+                        <small class="transition-field-help">Sem uma Transição Correspondente ao Resultado, o Objeto Permanece na Etapa Atual.</small>
                     </div>
                     <div class="transition-field span-2 transition-conditional" id="transition-service-order-type-field" hidden="">
                         <label for="transition-service-order-type">Tipo de Ordem de Serviço <span class="req">*</span></label>
@@ -5931,31 +6036,31 @@
                         </select>
                     </div>
                     <div class="transition-field span-2 transition-conditional" id="transition-service-order-result-field" hidden="">
-                        <label for="transition-service-order-result">Situação de encerramento <span class="req">*</span></label>
+                        <label for="transition-service-order-result">Situação de Encerramento <span class="req">*</span></label>
                         <select id="transition-service-order-result">
                             <option value="">Selecione...</option>
-                            <option value="completed">Concluída com sucesso</option>
-                            <option value="completed_with_issues">Concluída com pendências</option>
+                            <option value="completed">Concluída com Sucesso</option>
+                            <option value="completed_with_issues">Concluída com Pendências</option>
                             <option value="cancelled">Cancelada</option>
                         </select>
                     </div>
                     <div class="transition-field span-2 transition-conditional" id="transition-internal-routine-field" hidden="">
-                        <label for="transition-internal-routine">Rotina interna <span class="req">*</span></label>
+                        <label for="transition-internal-routine">Rotina Interna <span class="req">*</span></label>
                         <select id="transition-internal-routine">
                             <option value="">Selecione...</option>
-                            <option value="automatic_processing">Conclusão automática de processamento</option>
-                            <option value="deadline_check">Verificação programada de prazo</option>
-                            <option value="automatic_reprocessing">Reprocessamento automático</option>
+                            <option value="automatic_processing">Conclusão Automática de Processamento</option>
+                            <option value="deadline_check">Verificação Programada de Prazo</option>
+                            <option value="automatic_reprocessing">Reprocessamento Automático</option>
                         </select>
                     </div>
 
                     <div class="transition-field span-2">
-                        <label for="transition-execution">Execução da transição</label>
+                        <label for="transition-execution">Execução da Transição</label>
                         <select id="transition-execution" disabled="">
-                            <option value="user">Mediante ação do usuário</option>
+                            <option value="user">Mediante Ação do Usuário</option>
                             <option value="automatic">Automática</option>
                         </select>
-                        <small class="transition-field-help">Definida automaticamente conforme o evento selecionado.</small>
+                        <small class="transition-field-help">Definida Automaticamente Conforme o Evento Selecionado.</small>
                     </div>
                 </div>
             </div>
@@ -5963,33 +6068,33 @@
             <!-- STEP 3: CONDIÇÃO -->
             <div class="transition-step-panel" data-step-panel="3">
                 <h4>Condição Adicional (Opcional)</h4>
-                <p class="step-hint">Você pode exigir que outro objeto esteja em um estado específico antes de permitir a transição.</p>
+                <p class="step-hint">Você Pode Exigir que Outro Objeto Esteja em um Estado Específico Antes de Permitir a Transição.</p>
                 <div class="transition-editor-grid">
                     <div class="transition-field span-2">
-                        <label for="transition-prerequisite-type">Condição adicional</label>
+                        <label for="transition-prerequisite-type">Condição Adicional</label>
                         <select id="transition-prerequisite-type">
-                            <option value="none">Nenhuma condição adicional</option>
-                            <option value="document_stage">Etapa do documento vinculado</option>
-                            <option value="box_status">Status da caixa vinculada</option>
+                            <option value="none">Nenhuma Condição Adicional</option>
+                            <option value="document_stage">Etapa do Documento Vinculado</option>
+                            <option value="box_status">Status da Caixa Vinculada</option>
                         </select>
                     </div>
 
                     <div class="transition-field span-2 transition-conditional" id="transition-cross-criteria-field" hidden="">
-                        <label for="transition-cross-criteria">Critério sobre os documentos <span class="req">*</span></label>
+                        <label for="transition-cross-criteria">Critério sobre os Documentos <span class="req">*</span></label>
                         <select id="transition-cross-criteria">
-                            <option value="all">Todos os documentos vinculados</option>
-                            <option value="at_least_one">Pelo menos um documento</option>
-                            <option value="none">Nenhum documento</option>
-                            <option value="quantity">Quantidade mínima</option>
-                            <option value="percentage">Percentual mínimo</option>
+                            <option value="all">Todos os Documentos Vinculados</option>
+                            <option value="at_least_one">Pelo Menos um Documento</option>
+                            <option value="none">Nenhum Documento</option>
+                            <option value="quantity">Quantidade Mínima</option>
+                            <option value="percentage">Percentual Mínimo</option>
                         </select>
                     </div>
                     <div class="transition-field span-2 transition-conditional" id="transition-related-state-field" hidden="">
-                        <label for="transition-related-state" id="transition-related-state-label">Etapa exigida <span class="req">*</span></label>
+                        <label for="transition-related-state" id="transition-related-state-label">Etapa Exigida <span class="req">*</span></label>
                         <select id="transition-related-state"></select>
                     </div>
                     <div class="transition-field span-2 transition-conditional" id="transition-threshold-field" hidden="">
-                        <label for="transition-threshold" id="transition-threshold-label">Valor mínimo <span class="req">*</span></label>
+                        <label for="transition-threshold" id="transition-threshold-label">Valor Mínimo <span class="req">*</span></label>
                         <input type="number" id="transition-threshold" min="1" placeholder="Ex.: 80">
                     </div>
                 </div>
@@ -5997,11 +6102,11 @@
 
             <!-- STEP 4: COMPORTAMENTO -->
             <div class="transition-step-panel" data-step-panel="4">
-                <h4>Comportamento quando o Pré-requisito Não for Atendido</h4>
-                <p class="step-hint">Defina o que acontece quando a condição adicional (se houver) não for satisfeita.</p>
+                <h4>Comportamento Quando o Pré-Requisito Não For Atendido</h4>
+                <p class="step-hint">Defina o que Acontece Quando a Condição Adicional (se Houver) Não For Satisfeita.</p>
                 <div class="transition-editor-grid">
                     <div class="transition-field span-2 transition-conditional" id="transition-required-field" hidden="">
-                        <label>Obrigatório para avançar?</label>
+                        <label>Obrigatório para Avançar?</label>
                         <div class="transition-switch-option">
                             <span id="transition-required-label">Sim</span>
                             <label class="rule-switch" title="Definir pré-requisito como obrigatório">
@@ -6013,24 +6118,24 @@
                     <div class="transition-field span-2 transition-conditional" id="transition-failure-behavior-field" hidden="">
                         <label for="transition-failure-behavior">Comportamento <span class="req">*</span></label>
                         <select id="transition-failure-behavior">
-                            <option value="stay">Permanecer na etapa atual</option>
-                            <option value="redirect">Direcionar para outra etapa</option>
-                            <option value="block_message">Impedir a ação e apresentar mensagem</option>
+                            <option value="stay">Permanecer na Etapa Atual</option>
+                            <option value="redirect">Direcionar para Outra Etapa</option>
+                            <option value="block_message">Impedir a Ação e Apresentar Mensagem</option>
                         </select>
                     </div>
                     <div class="transition-field span-2 transition-conditional" id="transition-failure-target-field" hidden="">
-                        <label for="transition-failure-target" id="transition-failure-target-label">Etapa alternativa <span class="req">*</span></label>
+                        <label for="transition-failure-target" id="transition-failure-target-label">Etapa Alternativa <span class="req">*</span></label>
                         <select id="transition-failure-target"></select>
                     </div>
                     <div class="transition-field span-2 transition-conditional" id="transition-failure-message-field" hidden="">
-                        <label for="transition-failure-message">Mensagem apresentada <span class="req">*</span></label>
+                        <label for="transition-failure-message">Mensagem Apresentada <span class="req">*</span></label>
                         <input type="text" id="transition-failure-message" placeholder="Ex.: Não é possível avançar. A aprovação ainda não foi concluída.">
                     </div>
 
                     <div class="transition-field span-2" id="transition-no-condition-note">
                         <div class="transition-validation">
-                            <strong>Sem condição adicional:</strong>
-                            <span>A transição será executada sempre que o evento selecionado ocorrer.</span>
+                            <strong>Sem Condição Adicional:</strong>
+                            <span>A Transição Será Executada Sempre que o Evento Selecionado Ocorrer.</span>
                         </div>
                     </div>
                 </div>
@@ -6038,7 +6143,7 @@
 
             <div class="transition-validation" id="transition-validation">
                 <strong>Validação:</strong>
-                <span>Selecione os dados da transição para validar referências, incompatibilidades e dependências circulares.</span>
+                <span>Selecione os Dados da Transição para Validar Referências, Incompatibilidades e Dependências Circulares.</span>
             </div>
         </div>
 
@@ -6078,10 +6183,10 @@
             <!-- STEP 1: ROTA -->
             <div class="transition-step-panel active" data-step-panel="1">
                 <h4>Rota da Transição</h4>
-                <p class="step-hint">Escolha o tipo de objeto e informe de onde para onde ele avança.</p>
+                <p class="step-hint">Escolha o Tipo de Objeto e Informe de Onde para Onde Ele Avança.</p>
                 <div class="transition-editor-grid">
                     <div class="transition-field span-2">
-                        <label for="transition-flow-type">Fluxo do objeto <span class="req">*</span></label>
+                        <label for="transition-flow-type">Fluxo do Objeto <span class="req">*</span></label>
                         <select id="transition-flow-type">
                             <option value="documental">Etapa Documental — Documento</option>
                             <option value="gestao">Status da Gestão Documental — Caixa</option>
@@ -6089,11 +6194,11 @@
                         <small class="transition-field-help" id="transition-flow-source-note"></small>
                     </div>
                     <div class="transition-field">
-                        <label for="transition-origin" id="transition-origin-label">Etapa de origem <span class="req">*</span></label>
+                        <label for="transition-origin" id="transition-origin-label">Etapa de Origem <span class="req">*</span></label>
                         <select id="transition-origin"></select>
                     </div>
                     <div class="transition-field">
-                        <label for="transition-destination" id="transition-destination-label">Etapa de destino <span class="req">*</span></label>
+                        <label for="transition-destination" id="transition-destination-label">Etapa de Destino <span class="req">*</span></label>
                         <select id="transition-destination"></select>
                     </div>
                 </div>
@@ -6102,22 +6207,22 @@
             <!-- STEP 2: EVENTO -->
             <div class="transition-step-panel" data-step-panel="2">
                 <h4>Evento que Inicia a Ação</h4>
-                <p class="step-hint">Escolha o que dispara a transição. Os campos abaixo mudam conforme o evento selecionado.</p>
+                <p class="step-hint">Escolha o que Dispara a Transição. os Campos Abaixo Mudam Conforme o Evento Selecionado.</p>
                 <div class="transition-editor-grid">
                     <div class="transition-field span-2">
                         <label for="transition-event">Evento <span class="req">*</span></label>
                         <select id="transition-event">
-                            <option value="user_action">Ação manual do usuário</option>
-                            <option value="state_entry">Entrada automática na etapa de origem</option>
-                            <option value="operation_completion">Conclusão de operação funcional</option>
-                            <option value="integration_return">Resultado de integração externa</option>
+                            <option value="user_action">Ação Manual do Usuário</option>
+                            <option value="state_entry">Entrada Automática na Etapa de Origem</option>
+                            <option value="operation_completion">Conclusão de Operação Funcional</option>
+                            <option value="integration_return">Resultado de Integração Externa</option>
                             <option value="service_order_completion">Encerramento de Ordem de Serviço</option>
-                            <option value="internal_automation">Execução de rotina interna do DocZ</option>
+                            <option value="internal_automation">Execução de Rotina Interna do DocZ</option>
                         </select>
                     </div>
 
                     <div class="transition-field span-2 transition-conditional" id="transition-user-action-field" hidden="">
-                        <label for="transition-user-action">Ação do usuário <span class="req">*</span></label>
+                        <label for="transition-user-action">Ação do Usuário <span class="req">*</span></label>
                         <select id="transition-user-action">
                             <option value="">Selecione...</option>
                             <option value="approve">Aprovar</option>
@@ -6127,7 +6232,7 @@
                         </select>
                     </div>
                     <div class="transition-field span-2 transition-conditional" id="transition-operation-field" hidden="">
-                        <label for="transition-operation">Operação funcional <span class="req">*</span></label>
+                        <label for="transition-operation">Operação Funcional <span class="req">*</span></label>
                         <select id="transition-operation">
                             <option value="">Selecione...</option>
                             <option value="indexing">Indexação</option>
@@ -6137,7 +6242,7 @@
                         </select>
                     </div>
                     <div class="transition-field span-2 transition-conditional" id="transition-integration-field" hidden="">
-                        <label for="transition-integration">Integração externa <span class="req">*</span></label>
+                        <label for="transition-integration">Integração Externa <span class="req">*</span></label>
                         <select id="transition-integration">
                             <option value="">Selecione...</option>
                             <option value="sei">SEI</option>
@@ -6145,11 +6250,11 @@
                         </select>
                     </div>
                     <div class="transition-field span-2 transition-conditional" id="transition-integration-result-field" hidden="">
-                        <label for="transition-integration-result">Resultado recebido <span class="req">*</span></label>
+                        <label for="transition-integration-result">Resultado Recebido <span class="req">*</span></label>
                         <select id="transition-integration-result">
-                            <option value="">Selecione primeiro a integração...</option>
+                            <option value="">Selecione Primeiro a Integração...</option>
                         </select>
-                        <small class="transition-field-help">Sem uma transição correspondente ao resultado, o objeto permanece na etapa atual.</small>
+                        <small class="transition-field-help">Sem uma Transição Correspondente ao Resultado, o Objeto Permanece na Etapa Atual.</small>
                     </div>
                     <div class="transition-field span-2 transition-conditional" id="transition-service-order-type-field" hidden="">
                         <label for="transition-service-order-type">Tipo de Ordem de Serviço <span class="req">*</span></label>
@@ -6161,31 +6266,31 @@
                         </select>
                     </div>
                     <div class="transition-field span-2 transition-conditional" id="transition-service-order-result-field" hidden="">
-                        <label for="transition-service-order-result">Situação de encerramento <span class="req">*</span></label>
+                        <label for="transition-service-order-result">Situação de Encerramento <span class="req">*</span></label>
                         <select id="transition-service-order-result">
                             <option value="">Selecione...</option>
-                            <option value="completed">Concluída com sucesso</option>
-                            <option value="completed_with_issues">Concluída com pendências</option>
+                            <option value="completed">Concluída com Sucesso</option>
+                            <option value="completed_with_issues">Concluída com Pendências</option>
                             <option value="cancelled">Cancelada</option>
                         </select>
                     </div>
                     <div class="transition-field span-2 transition-conditional" id="transition-internal-routine-field" hidden="">
-                        <label for="transition-internal-routine">Rotina interna <span class="req">*</span></label>
+                        <label for="transition-internal-routine">Rotina Interna <span class="req">*</span></label>
                         <select id="transition-internal-routine">
                             <option value="">Selecione...</option>
-                            <option value="automatic_processing">Conclusão automática de processamento</option>
-                            <option value="deadline_check">Verificação programada de prazo</option>
-                            <option value="automatic_reprocessing">Reprocessamento automático</option>
+                            <option value="automatic_processing">Conclusão Automática de Processamento</option>
+                            <option value="deadline_check">Verificação Programada de Prazo</option>
+                            <option value="automatic_reprocessing">Reprocessamento Automático</option>
                         </select>
                     </div>
 
                     <div class="transition-field span-2">
-                        <label for="transition-execution">Execução da transição</label>
+                        <label for="transition-execution">Execução da Transição</label>
                         <select id="transition-execution" disabled="">
-                            <option value="user">Mediante ação do usuário</option>
+                            <option value="user">Mediante Ação do Usuário</option>
                             <option value="automatic">Automática</option>
                         </select>
-                        <small class="transition-field-help">Definida automaticamente conforme o evento selecionado.</small>
+                        <small class="transition-field-help">Definida Automaticamente Conforme o Evento Selecionado.</small>
                     </div>
                 </div>
             </div>
@@ -6193,33 +6298,33 @@
             <!-- STEP 3: CONDIÇÃO -->
             <div class="transition-step-panel" data-step-panel="3">
                 <h4>Condição Adicional (Opcional)</h4>
-                <p class="step-hint">Você pode exigir que outro objeto esteja em um estado específico antes de permitir a transição.</p>
+                <p class="step-hint">Você Pode Exigir que Outro Objeto Esteja em um Estado Específico Antes de Permitir a Transição.</p>
                 <div class="transition-editor-grid">
                     <div class="transition-field span-2">
-                        <label for="transition-prerequisite-type">Condição adicional</label>
+                        <label for="transition-prerequisite-type">Condição Adicional</label>
                         <select id="transition-prerequisite-type">
-                            <option value="none">Nenhuma condição adicional</option>
-                            <option value="document_stage">Etapa do documento vinculado</option>
-                            <option value="box_status">Status da caixa vinculada</option>
+                            <option value="none">Nenhuma Condição Adicional</option>
+                            <option value="document_stage">Etapa do Documento Vinculado</option>
+                            <option value="box_status">Status da Caixa Vinculada</option>
                         </select>
                     </div>
 
                     <div class="transition-field span-2 transition-conditional" id="transition-cross-criteria-field" hidden="">
-                        <label for="transition-cross-criteria">Critério sobre os documentos <span class="req">*</span></label>
+                        <label for="transition-cross-criteria">Critério sobre os Documentos <span class="req">*</span></label>
                         <select id="transition-cross-criteria">
-                            <option value="all">Todos os documentos vinculados</option>
-                            <option value="at_least_one">Pelo menos um documento</option>
-                            <option value="none">Nenhum documento</option>
-                            <option value="quantity">Quantidade mínima</option>
-                            <option value="percentage">Percentual mínimo</option>
+                            <option value="all">Todos os Documentos Vinculados</option>
+                            <option value="at_least_one">Pelo Menos um Documento</option>
+                            <option value="none">Nenhum Documento</option>
+                            <option value="quantity">Quantidade Mínima</option>
+                            <option value="percentage">Percentual Mínimo</option>
                         </select>
                     </div>
                     <div class="transition-field span-2 transition-conditional" id="transition-related-state-field" hidden="">
-                        <label for="transition-related-state" id="transition-related-state-label">Etapa exigida <span class="req">*</span></label>
+                        <label for="transition-related-state" id="transition-related-state-label">Etapa Exigida <span class="req">*</span></label>
                         <select id="transition-related-state"></select>
                     </div>
                     <div class="transition-field span-2 transition-conditional" id="transition-threshold-field" hidden="">
-                        <label for="transition-threshold" id="transition-threshold-label">Valor mínimo <span class="req">*</span></label>
+                        <label for="transition-threshold" id="transition-threshold-label">Valor Mínimo <span class="req">*</span></label>
                         <input type="number" id="transition-threshold" min="1" placeholder="Ex.: 80">
                     </div>
                 </div>
@@ -6227,11 +6332,11 @@
 
             <!-- STEP 4: COMPORTAMENTO -->
             <div class="transition-step-panel" data-step-panel="4">
-                <h4>Comportamento quando o Pré-requisito Não for Atendido</h4>
-                <p class="step-hint">Defina o que acontece quando a condição adicional (se houver) não for satisfeita.</p>
+                <h4>Comportamento Quando o Pré-Requisito Não For Atendido</h4>
+                <p class="step-hint">Defina o que Acontece Quando a Condição Adicional (se Houver) Não For Satisfeita.</p>
                 <div class="transition-editor-grid">
                     <div class="transition-field span-2 transition-conditional" id="transition-required-field" hidden="">
-                        <label>Obrigatório para avançar?</label>
+                        <label>Obrigatório para Avançar?</label>
                         <div class="transition-switch-option">
                             <span id="transition-required-label">Sim</span>
                             <label class="rule-switch" title="Definir pré-requisito como obrigatório">
@@ -6243,24 +6348,24 @@
                     <div class="transition-field span-2 transition-conditional" id="transition-failure-behavior-field" hidden="">
                         <label for="transition-failure-behavior">Comportamento <span class="req">*</span></label>
                         <select id="transition-failure-behavior">
-                            <option value="stay">Permanecer na etapa atual</option>
-                            <option value="redirect">Direcionar para outra etapa</option>
-                            <option value="block_message">Impedir a ação e apresentar mensagem</option>
+                            <option value="stay">Permanecer na Etapa Atual</option>
+                            <option value="redirect">Direcionar para Outra Etapa</option>
+                            <option value="block_message">Impedir a Ação e Apresentar Mensagem</option>
                         </select>
                     </div>
                     <div class="transition-field span-2 transition-conditional" id="transition-failure-target-field" hidden="">
-                        <label for="transition-failure-target" id="transition-failure-target-label">Etapa alternativa <span class="req">*</span></label>
+                        <label for="transition-failure-target" id="transition-failure-target-label">Etapa Alternativa <span class="req">*</span></label>
                         <select id="transition-failure-target"></select>
                     </div>
                     <div class="transition-field span-2 transition-conditional" id="transition-failure-message-field" hidden="">
-                        <label for="transition-failure-message">Mensagem apresentada <span class="req">*</span></label>
+                        <label for="transition-failure-message">Mensagem Apresentada <span class="req">*</span></label>
                         <input type="text" id="transition-failure-message" placeholder="Ex.: Não é possível avançar. A aprovação ainda não foi concluída.">
                     </div>
 
                     <div class="transition-field span-2" id="transition-no-condition-note">
                         <div class="transition-validation">
-                            <strong>Sem condição adicional:</strong>
-                            <span>A transição será executada sempre que o evento selecionado ocorrer.</span>
+                            <strong>Sem Condição Adicional:</strong>
+                            <span>A Transição Será Executada Sempre que o Evento Selecionado Ocorrer.</span>
                         </div>
                     </div>
                 </div>
@@ -6268,7 +6373,7 @@
 
             <div class="transition-validation" id="transition-validation">
                 <strong>Validação:</strong>
-                <span>Selecione os dados da transição para validar referências, incompatibilidades e dependências circulares.</span>
+                <span>Selecione os Dados da Transição para Validar Referências, Incompatibilidades e Dependências Circulares.</span>
             </div>
         </div>
 
@@ -6287,13 +6392,13 @@
                     <div id="stage-editor-section" style="padding:18px;background:#f8fafb;border-bottom:1px solid #cdcdcd;margin:0 -14px">
                         <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:14px">
                             <h2 style="font-size:13px;margin:0;color:#40505a" id="editor-title">Nova Etapa Documental</h2>
-                            <span style="font-size:10px;color:#7d8991">Os Campos Marcados com * são Obrigatórios.</span>
+                            <span style="font-size:10px;color:#7d8991">Os Campos Marcados com * São Obrigatórios.</span>
                         </div>
                         <div style="display:grid;grid-template-columns:minmax(330px,1.8fr) minmax(160px,.55fr) minmax(180px,.65fr) auto;gap:14px;align-items:end">
 
                             <div class="formRow" style="border:none;padding:0;margin:0;clear:both;position:relative">
                                 <label id="name-label" style="display:block;font-weight:bold;font-size:11px;color:#555;margin-bottom:4px;float:none">Nome
-                                    do status <span style="color:#c00">*</span></label>
+                                    do Status <span style="color:#c00">*</span></label>
                                 <div class="formRight" style="display:block;float:none;width:100%;margin:0">
                                     <input id="stage-name" placeholder="Ex.: Em Auditoria" style="width:100%;height:36px;border:1px solid #cfd6da;background:white;border-radius:3px;color:#34424c;padding:0 11px;outline:none;font-size:12px;box-sizing:border-box" value="">
                                 </div>
@@ -6545,7 +6650,7 @@
 
                     <!-- TABLE FOOTER -->
                     <div id="stage-table-footer" style="height:54px;display:flex;align-items:center;padding:0 18px;background:#fafbfb;border-top:1px solid #e8ecef;font-size:11px;color:#7b878f;margin:0 -14px">
-                        <span id="result-count">7 Registros neste Fluxo</span>
+                        <span id="result-count">7 Registros Neste Fluxo</span>
                         <span id="unsaved" style="color: rgb(154, 106, 32); font-weight: 700; display: none; margin-left: 12px;">●
                             Ordenação Alterada</span>
                         <div style="margin-left:auto;display:flex;gap:8px">
@@ -6565,9 +6670,9 @@
             <!-- ===== MODAL ===== -->
             <div class="modal-backdrop" id="modal" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.5);justify-content:center;align-items:center;z-index:999">
                 <div class="modal" style="background:#fff;border-radius:5px;padding:24px;max-width:420px;width:90%;box-shadow:0 10px 40px rgba(0,0,0,0.3)">
-                    <h3 style="margin:0 0 10px;font-size:16px" id="modal-title">Inativar registro?</h3>
-                    <p style="margin:0 0 16px;font-size:12px;color:#65727c" id="modal-text">O Registro Deixará de ser
-                        Disponibilizado para Novas Movimentações neste Escopo, mas Permanecerá Preservado no Histórico
+                    <h3 style="margin:0 0 10px;font-size:16px" id="modal-title">Inativar Registro?</h3>
+                    <p style="margin:0 0 16px;font-size:12px;color:#65727c" id="modal-text">O Registro Deixará de Ser
+                        Disponibilizado para Novas Movimentações Neste Escopo, Mas Permanecerá Preservado no Histórico
                         da Configuração.</p>
                     <div style="display:flex;gap:8px;justify-content:flex-end">
                         <button class="btn" id="modal-cancel" style="height:36px;border-radius:3px;border:1px solid #cbd3d7;background:#fff;color:#52616b;padding:0 15px;font-size:11px;font-weight:700;cursor:pointer">Cancelar</button>
@@ -6579,11 +6684,11 @@
             <!-- ===== MODAL DE GERENCIAMENTO DO FLUXO ===== -->
             <div class="modal-backdrop" id="flow-modal" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.5);justify-content:center;align-items:center;z-index:1001">
                 <div class="modal" role="dialog" aria-modal="true" aria-labelledby="flow-modal-title" style="background:#fff;border-radius:5px;padding:24px;max-width:440px;width:90%;box-shadow:0 10px 40px rgba(0,0,0,0.3)">
-                    <h3 id="flow-modal-title" style="margin:0 0 10px;font-size:16px">Inativar configuração?</h3>
+                    <h3 id="flow-modal-title" style="margin:0 0 10px;font-size:16px">Inativar Configuração?</h3>
                     <p id="flow-modal-text" style="margin:0 0 9px;font-size:12px;color:#65727c;line-height:1.5"></p>
                     <p id="flow-modal-note" style="display:none;margin:0 0 17px;padding:9px 10px;border:1px solid #ead7c6;background:#fff8ef;color:#7c654d;font-size:10px;line-height:1.45">
-                        A exclusão é lógica: a configuração deixa de ser utilizada, mas permanece preservada no
-                        histórico e pode ser consultada pelo filtro “Excluídas”.
+                        A Exclusão É Lógica: a Configuração Deixa de Ser Utilizada, Mas Permanece Preservada no
+                        Histórico e Pode Ser Consultada pelo Filtro “Excluídas”.
                     </p>
                     <div style="display:flex;gap:8px;justify-content:flex-end">
                         <button type="button" class="btn" id="flow-modal-cancel" style="height:36px;border-radius:3px;border:1px solid #cbd3d7;background:#fff;color:#52616b;padding:0 15px;font-size:11px;font-weight:700;cursor:pointer">Cancelar</button>
@@ -6599,7 +6704,7 @@
             <span class="context-icon" aria-hidden="true">⌖</span>
             <div>
                 <h3 id="new-flow-modal-title">Nova Configuração de Fluxo</h3>
-                <p>Defina onde e para quem esta configuração será aplicada.</p>
+                <p>Defina Onde e para Quem Esta Configuração Será Aplicada.</p>
             </div>
             <button type="button" id="new-flow-modal-close" class="new-flow-modal-close" aria-label="Fechar">×</button>
         </div>
@@ -6612,31 +6717,31 @@
                 </label>
                 <input type="text" id="new-flow-name" placeholder="Ex.: Fluxo Padrão - ANM" style="width:100%;height:36px;border:1px solid #cfd6da;border-radius:3px;padding:0 11px;font-size:12px;box-sizing:border-box;background:#fff;color:#34424c;outline:none;">
                 <div style="font-size:10px;color:#7d8991;margin-top:4px;">
-                    Escolha um nome descritivo para identificar esta configuração.
+                    Escolha um Nome Descritivo para Identificar Esta Configuração.
                 </div>
             </div>
 
-            <span class="context-step-label">1. Selecione o escopo de aplicação <span style="color:#c00">*</span></span>
+            <span class="context-step-label">1. Selecione o Escopo de Aplicação <span style="color:#c00">*</span></span>
             <div class="scope-choice-grid" role="radiogroup" aria-label="Escopo da nova configuração">
                 <label class="scope-choice" data-new-scope="system">
                     <input type="radio" name="new-flow-scope" value="system">
                     <strong>Sistema</strong>
-                    <span>Configuração geral para todos os clientes e projetos.</span>
+                    <span>Configuração Geral para Todos os Clientes e Projetos.</span>
                     <small>Somente Administrador</small>
                 </label>
                 <label class="scope-choice" data-new-scope="client">
                     <input type="radio" name="new-flow-scope" value="client">
                     <strong>Cliente</strong>
-                    <span>Aplicada ao cliente e a todos os seus projetos.</span>
+                    <span>Aplicada ao Cliente e a Todos os Seus Projetos.</span>
                 </label>
                 <label class="scope-choice selected" data-new-scope="project">
                     <input type="radio" name="new-flow-scope" value="project" checked="">
                     <strong>Projeto</strong>
-                    <span>Aplicada exclusivamente ao projeto selecionado.</span>
+                    <span>Aplicada Exclusivamente ao Projeto Selecionado.</span>
                 </label>
             </div>
 
-            <span class="context-step-label" id="new-flow-target-title">2. Defina o destino da configuração
+            <span class="context-step-label" id="new-flow-target-title">2. Defina o Destino da Configuração
                 <span style="color:#c00">*</span></span>
             <div class="new-flow-target-grid" id="new-flow-target-grid">
                 <div id="new-flow-client-row">
@@ -7323,6 +7428,7 @@ function renderTransitionContextMap() {
 }
 
 /* ---------- LISTA EM CARDS ---------- */
+/* ---------- LISTA EM CARDS (3 COLUNAS) ---------- */
 function renderTransitionRules() {
     const body = $('transition-list-body');
     if (!body) return;
@@ -7362,37 +7468,49 @@ function renderTransitionRules() {
         const cardClass = ['transition-card', hasError ? 'has-error' : (hasWarning ? 'has-warning' : '')].filter(Boolean).join(' ');
         const isOpen = openTransitionCardId === rule.id ? 'is-open' : '';
 
-        // Metadados neutros (texto, sem badges coloridos)
-        const metaItems = [];
-        metaItems.push(`<span class="meta-item"><strong>${rule.executionMode === 'automatic' ? 'Automática' : 'Manual'}</strong></span>`);
+        /* ----- COLUNA 2: EVENTO E PRÉ-REQUISITO ----- */
+        const eventMain = getTransitionEventLabel(rule);
+        const eventDetail = getTransitionEventDetailDescription(rule);
 
-        if (rule.prerequisiteType === 'none') {
-            metaItems.push(`<span class="meta-item">Sem condição</span>`);
-        } else if (rule.required) {
-            metaItems.push(`<span class="meta-item"><strong>Obrigatório</strong></span>`);
-        } else {
-            metaItems.push(`<span class="meta-item">Opcional</span>`);
-        }
+        /* ----- COLUNA 3: COMPORTAMENTO ----- */
+        const behaviorMain = rule.executionMode === 'automatic' ? 'Automática' : 'Manual';
+        const behaviorDetail = rule.prerequisiteType === 'none'
+            ? 'Sem condição'
+            : (rule.required ? 'Pré-requisito obrigatório' : 'Pré-requisito opcional');
 
-        if (isCross) metaItems.push(`<span class="meta-item">Cruzada</span>`);
-        if (hasError) metaItems.push(`<span class="meta-item danger">${!validReference ? 'Referência inválida' : 'Ciclo'}</span>`);
-
-        const typeLabel = rule.flowType === 'gestao' ? 'CX' : 'DOC';
+        /* Indicador de erro no detalhe (mantido, mas sem badge visível no resumo) */
+        const errorIndicator = hasError
+            ? `<div class="transition-detail-row" style="grid-column: 1 / -1">
+                   <span class="label">Alerta</span>
+                   <span class="value" style="color:#a35d58">${!validReference ? 'Referência inválida' : 'Dependência circular detectada'}</span>
+               </div>`
+            : '';
 
         return `
             <article class="${cardClass} ${isOpen}" data-transition-id="${rule.id}">
                 <div class="transition-card-summary" data-transition-toggle="${rule.id}">
-                    <span class="transition-card-type-badge" title="${rule.flowType === 'gestao' ? 'Caixa' : 'Documento'}">${typeLabel}</span>
+
                     <div class="transition-card-route">
                         <span class="from" title="${escapeAttribute(originName)}">${escapeAttribute(originName)}</span>
                         <span class="arrow">→</span>
                         <span class="to" title="${escapeAttribute(destName)}">${escapeAttribute(destName)}</span>
                     </div>
-                    <div class="transition-card-meta">${metaItems.join('')}</div>
+
+                    <div class="transition-card-event">
+                        <span class="event-main">${escapeAttribute(eventMain)}</span>
+                        <span class="event-detail">${escapeAttribute(eventDetail)}</span>
+                    </div>
+
+                    <div class="transition-card-behavior">
+                        <span class="behavior-main">${escapeAttribute(behaviorMain)}</span>
+                        <span class="behavior-detail">${escapeAttribute(behaviorDetail)}</span>
+                    </div>
+
                     <button type="button" class="transition-card-expand" aria-label="Expandir detalhes" tabindex="-1">
                         <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
                     </button>
                 </div>
+
                 <div class="transition-card-detail">
                     <div class="transition-detail-grid">
                         <div class="transition-detail-row">
@@ -7416,6 +7534,7 @@ function renderTransitionRules() {
                             <span class="label">Mensagem configurada</span>
                             <span class="value">"${escapeAttribute(rule.failureMessage)}"</span>
                         </div>` : ''}
+                        ${errorIndicator}
                     </div>
                     <div class="transition-detail-actions">
                         <button type="button" class="btn" data-transition-edit="${rule.id}"
@@ -7428,6 +7547,7 @@ function renderTransitionRules() {
         `;
     }).join('');
 
+    /* --- Bind do toggle de expandir --- */
     body.querySelectorAll('[data-transition-toggle]').forEach(el => {
         el.addEventListener('click', (e) => {
             if (e.target.closest('.transition-card-expand')) return;
@@ -7437,6 +7557,7 @@ function renderTransitionRules() {
         });
     });
 
+    /* --- Bind dos botões Editar --- */
     body.querySelectorAll('[data-transition-edit]').forEach(btn => {
         btn.addEventListener('click', (e) => {
             e.stopPropagation();
@@ -7444,6 +7565,7 @@ function renderTransitionRules() {
         });
     });
 
+    /* --- Bind dos botões Remover --- */
     body.querySelectorAll('[data-transition-remove]').forEach(btn => {
         btn.addEventListener('click', (e) => {
             e.stopPropagation();
@@ -7459,7 +7581,6 @@ function renderTransitionRules() {
     renderTransitionSummary();
     updateTransitionTabsActive();
 }
-
 function updateTransitionTabsActive() {
     document.querySelectorAll('.transition-inner-tab').forEach(tab => {
         tab.classList.toggle('active', tab.dataset.transitionFilter === currentTransitionFilter);
