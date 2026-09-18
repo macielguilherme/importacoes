@@ -4239,7 +4239,7 @@
 /* ---------- CABEÇALHO DAS COLUNAS (opcional, se quiser rótulos) ---------- */
 .transition-list-header {
     display: grid;
-    grid-template-columns: 1.4fr 2fr 1fr 32px;
+    grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr) 32px;
     gap: 16px;
     padding: 8px 16px;
     background: #f7f9fa;
@@ -4254,7 +4254,7 @@
 /* ---------- LINHA-RESUMO — 3 COLUNAS ---------- */
 .transition-card-summary {
     display: grid;
-    grid-template-columns: 1.4fr 2fr 1fr 32px;
+    grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr) 32px;
     align-items: center;
     gap: 16px;
     padding: 12px 16px;
@@ -4705,6 +4705,7 @@
 }
 
 .transition-editor-footer .footer-right {
+    margin-left: auto;
     display: flex;
     gap: 8px;
 }
@@ -5443,16 +5444,6 @@
             <button type="button" class="close-btn" id="transition-editor-close" aria-label="Fechar">×</button>
         </div>
 
-        <div class="transition-steps" id="transition-steps">
-            <span class="transition-step active" data-step="1"><span class="num">1</span> Rota</span>
-            <span class="transition-step-connector"></span>
-            <span class="transition-step" data-step="2"><span class="num">2</span> Evento</span>
-            <span class="transition-step-connector"></span>
-            <span class="transition-step" data-step="3"><span class="num">3</span> Condição</span>
-            <span class="transition-step-connector"></span>
-            <span class="transition-step" data-step="4"><span class="num">4</span> Comportamento</span>
-        </div>
-
         <div class="transition-editor-body">
 
             <!-- STEP 1: ROTA -->
@@ -5490,185 +5481,16 @@
                 </div>
             </div>
 
-            <!-- STEP 2: EVENTO -->
-            <div class="transition-step-panel" data-step-panel="2">
-                <h4>Evento que Inicia a Ação</h4>
-                <p class="step-hint">Escolha o que Dispara a Transição. os Campos Abaixo Mudam Conforme o Evento Selecionado.</p>
-                <div class="transition-editor-grid">
-                    <div class="transition-field span-2">
-                        <label for="transition-event">Evento <span class="req">*</span></label>
-                        <select id="transition-event">
-                            <option value="user_action">Ação Manual do Usuário</option>
-                            <option value="state_entry">Entrada Automática na Etapa de Origem</option>
-                            <option value="operation_completion">Conclusão de Operação Funcional</option>
-                            <option value="integration_return">Resultado de Integração Externa</option>
-                            <option value="service_order_completion">Encerramento de Ordem de Serviço</option>
-                            <option value="internal_automation">Execução de Rotina Interna do DocZ</option>
-                        </select>
-                    </div>
-
-                    <div class="transition-field span-2 transition-conditional" id="transition-user-action-field" hidden="">
-                        <label for="transition-user-action">Ação do Usuário <span class="req">*</span></label>
-                        <select id="transition-user-action">
-                            <option value="">Selecione...</option>
-                            <option value="approve">Aprovar</option>
-                            <option value="reject">Reprovar</option>
-                            <option value="advance">Avançar</option>
-                            <option value="finalize">Finalizar</option>
-                        </select>
-                    </div>
-                    <div class="transition-field span-2 transition-conditional" id="transition-operation-field" hidden="">
-                        <label for="transition-operation">Operação Funcional <span class="req">*</span></label>
-                        <select id="transition-operation">
-                            <option value="">Selecione...</option>
-                            <option value="indexing">Indexação</option>
-                            <option value="evaluation">Avaliação</option>
-                            <option value="pdfa_conversion">Conversão para PDF/A</option>
-                            <option value="signature">Assinatura</option>
-                        </select>
-                    </div>
-                    <div class="transition-field span-2 transition-conditional" id="transition-integration-field" hidden="">
-                        <label for="transition-integration">Integração Externa <span class="req">*</span></label>
-                        <select id="transition-integration">
-                            <option value="">Selecione...</option>
-                            <option value="sei">SEI</option>
-                            <option value="eternal_rdcarq">Eternal / RDC-Arq</option>
-                        </select>
-                    </div>
-                    <div class="transition-field span-2 transition-conditional" id="transition-integration-result-field" hidden="">
-                        <label for="transition-integration-result">Resultado Recebido <span class="req">*</span></label>
-                        <select id="transition-integration-result">
-                            <option value="">Selecione Primeiro a Integração...</option>
-                        </select>
-                        <small class="transition-field-help">Sem uma Transição Correspondente ao Resultado, o Objeto Permanece na Etapa Atual.</small>
-                    </div>
-                    <div class="transition-field span-2 transition-conditional" id="transition-service-order-type-field" hidden="">
-                        <label for="transition-service-order-type">Tipo de Ordem de Serviço <span class="req">*</span></label>
-                        <select id="transition-service-order-type">
-                            <option value="">Selecione...</option>
-                            <option value="digitalization">Digitalização</option>
-                            <option value="collection">Recolhimento / RDC-Arq</option>
-                            <option value="disposal">Expurgo</option>
-                        </select>
-                    </div>
-                    <div class="transition-field span-2 transition-conditional" id="transition-service-order-result-field" hidden="">
-                        <label for="transition-service-order-result">Situação de Encerramento <span class="req">*</span></label>
-                        <select id="transition-service-order-result">
-                            <option value="">Selecione...</option>
-                            <option value="completed">Concluída com Sucesso</option>
-                            <option value="completed_with_issues">Concluída com Pendências</option>
-                            <option value="cancelled">Cancelada</option>
-                        </select>
-                    </div>
-                    <div class="transition-field span-2 transition-conditional" id="transition-internal-routine-field" hidden="">
-                        <label for="transition-internal-routine">Rotina Interna <span class="req">*</span></label>
-                        <select id="transition-internal-routine">
-                            <option value="">Selecione...</option>
-                            <option value="automatic_processing">Conclusão Automática de Processamento</option>
-                            <option value="deadline_check">Verificação Programada de Prazo</option>
-                            <option value="automatic_reprocessing">Reprocessamento Automático</option>
-                        </select>
-                    </div>
-
-                    <div class="transition-field span-2">
-                        <label for="transition-execution">Execução da Transição</label>
-                        <select id="transition-execution" disabled="">
-                            <option value="user">Mediante Ação do Usuário</option>
-                            <option value="automatic">Automática</option>
-                        </select>
-                        <small class="transition-field-help">Definida Automaticamente Conforme o Evento Selecionado.</small>
-                    </div>
-                </div>
-            </div>
-
-            <!-- STEP 3: CONDIÇÃO -->
-            <div class="transition-step-panel" data-step-panel="3">
-                <h4>Condição Adicional (Opcional)</h4>
-                <p class="step-hint">Você Pode Exigir que Outro Objeto Esteja em um Estado Específico Antes de Permitir a Transição.</p>
-                <div class="transition-editor-grid">
-                    <div class="transition-field span-2">
-                        <label for="transition-prerequisite-type">Condição Adicional</label>
-                        <select id="transition-prerequisite-type">
-                            <option value="none">Nenhuma Condição Adicional</option>
-                            <option value="document_stage">Etapa do Documento Vinculado</option>
-                            <option value="box_status">Status da Caixa Vinculada</option>
-                        </select>
-                    </div>
-
-                    <div class="transition-field span-2 transition-conditional" id="transition-cross-criteria-field" hidden="">
-                        <label for="transition-cross-criteria">Critério sobre os Documentos <span class="req">*</span></label>
-                        <select id="transition-cross-criteria">
-                            <option value="all">Todos os Documentos Vinculados</option>
-                            <option value="at_least_one">Pelo Menos um Documento</option>
-                            <option value="none">Nenhum Documento</option>
-                            <option value="quantity">Quantidade Mínima</option>
-                            <option value="percentage">Percentual Mínimo</option>
-                        </select>
-                    </div>
-                    <div class="transition-field span-2 transition-conditional" id="transition-related-state-field" hidden="">
-                        <label for="transition-related-state" id="transition-related-state-label">Etapa Exigida <span class="req">*</span></label>
-                        <select id="transition-related-state"></select>
-                    </div>
-                    <div class="transition-field span-2 transition-conditional" id="transition-threshold-field" hidden="">
-                        <label for="transition-threshold" id="transition-threshold-label">Valor Mínimo <span class="req">*</span></label>
-                        <input type="number" id="transition-threshold" min="1" placeholder="Ex.: 80">
-                    </div>
-                    <div class="transition-field span-2 transition-conditional" id="transition-required-field" hidden="">
-                        <label for="transition-required">Exigir esta condição para permitir a transição?</label>
-                        <div class="transition-switch-option">
-                            <span id="transition-required-label">Sim</span>
-                            <label class="rule-switch" title="Exigir a condição adicional">
-                                <input type="checkbox" id="transition-required" checked="">
-                                <span></span>
-                            </label>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- STEP 4: COMPORTAMENTO -->
-            <div class="transition-step-panel" data-step-panel="4">
-                <h4>Quando a condição não for atendida</h4>
-                <p class="step-hint">Defina o que Acontece Quando a Condição Adicional (se Houver) Não For Satisfeita.</p>
-                <div class="transition-editor-grid">
-                    <div class="transition-field span-2 transition-conditional" id="transition-failure-behavior-field" hidden="">
-                        <label for="transition-failure-behavior">Comportamento <span class="req">*</span></label>
-                        <select id="transition-failure-behavior">
-                            <option value="stay">Permanecer na Etapa Atual</option>
-                            <option value="redirect">Direcionar para Outra Etapa</option>
-                            <option value="block_message">Impedir a Ação e Apresentar Mensagem</option>
-                        </select>
-                    </div>
-                    <div class="transition-field span-2 transition-conditional" id="transition-failure-target-field" hidden="">
-                        <label for="transition-failure-target" id="transition-failure-target-label">Etapa Alternativa <span class="req">*</span></label>
-                        <select id="transition-failure-target"></select>
-                    </div>
-                    <div class="transition-field span-2 transition-conditional" id="transition-failure-message-field" hidden="">
-                        <label for="transition-failure-message">Mensagem Apresentada <span class="req">*</span></label>
-                        <input type="text" id="transition-failure-message" placeholder="Ex.: Não é possível avançar. A aprovação ainda não foi concluída.">
-                    </div>
-
-                    <div class="transition-field span-2" id="transition-no-condition-note">
-                        <div class="transition-validation">
-                            <strong>Sem Condição Adicional:</strong>
-                            <span>Nenhuma condição adicional foi definida. A passagem obrigatória, quando habilitada em Rota, permanece independente.</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
             <div class="transition-validation" id="transition-validation">
                 <strong>Validação:</strong>
-                <span>Selecione os Dados da Transição para Validar Referências, Incompatibilidades e Dependências Circulares.</span>
+                <span>Informe a origem e o destino da transição.</span>
             </div>
         </div>
 
         <div class="transition-editor-footer">
-            <button type="button" class="btn" id="transition-editor-prev" style="height:34px;border-radius:3px;border:1px solid #cbd3d7;background:#fff;color:#52616b;padding:0 14px;font-size:10px;font-weight:700;cursor:pointer;visibility:hidden">← Voltar</button>
             <div class="footer-right">
                 <button type="button" class="btn" id="transition-editor-cancel" style="height:34px;border-radius:3px;border:1px solid #cbd3d7;background:#fff;color:#52616b;padding:0 14px;font-size:10px;font-weight:700;cursor:pointer">Cancelar</button>
-                <button type="button" class="btn" id="transition-editor-next" style="height:34px;border-radius:3px;border:1px solid #cbd3d7;background:#fff;color:#52616b;padding:0 14px;font-size:10px;font-weight:700;cursor:pointer">Próximo →</button>
-                <button type="button" class="greenB" id="transition-save" style="height:34px;border-radius:3px;padding:0 14px;font-size:10px;font-weight:700;cursor:pointer;background-image:var(--sf-img-39);background-position:0 -425px;border:1px solid #7ca82a;color:#fff;display:none">Salvar Transição</button>
+                <button type="button" class="greenB" id="transition-save" style="height:34px;border-radius:3px;padding:0 14px;font-size:10px;font-weight:700;cursor:pointer;background-image:var(--sf-img-39);background-position:0 -425px;border:1px solid #7ca82a;color:#fff">Salvar Transição</button>
             </div>
         </div>
     </div>
@@ -5947,15 +5769,14 @@
     <header class="transition-rules-header">
         <div class="header-copy">
             <h2 id="transition-rules-title">
-                Transições e Pré-Requisitos
-                <span class="info-badge" data-tooltip="Se um pré-requisito obrigatório não estiver concluído, a transição não será executada. O documento ou a caixa seguirá o comportamento configurado para a condição não atendida.">?</span>
+                Configurações de Transições
+                <span class="info-badge" data-tooltip="Defina as passagens obrigatórias entre origem e destino. Movimentos ad hoc permanecem permitidos quando não houver restrições aplicáveis.">?</span>
             </h2>
-            <p>Defina como os Objetos Avançam entre Etapas ou Status e Quais Condições Precisam Ser Atendidas.</p>
+            <p>Defina a origem, o destino e se a passagem entre essas etapas ou status é obrigatória.</p>
         </div>
         <div class="transition-summary-inline" aria-label="Resumo das regras">
             <span class="stat" id="transition-valid-count">4 válidas</span>
-            <span class="stat" id="transition-cross-count">1 cruzada</span>
-            <span class="stat" id="transition-cycle-count">0 ciclos</span>
+            <span class="stat" id="transition-required-count">1 obrigatória</span>
         </div>
     </header>
 
@@ -6049,167 +5870,11 @@
         <button type="button" class="greenB" id="transition-new" style="height:34px;border-radius:3px;padding:0 13px;font-size:10px;font-weight:700;cursor:pointer;background-image:var(--sf-img-39);background-position:0 -425px;border:1px solid #7ca82a;color:#fff">+ Nova Transição</button>
     </div>
 
-    <div class="transition-list" id="transition-list-body" aria-label="Transições configuradas">
-            <article class="transition-card " data-transition-id="1">
-                <div class="transition-card-summary" data-transition-toggle="1">
-
-                    <div class="transition-card-route">
-                        <span class="from" title="Digitalização">Digitalização</span>
-                        <span class="arrow">→</span>
-                        <span class="to" title="Indexação">Indexação</span>
-                    </div>
-
-                    <div class="transition-card-event">
-                        <span class="event-main">Conclusão de operação funcional</span>
-                        <span class="event-detail">Operação não informada</span>
-                    </div>
-
-                    <div class="transition-card-behavior">
-                        <span class="behavior-main">Automática</span>
-                        <span class="behavior-detail">Sem condição</span>
-                    </div>
-
-                    <button type="button" class="transition-card-expand" aria-label="Expandir detalhes" tabindex="-1">
-                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
-                    </button>
-                </div>
-
-                <div class="transition-card-detail">
-                    <div class="transition-detail-grid">
-                        <div class="transition-detail-row">
-                            <span class="label">Evento</span>
-                            <span class="value">Conclusão de operação funcional</span>
-                        </div>
-                        <div class="transition-detail-row">
-                            <span class="label">Detalhe do evento</span>
-                            <span class="value">Operação não informada</span>
-                        </div>
-                        <div class="transition-detail-row">
-                            <span class="label">Pré-requisito</span>
-                            <span class="value">Sem condição adicional</span>
-                        </div>
-                        <div class="transition-detail-row">
-                            <span class="label">Se não atendido</span>
-                            <span class="value">Sem condição adicional</span>
-                        </div>
-                        
-                        
-                    </div>
-                    <div class="transition-detail-actions">
-                        <button type="button" class="btn" data-transition-edit="1" style="height:28px;border-radius:3px;border:1px solid #cbd3d7;background:#fff;color:#52616b;padding:0 10px;font-size:9px;font-weight:700;cursor:pointer">Editar</button>
-                        <button type="button" class="btn" data-transition-remove="1" style="height:28px;border-radius:3px;border:1px solid #dcb6b3;background:#fff;color:#a35d58;padding:0 10px;font-size:9px;font-weight:700;cursor:pointer">Remover</button>
-                    </div>
-                </div>
-            </article>
-        
-            <article class="transition-card " data-transition-id="2">
-                <div class="transition-card-summary" data-transition-toggle="2">
-
-                    <div class="transition-card-route">
-                        <span class="from" title="Indexação">Indexação</span>
-                        <span class="arrow">→</span>
-                        <span class="to" title="Controle de Qualidade">Controle de Qualidade</span>
-                    </div>
-
-                    <div class="transition-card-event">
-                        <span class="event-main">Ação manual do usuário</span>
-                        <span class="event-detail">Aprovar</span>
-                    </div>
-
-                    <div class="transition-card-behavior">
-                        <span class="behavior-main">Manual</span>
-                        <span class="behavior-detail">Sem condição</span>
-                    </div>
-
-                    <button type="button" class="transition-card-expand" aria-label="Expandir detalhes" tabindex="-1">
-                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
-                    </button>
-                </div>
-
-                <div class="transition-card-detail">
-                    <div class="transition-detail-grid">
-                        <div class="transition-detail-row">
-                            <span class="label">Evento</span>
-                            <span class="value">Ação manual do usuário</span>
-                        </div>
-                        <div class="transition-detail-row">
-                            <span class="label">Detalhe do evento</span>
-                            <span class="value">Aprovar</span>
-                        </div>
-                        <div class="transition-detail-row">
-                            <span class="label">Pré-requisito</span>
-                            <span class="value">Sem condição adicional</span>
-                        </div>
-                        <div class="transition-detail-row">
-                            <span class="label">Se não atendido</span>
-                            <span class="value">Sem condição adicional</span>
-                        </div>
-                        
-                        
-                    </div>
-                    <div class="transition-detail-actions">
-                        <button type="button" class="btn" data-transition-edit="2" style="height:28px;border-radius:3px;border:1px solid #cbd3d7;background:#fff;color:#52616b;padding:0 10px;font-size:9px;font-weight:700;cursor:pointer">Editar</button>
-                        <button type="button" class="btn" data-transition-remove="2" style="height:28px;border-radius:3px;border:1px solid #dcb6b3;background:#fff;color:#a35d58;padding:0 10px;font-size:9px;font-weight:700;cursor:pointer">Remover</button>
-                    </div>
-                </div>
-            </article>
-        
-            <article class="transition-card " data-transition-id="3">
-                <div class="transition-card-summary" data-transition-toggle="3">
-
-                    <div class="transition-card-route">
-                        <span class="from" title="Controle de Qualidade">Controle de Qualidade</span>
-                        <span class="arrow">→</span>
-                        <span class="to" title="Finalizado">Finalizado</span>
-                    </div>
-
-                    <div class="transition-card-event">
-                        <span class="event-main">Resultado de integração externa</span>
-                        <span class="event-detail">SEI: Envio concluído com sucesso</span>
-                    </div>
-
-                    <div class="transition-card-behavior">
-                        <span class="behavior-main">Automática</span>
-                        <span class="behavior-detail">Sem condição</span>
-                    </div>
-
-                    <button type="button" class="transition-card-expand" aria-label="Expandir detalhes" tabindex="-1">
-                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
-                    </button>
-                </div>
-
-                <div class="transition-card-detail">
-                    <div class="transition-detail-grid">
-                        <div class="transition-detail-row">
-                            <span class="label">Evento</span>
-                            <span class="value">Resultado de integração externa</span>
-                        </div>
-                        <div class="transition-detail-row">
-                            <span class="label">Detalhe do evento</span>
-                            <span class="value">SEI: Envio concluído com sucesso</span>
-                        </div>
-                        <div class="transition-detail-row">
-                            <span class="label">Pré-requisito</span>
-                            <span class="value">Sem condição adicional</span>
-                        </div>
-                        <div class="transition-detail-row">
-                            <span class="label">Se não atendido</span>
-                            <span class="value">Sem condição adicional</span>
-                        </div>
-                        
-                        
-                    </div>
-                    <div class="transition-detail-actions">
-                        <button type="button" class="btn" data-transition-edit="3" style="height:28px;border-radius:3px;border:1px solid #cbd3d7;background:#fff;color:#52616b;padding:0 10px;font-size:9px;font-weight:700;cursor:pointer">Editar</button>
-                        <button type="button" class="btn" data-transition-remove="3" style="height:28px;border-radius:3px;border:1px solid #dcb6b3;background:#fff;color:#a35d58;padding:0 10px;font-size:9px;font-weight:700;cursor:pointer">Remover</button>
-                    </div>
-                </div>
-            </article>
-        </div>
+    <div class="transition-list" id="transition-list-body" aria-label="Transições configuradas"></div>
 
     <footer class="transition-rules-footer">
         <span>As Referências Utilizam Somente Etapas e Status Ativos Desta Configuração.</span>
-        <span>Dependências Circulares Deverão Ser Corrigidas Antes da Ativação.</span>
+        <span>Movimentos ad hoc são permitidos quando não houver restrições aplicáveis.</span>
     </footer>
 </section><section id="operational-rules" class="operational-rules" aria-labelledby="operational-rules-title" style="display: none;">
                         <header class="operational-rules-header">
@@ -6996,107 +6661,27 @@ function saveOperationalRules() {
    6. TRANSIÇÕES E PRÉ-REQUISITOS (REDESIGN)
    --------------------------------------------------------------------- */
 const initialTransitionRules = [
-    { id: 1, flowType: 'documental', originId: 4, destinationId: 5, event: 'operation_completion', operation: 'digitalization', prerequisiteType: 'none', required: false, failureBehavior: 'stay', failureTargetId: null, failureMessage: '', executionMode: 'automatic', crossCriteria: null, relatedStateId: null, threshold: null },
-    { id: 2, flowType: 'documental', originId: 5, destinationId: 6, event: 'user_action', userAction: 'approve', prerequisiteType: 'none', required: false, failureBehavior: 'stay', failureTargetId: null, failureMessage: '', executionMode: 'user', crossCriteria: null, relatedStateId: null, threshold: null },
-    { id: 3, flowType: 'documental', originId: 6, destinationId: 7, event: 'integration_return', integration: 'sei', integrationResult: 'send_success', prerequisiteType: 'none', required: false, failureBehavior: 'stay', failureTargetId: null, failureMessage: '', executionMode: 'automatic', crossCriteria: null, relatedStateId: null, threshold: null },
-    { id: 4, flowType: 'gestao', originId: 11, destinationId: 14, event: 'user_action', userAction: 'advance', prerequisiteType: 'document_stage', required: true, failureBehavior: 'block_message', failureTargetId: null, failureMessage: 'A caixa possui documentos que ainda não atingiram a etapa Finalizado.', executionMode: 'user', crossCriteria: 'all', relatedStateId: 7, threshold: null }
+    { id: 1, flowType: 'documental', originId: 4, destinationId: 5, routeRequired: true },
+    { id: 2, flowType: 'documental', originId: 5, destinationId: 6, routeRequired: false },
+    { id: 3, flowType: 'documental', originId: 6, destinationId: 7, routeRequired: false },
+    { id: 4, flowType: 'gestao', originId: 11, destinationId: 14, routeRequired: false }
 ];
 
 let transitionRules = JSON.parse(JSON.stringify(initialTransitionRules));
 let editingTransitionId = null;
-let transitionEditorStep = 1;
 let currentTransitionFilter = active;
 let openTransitionCardId = null;
 
-const transitionEventLabels = {
-    user_action: 'Ação manual do usuário',
-    operation_completion: 'Conclusão de operação funcional',
-    integration_return: 'Resultado de integração externa',
-    service_order_completion: 'Encerramento de Ordem de Serviço',
-    internal_automation: 'Execução de rotina interna do DocZ'
-};
-
-const transitionUserActionLabels = { approve: 'Aprovar', reject: 'Reprovar', advance: 'Avançar', finalize: 'Finalizar' };
-const transitionOperationLabels = { indexing: 'Indexação', evaluation: 'Avaliação', pdfa_conversion: 'Conversão para PDF/A', signature: 'Assinatura' };
-const transitionIntegrationLabels = { sei: 'SEI', eternal_rdcarq: 'Eternal / RDC-Arq' };
-
-const transitionIntegrationResults = {
-    sei: [
-        { value: 'send_success', label: 'Envio concluído com sucesso' },
-        { value: 'signature_completed', label: 'Assinatura concluída' },
-        { value: 'processing_failed', label: 'Processamento recusado ou com falha' }
-    ],
-    eternal_rdcarq: [
-        { value: 'preservation_success', label: 'Preservação concluída com sucesso' },
-        { value: 'preservation_failed', label: 'Preservação recusada ou com falha' }
-    ]
-};
-
-const transitionServiceOrderLabels = { digitalization: 'Digitalização', collection: 'Recolhimento / RDC-Arq', disposal: 'Expurgo' };
-const transitionServiceOrderResultLabels = { completed: 'Concluída com sucesso', completed_with_issues: 'Concluída com pendências', cancelled: 'Cancelada' };
-const transitionInternalRoutineLabels = { automatic_processing: 'Conclusão automática de processamento', deadline_check: 'Verificação programada de prazo', automatic_reprocessing: 'Reprocessamento automático' };
-
-const transitionPrerequisiteLabels = {
-    none: 'Sem condição adicional',
-    document_stage: 'Etapa do documento vinculado',
-    box_status: 'Status da caixa vinculada'
-};
-
-const transitionCriteriaLabels = {
-    all: 'Todos os documentos vinculados',
-    at_least_one: 'Pelo menos um documento',
-    none: 'Nenhum documento',
-    quantity: 'Quantidade mínima',
-    percentage: 'Percentual mínimo'
-};
-
 function getTransitionTerminology(flowType) {
     return flowType === 'gestao'
-        ? { originLabel: 'Status de origem', destinationLabel: 'Status de destino', stateEntry: 'Entrada automática no status de origem', stay: 'Permanecer no status atual', redirect: 'Direcionar para outro status', alternativeLabel: 'Status alternativo', unavailable: 'Status indisponível', missingRoute: 'Informe os status de origem e destino da transição.', sameRoute: 'O status de destino deve ser diferente do status de origem.', selectAlternative: 'Selecione o status alternativo para o redirecionamento.', sameAlternative: 'O status alternativo não pode ser igual ao destino principal.' }
-        : { originLabel: 'Etapa de origem', destinationLabel: 'Etapa de destino', stateEntry: 'Entrada automática na etapa de origem', stay: 'Permanecer na etapa atual', redirect: 'Direcionar para outra etapa', alternativeLabel: 'Etapa alternativa', unavailable: 'Etapa indisponível', missingRoute: 'Informe as etapas de origem e destino da transição.', sameRoute: 'A etapa de destino deve ser diferente da etapa de origem.', selectAlternative: 'Selecione a etapa alternativa para o redirecionamento.', sameAlternative: 'A etapa alternativa não pode ser igual ao destino principal.' };
-}
-
-function getTransitionEventLabel(rule) {
-    return rule.event === 'state_entry'
-        ? getTransitionTerminology(rule.flowType).stateEntry
-        : transitionEventLabels[rule.event] || rule.event;
-}
-
-function getTransitionIntegrationResultLabel(integration, result) {
-    return transitionIntegrationResults[integration]?.find(item => item.value === result)?.label || result || '';
-}
-
-function getTransitionEventDetailDescription(rule) {
-    if (rule.event === 'user_action') return transitionUserActionLabels[rule.userAction] || 'Ação não informada';
-    if (rule.event === 'operation_completion') return transitionOperationLabels[rule.operation] || 'Operação não informada';
-    if (rule.event === 'integration_return') {
-        const integration = transitionIntegrationLabels[rule.integration] || 'Integração não informada';
-        const result = getTransitionIntegrationResultLabel(rule.integration, rule.integrationResult) || 'resultado não informado';
-        return `${integration}: ${result}`;
-    }
-    if (rule.event === 'service_order_completion') {
-        const type = transitionServiceOrderLabels[rule.serviceOrderType] || 'Tipo não informado';
-        const result = transitionServiceOrderResultLabels[rule.serviceOrderResult] || 'situação não informada';
-        return `${type}: ${result}`;
-    }
-    if (rule.event === 'internal_automation') return transitionInternalRoutineLabels[rule.internalRoutine] || 'Rotina não informada';
-    return 'A origem da transição identifica automaticamente o evento';
+        ? { originLabel: 'Status de origem', destinationLabel: 'Status de destino', unavailable: 'Status indisponível', missingRoute: 'Informe os status de origem e destino da transição.', sameRoute: 'O status de destino deve ser diferente do status de origem.' }
+        : { originLabel: 'Etapa de origem', destinationLabel: 'Etapa de destino', unavailable: 'Etapa indisponível', missingRoute: 'Informe as etapas de origem e destino da transição.', sameRoute: 'A etapa de destino deve ser diferente da etapa de origem.' };
 }
 
 function updateTransitionTerminology(flowType) {
     const terminology = getTransitionTerminology(flowType);
-    const originLabel = $('transition-origin-label');
-    const destLabel = $('transition-destination-label');
-    const failLabel = $('transition-failure-target-label');
-    if (originLabel) originLabel.innerHTML = `${terminology.originLabel} <span class="req">*</span>`;
-    if (destLabel) destLabel.innerHTML = `${terminology.destinationLabel} <span class="req">*</span>`;
-    if (failLabel) failLabel.innerHTML = `${terminology.alternativeLabel} <span class="req">*</span>`;
-    const stateEntryOpt = document.querySelector('#transition-event option[value="state_entry"]');
-    if (stateEntryOpt) stateEntryOpt.textContent = terminology.stateEntry;
-    const stayOpt = document.querySelector('#transition-failure-behavior option[value="stay"]');
-    if (stayOpt) stayOpt.textContent = terminology.stay;
-    const redirectOpt = document.querySelector('#transition-failure-behavior option[value="redirect"]');
-    if (redirectOpt) redirectOpt.textContent = terminology.redirect;
+    $('transition-origin-label').innerHTML = `${terminology.originLabel} <span class="req">*</span>`;
+    $('transition-destination-label').innerHTML = `${terminology.destinationLabel} <span class="req">*</span>`;
 }
 
 function getTransitionStates(flowType, activeOnly = true) {
@@ -7109,88 +6694,17 @@ function getTransitionStateName(flowType, id) {
         || getTransitionTerminology(flowType).unavailable;
 }
 
-function isCrossTransitionRule(rule) {
-    return rule.prerequisiteType === 'document_stage' || rule.prerequisiteType === 'box_status';
-}
-
 function hasValidTransitionReferences(rule) {
-    const ownStates = getTransitionStates(rule.flowType);
-    const ownValid = ownStates.some(state => Number(state.id) === Number(rule.originId))
-        && ownStates.some(state => Number(state.id) === Number(rule.destinationId));
-    if (!ownValid) return false;
-    if (rule.prerequisiteType === 'document_stage') {
-        return getTransitionStates('documental').some(state => Number(state.id) === Number(rule.relatedStateId));
-    }
-    if (rule.prerequisiteType === 'box_status') {
-        return getTransitionStates('gestao').some(state => Number(state.id) === Number(rule.relatedStateId));
-    }
-    return true;
+    const states = getTransitionStates(rule.flowType);
+    return states.some(state => Number(state.id) === Number(rule.originId))
+        && states.some(state => Number(state.id) === Number(rule.destinationId));
 }
 
-function findCircularTransition(candidate, excludedId = null, rules = transitionRules) {
-    if (candidate.prerequisiteType === 'box_status' && candidate.flowType === 'documental') {
-        return rules.find(rule => rule.id !== excludedId
-            && rule.flowType === 'gestao'
-            && rule.prerequisiteType === 'document_stage'
-            && Number(rule.destinationId) === Number(candidate.relatedStateId)
-            && Number(rule.relatedStateId) === Number(candidate.destinationId));
-    }
-    if (candidate.prerequisiteType === 'document_stage' && candidate.flowType === 'gestao') {
-        return rules.find(rule => rule.id !== excludedId
-            && rule.flowType === 'documental'
-            && rule.prerequisiteType === 'box_status'
-            && Number(rule.destinationId) === Number(candidate.relatedStateId)
-            && Number(rule.relatedStateId) === Number(candidate.destinationId));
-    }
-    return null;
-}
-
-function getTransitionPrerequisiteDescription(rule) {
-    if (rule.prerequisiteType === 'none') return '';
-    if (rule.prerequisiteType === 'document_stage') {
-        const state = getTransitionStateName('documental', rule.relatedStateId);
-        const threshold = rule.crossCriteria === 'quantity' || rule.crossCriteria === 'percentage'
-            ? `: ${rule.threshold}${rule.crossCriteria === 'percentage' ? '%' : ''}`
-            : '';
-        return `${transitionCriteriaLabels[rule.crossCriteria] || 'Documentos vinculados'} em "${state}"${threshold}`;
-    }
-    if (rule.prerequisiteType === 'box_status') {
-        return `Caixa vinculada em "${getTransitionStateName('gestao', rule.relatedStateId)}"`;
-    }
-    return '';
-}
-
-function getTransitionFailureDescription(rule) {
-    if (rule.prerequisiteType === 'none') return 'Sem condição adicional';
-    if (rule.failureBehavior === 'redirect') {
-        return `Direcionar para ${getTransitionStateName(rule.flowType, rule.failureTargetId)}`;
-    }
-    if (rule.failureBehavior === 'block_message') return 'Impedir e apresentar mensagem';
-    return getTransitionTerminology(rule.flowType).stay;
-}
-
-function countCircularTransitionPairs() {
-    const keys = new Set();
-    transitionRules.forEach(rule => {
-        const pair = findCircularTransition(rule, rule.id);
-        if (pair) keys.add([rule.id, pair.id].sort((a, b) => a - b).join('-'));
-    });
-    return keys.size;
-}
-
-/* ---------- RESUMO INLINE ---------- */
 function renderTransitionSummary() {
-    const cycles = countCircularTransitionPairs();
-    const valid = transitionRules.filter(rule => hasValidTransitionReferences(rule) && !findCircularTransition(rule, rule.id)).length;
-    const cross = transitionRules.filter(isCrossTransitionRule).length;
-
-    const validEl = $('transition-valid-count');
-    const crossEl = $('transition-cross-count');
-    const cycleEl = $('transition-cycle-count');
-
-    if (validEl) validEl.textContent = `${valid} ${valid === 1 ? 'válida' : 'válidas'}`;
-    if (crossEl) crossEl.textContent = `${cross} ${cross === 1 ? 'cruzada' : 'cruzadas'}`;
-    if (cycleEl) cycleEl.textContent = `${cycles} ${cycles === 1 ? 'ciclo' : 'ciclos'}`;
+    const valid = transitionRules.filter(hasValidTransitionReferences).length;
+    const required = transitionRules.filter(rule => rule.routeRequired).length;
+    $('transition-valid-count').textContent = `${valid} ${valid === 1 ? 'válida' : 'válidas'}`;
+    $('transition-required-count').textContent = `${required} ${required === 1 ? 'obrigatória' : 'obrigatórias'}`;
 
     if ($('transition-count-all')) $('transition-count-all').textContent = transitionRules.length;
     if ($('transition-count-documental')) $('transition-count-documental').textContent = transitionRules.filter(r => r.flowType === 'documental').length;
@@ -7269,36 +6783,11 @@ function renderTransitionRules() {
     }
 
     body.innerHTML = visibleRules.map(rule => {
-        const isCross = isCrossTransitionRule(rule);
         const validReference = hasValidTransitionReferences(rule);
-        const circular = findCircularTransition(rule, rule.id);
-        const hasError = !validReference || !!circular;
-        const hasWarning = !hasError && isCross && !rule.required;
-
         const originName = getTransitionStateName(rule.flowType, rule.originId);
         const destName = getTransitionStateName(rule.flowType, rule.destinationId);
-
-        const cardClass = ['transition-card', hasError ? 'has-error' : (hasWarning ? 'has-warning' : '')].filter(Boolean).join(' ');
+        const cardClass = `transition-card ${validReference ? '' : 'has-error'}`;
         const isOpen = openTransitionCardId === rule.id ? 'is-open' : '';
-
-        /* ----- COLUNA 2: EVENTO E PRÉ-REQUISITO ----- */
-        const eventMain = getTransitionEventLabel(rule);
-        const eventDetail = getTransitionEventDetailDescription(rule);
-
-        /* ----- COLUNA 3: COMPORTAMENTO ----- */
-        const behaviorMain = rule.executionMode === 'automatic' ? 'Automática' : 'Manual';
-        const conditionDetail = rule.prerequisiteType === 'none'
-            ? 'Sem condição adicional'
-            : (rule.required ? 'Condição exigida' : 'Condição opcional');
-        const behaviorDetail = `${rule.routeRequired ? 'Passagem obrigatória' : 'Passagem não obrigatória'} · ${conditionDetail}`;
-
-        /* Indicador de erro no detalhe (mantido, mas sem badge visível no resumo) */
-        const errorIndicator = hasError
-            ? `<div class="transition-detail-row" style="grid-column: 1 / -1">
-                   <span class="label">Alerta</span>
-                   <span class="value" style="color:#a35d58">${!validReference ? 'Referência inválida' : 'Dependência circular detectada'}</span>
-               </div>`
-            : '';
 
         return `
             <article class="${cardClass} ${isOpen}" data-transition-id="${rule.id}">
@@ -7310,17 +6799,12 @@ function renderTransitionRules() {
                         <span class="to" title="${escapeAttribute(destName)}">${escapeAttribute(destName)}</span>
                     </div>
 
-                    <div class="transition-card-event">
-                        <span class="event-main">${escapeAttribute(eventMain)}</span>
-                        <span class="event-detail">${escapeAttribute(eventDetail)}</span>
-                    </div>
-
                     <div class="transition-card-behavior">
-                        <span class="behavior-main">${escapeAttribute(behaviorMain)}</span>
-                        <span class="behavior-detail">${escapeAttribute(behaviorDetail)}</span>
+                        <span class="behavior-main">Passagem obrigatória: ${rule.routeRequired ? 'Sim' : 'Não'}</span>
+                        <span class="behavior-detail">${rule.flowType === 'gestao' ? 'Status da Gestão Documental — Caixa' : 'Etapa Documental — Documento'}</span>
                     </div>
 
-                    <button type="button" class="transition-card-expand" aria-label="Expandir detalhes" tabindex="-1">
+                    <button type="button" class="transition-card-expand" aria-label="${isOpen ? 'Recolher detalhes' : 'Expandir detalhes'}" aria-expanded="${Boolean(isOpen)}">
                         <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
                     </button>
                 </div>
@@ -7331,32 +6815,11 @@ function renderTransitionRules() {
                             <span class="label">Passagem obrigatória entre origem e destino</span>
                             <span class="value">${rule.routeRequired ? 'Sim' : 'Não'}</span>
                         </div>
-                        <div class="transition-detail-row">
-                            <span class="label">Exigir condição para permitir a transição</span>
-                            <span class="value">${rule.prerequisiteType === 'none' ? 'Não se aplica — sem condição adicional' : (rule.required ? 'Sim' : 'Não')}</span>
+                        <div class="transition-detail-row" style="grid-column:1/-1">
+                            <span class="label">Regra de passagem</span>
+                            <span class="value">${escapeAttribute(getRouteRequirementDescription(rule))}</span>
                         </div>
-                        <div class="transition-detail-row">
-                            <span class="label">Evento</span>
-                            <span class="value">${escapeAttribute(getTransitionEventLabel(rule))}</span>
-                        </div>
-                        <div class="transition-detail-row">
-                            <span class="label">Detalhe do evento</span>
-                            <span class="value">${escapeAttribute(getTransitionEventDetailDescription(rule))}</span>
-                        </div>
-                        <div class="transition-detail-row">
-                            <span class="label">Pré-requisito</span>
-                            <span class="value">${escapeAttribute(transitionPrerequisiteLabels[rule.prerequisiteType] || '—')}${getTransitionPrerequisiteDescription(rule) ? ' · ' + escapeAttribute(getTransitionPrerequisiteDescription(rule)) : ''}</span>
-                        </div>
-                        <div class="transition-detail-row">
-                            <span class="label">Se não atendido</span>
-                            <span class="value">${escapeAttribute(getTransitionFailureDescription(rule))}</span>
-                        </div>
-                        ${rule.failureMessage ? `
-                        <div class="transition-detail-row" style="grid-column: 1 / -1">
-                            <span class="label">Mensagem configurada</span>
-                            <span class="value">"${escapeAttribute(rule.failureMessage)}"</span>
-                        </div>` : ''}
-                        ${errorIndicator}
+                        ${!validReference ? '<div class="transition-detail-row"><span class="label">Alerta</span><span class="value">A origem ou o destino está inativo ou indisponível. Edite a transição.</span></div>' : ''}
                     </div>
                     <div class="transition-detail-actions">
                         <button type="button" class="btn" data-transition-edit="${rule.id}"
@@ -7372,7 +6835,6 @@ function renderTransitionRules() {
     /* --- Bind do toggle de expandir --- */
     body.querySelectorAll('[data-transition-toggle]').forEach(el => {
         el.addEventListener('click', (e) => {
-            if (e.target.closest('.transition-card-expand')) return;
             const id = Number(el.dataset.transitionToggle);
             openTransitionCardId = openTransitionCardId === id ? null : id;
             renderTransitionRules();
@@ -7424,51 +6886,9 @@ function updateTransitionStateOptions(values = {}) {
     updateTransitionTerminology(flowType);
     fillTransitionSelect($('transition-origin'), states, values.originId ?? $('transition-origin').value);
     fillTransitionSelect($('transition-destination'), states, values.destinationId ?? $('transition-destination').value);
-    fillTransitionSelect($('transition-failure-target'), states, values.failureTargetId ?? $('transition-failure-target').value);
-
-    const prerequisiteType = $('transition-prerequisite-type').value;
-    const relatedFlow = prerequisiteType === 'document_stage' ? 'documental' : 'gestao';
-    fillTransitionSelect($('transition-related-state'), getTransitionStates(relatedFlow), values.relatedStateId ?? $('transition-related-state').value);
-    $('transition-related-state-label').innerHTML = prerequisiteType === 'document_stage'
-        ? 'Etapa Documental exigida <span class="req">*</span>'
-        : 'Status da Gestão Documental exigido <span class="req">*</span>';
     $('transition-flow-source-note').textContent = flowType === 'documental'
         ? `Origem e destino carregados das ${states.length} Etapas Documentais ativas desta configuração.`
         : `Origem e destino carregados dos ${states.length} Status da Gestão Documental ativos desta configuração.`;
-}
-
-function updateTransitionIntegrationResults(selectedValue = '') {
-    const integration = $('transition-integration').value;
-    const results = transitionIntegrationResults[integration] || [];
-    $('transition-integration-result').innerHTML = results.length
-        ? '<option value="">Selecione...</option>' + results
-            .map(item => `<option value="${item.value}">${escapeAttribute(item.label)}</option>`)
-            .join('')
-        : '<option value="">Selecione primeiro a integração...</option>';
-    if (results.some(item => item.value === selectedValue)) {
-        $('transition-integration-result').value = selectedValue;
-    }
-}
-
-function updateTransitionEventFields(values = {}) {
-    const event = $('transition-event').value;
-    $('transition-user-action-field').hidden = event !== 'user_action';
-    $('transition-operation-field').hidden = event !== 'operation_completion';
-    $('transition-integration-field').hidden = event !== 'integration_return';
-    $('transition-integration-result-field').hidden = event !== 'integration_return';
-    $('transition-service-order-type-field').hidden = event !== 'service_order_completion';
-    $('transition-service-order-result-field').hidden = event !== 'service_order_completion';
-    $('transition-internal-routine-field').hidden = event !== 'internal_automation';
-
-    if (Object.prototype.hasOwnProperty.call(values, 'userAction')) $('transition-user-action').value = values.userAction || '';
-    if (Object.prototype.hasOwnProperty.call(values, 'operation')) $('transition-operation').value = values.operation || '';
-    if (Object.prototype.hasOwnProperty.call(values, 'integration')) $('transition-integration').value = values.integration || '';
-    updateTransitionIntegrationResults(values.integrationResult || '');
-    if (Object.prototype.hasOwnProperty.call(values, 'serviceOrderType')) $('transition-service-order-type').value = values.serviceOrderType || '';
-    if (Object.prototype.hasOwnProperty.call(values, 'serviceOrderResult')) $('transition-service-order-result').value = values.serviceOrderResult || '';
-    if (Object.prototype.hasOwnProperty.call(values, 'internalRoutine')) $('transition-internal-routine').value = values.internalRoutine || '';
-
-    $('transition-execution').value = event === 'user_action' ? 'user' : 'automatic';
 }
 
 function getTransitionCandidate() {
@@ -7477,24 +6897,7 @@ function getTransitionCandidate() {
         flowType: $('transition-flow-type').value,
         originId: Number($('transition-origin').value) || null,
         destinationId: Number($('transition-destination').value) || null,
-        routeRequired: $('transition-route-required').checked,
-        event: $('transition-event').value,
-        userAction: $('transition-user-action').value,
-        operation: $('transition-operation').value,
-        integration: $('transition-integration').value,
-        integrationResult: $('transition-integration-result').value,
-        serviceOrderType: $('transition-service-order-type').value,
-        serviceOrderResult: $('transition-service-order-result').value,
-        internalRoutine: $('transition-internal-routine').value,
-        prerequisiteType: $('transition-prerequisite-type').value,
-        required: $('transition-required').checked,
-        failureBehavior: $('transition-failure-behavior').value,
-        failureTargetId: Number($('transition-failure-target').value) || null,
-        failureMessage: $('transition-failure-message').value.trim(),
-        executionMode: $('transition-execution').value,
-        crossCriteria: $('transition-cross-criteria').value,
-        relatedStateId: Number($('transition-related-state').value) || null,
-        threshold: Number($('transition-threshold').value) || null
+        routeRequired: $('transition-route-required').checked
     };
 }
 
@@ -7502,35 +6905,22 @@ function validateTransitionCandidate(candidate) {
     const terminology = getTransitionTerminology(candidate.flowType);
     if (!candidate.originId || !candidate.destinationId) return { valid: false, severity: 'error', message: terminology.missingRoute };
     if (candidate.originId === candidate.destinationId) return { valid: false, severity: 'error', message: terminology.sameRoute };
-    if (candidate.event === 'user_action' && !candidate.userAction) return { valid: false, severity: 'error', message: 'Selecione a ação manual do usuário que inicia a transição.' };
-    if (candidate.event === 'operation_completion' && !candidate.operation) return { valid: false, severity: 'error', message: 'Selecione a operação funcional cuja conclusão inicia a transição.' };
-    if (candidate.event === 'integration_return' && !candidate.integration) return { valid: false, severity: 'error', message: 'Selecione a integração externa que inicia a transição.' };
-    if (candidate.event === 'integration_return' && !candidate.integrationResult) return { valid: false, severity: 'error', message: 'Selecione o resultado recebido da integração externa.' };
-    if (candidate.event === 'service_order_completion' && !candidate.serviceOrderType) return { valid: false, severity: 'error', message: 'Selecione o tipo de Ordem de Serviço.' };
-    if (candidate.event === 'service_order_completion' && !candidate.serviceOrderResult) return { valid: false, severity: 'error', message: 'Selecione a situação de encerramento da Ordem de Serviço.' };
-    if (candidate.event === 'internal_automation' && !candidate.internalRoutine) return { valid: false, severity: 'error', message: 'Selecione a rotina interna do DocZ que inicia a transição.' };
-    if (candidate.prerequisiteType === 'document_stage' && candidate.flowType !== 'gestao') return { valid: false, severity: 'error', message: 'A Etapa do documento vinculado somente pode condicionar uma transição do fluxo de Caixas.' };
-    if (candidate.prerequisiteType === 'box_status' && candidate.flowType !== 'documental') return { valid: false, severity: 'error', message: 'O Status da caixa vinculada somente pode condicionar uma transição do fluxo de Documentos.' };
-    if (isCrossTransitionRule(candidate) && !candidate.relatedStateId) return { valid: false, severity: 'error', message: 'Selecione a Etapa ou o Status exigido do objeto relacionado.' };
-    if (candidate.prerequisiteType === 'document_stage' && ['quantity', 'percentage'].includes(candidate.crossCriteria) && !candidate.threshold) return { valid: false, severity: 'error', message: 'Informe a quantidade ou o percentual mínimo exigido.' };
-    const hasPrerequisite = candidate.prerequisiteType !== 'none';
-    if (hasPrerequisite && candidate.failureBehavior === 'redirect' && !candidate.failureTargetId) return { valid: false, severity: 'error', message: terminology.selectAlternative };
-    if (hasPrerequisite && candidate.failureBehavior === 'redirect' && candidate.failureTargetId === candidate.destinationId) return { valid: false, severity: 'error', message: terminology.sameAlternative };
-    if (hasPrerequisite && candidate.failureBehavior === 'block_message' && !candidate.failureMessage) return { valid: false, severity: 'error', message: 'Informe a mensagem que será apresentada quando o pré-requisito não for atendido.' };
-    const circular = findCircularTransition(candidate, editingTransitionId);
-    if (circular) return { valid: false, severity: 'error', message: `Dependência circular detectada com a transição ${getTransitionStateName(circular.flowType, circular.originId)} → ${getTransitionStateName(circular.flowType, circular.destinationId)}.` };
-    if (hasPrerequisite && !candidate.required) return { valid: true, severity: 'warning', message: 'A condição adicional é opcional e não bloqueia o avanço por si só. A passagem obrigatória, se configurada, continua válida.' };
-    return { valid: true, severity: 'success', message: hasPrerequisite ? 'Configuração válida. Nenhuma referência incompatível ou dependência circular foi identificada.' : 'Configuração válida, sem condição adicional. O evento e a obrigatoriedade da passagem são definidos separadamente.' };
+    if (!hasValidTransitionReferences(candidate)) return { valid: false, severity: 'error', message: 'Selecione uma origem e um destino ativos nesta configuração.' };
+    return { valid: true, severity: 'success', message: 'Transição pronta para salvar.' };
+}
+
+function getRouteRequirementDescription(rule) {
+    if (!rule.routeRequired) return 'Esta rota não exige passagem obrigatória entre origem e destino. Movimentos ad hoc continuam permitidos, respeitando outras restrições configuradas.';
+    if (!rule.originId || !rule.destinationId) return 'Ao entrar na origem, o objeto deverá passar pelo destino antes de seguir para outra posição. A entrada no destino exigirá passagem pela origem. Selecione as duas posições para visualizar a regra.';
+    const origin = getTransitionStateName(rule.flowType, rule.originId);
+    const destination = getTransitionStateName(rule.flowType, rule.destinationId);
+    return `Ao entrar em “${origin}”, o objeto deve passar por “${destination}” antes de seguir para outro destino. A entrada em “${destination}” exige passagem pela origem “${origin}”. Movimentos fora desse trecho continuam livres, respeitando outras restrições configuradas.`;
 }
 
 function updateTransitionRouteRequirement() {
-    const required = $('transition-route-required').checked;
-    const origin = selectedOptionText($('transition-origin')) || 'origem';
-    const destination = selectedOptionText($('transition-destination')) || 'destino';
-    $('transition-route-required-label').textContent = required ? 'Sim' : 'Não';
-    $('transition-route-required-help').textContent = required
-        ? `Ao entrar em “${origin}”, o objeto deve passar por “${destination}” antes de seguir para outro destino. A entrada em “${destination}” exige passagem anterior por “${origin}”. Movimentos fora desse trecho continuam livres, respeitando outras dependências configuradas.`
-        : 'Esta rota não exige passagem obrigatória entre origem e destino. Movimentos ad hoc continuam permitidos, respeitando outras dependências configuradas.';
+    const candidate = getTransitionCandidate();
+    $('transition-route-required-label').textContent = candidate.routeRequired ? 'Sim' : 'Não';
+    $('transition-route-required-help').textContent = getRouteRequirementDescription(candidate);
 }
 
 function updateTransitionValidation() {
@@ -7544,81 +6934,18 @@ function updateTransitionValidation() {
     return result;
 }
 
-function updateTransitionConditionalFields() {
-    const prerequisiteType = $('transition-prerequisite-type').value;
-    const hasPrerequisite = prerequisiteType !== 'none';
-    const isCross = prerequisiteType === 'document_stage' || prerequisiteType === 'box_status';
-
-    $('transition-related-state-field').hidden = !isCross;
-    $('transition-cross-criteria-field').hidden = prerequisiteType !== 'document_stage';
-    const showThreshold = prerequisiteType === 'document_stage' && ['quantity', 'percentage'].includes($('transition-cross-criteria').value);
-    $('transition-threshold-field').hidden = !showThreshold;
-    $('transition-threshold-label').innerHTML = $('transition-cross-criteria').value === 'percentage'
-        ? 'Percentual mínimo <span class="req">*</span>'
-        : 'Quantidade mínima <span class="req">*</span>';
-
-    const failureBehavior = $('transition-failure-behavior').value;
-    $('transition-required-field').hidden = !hasPrerequisite;
-    $('transition-failure-behavior-field').hidden = !hasPrerequisite;
-    $('transition-failure-target-field').hidden = !hasPrerequisite || failureBehavior !== 'redirect';
-    $('transition-failure-message-field').hidden = !hasPrerequisite || failureBehavior !== 'block_message';
-    $('transition-required-label').textContent = $('transition-required').checked ? 'Sim' : 'Não';
-    $('transition-no-condition-note').hidden = hasPrerequisite;
-
-    updateTransitionStateOptions();
-    updateTransitionValidation();
-}
-
-function setTransitionStep(step) {
-    transitionEditorStep = Math.max(1, Math.min(4, step));
-    document.querySelectorAll('.transition-step').forEach(el => {
-        const n = Number(el.dataset.step);
-        el.classList.toggle('active', n === transitionEditorStep);
-        el.classList.toggle('done', n < transitionEditorStep);
-    });
-    document.querySelectorAll('.transition-step-panel').forEach(panel => {
-        panel.classList.toggle('active', Number(panel.dataset.stepPanel) === transitionEditorStep);
-    });
-    $('transition-editor-prev').style.visibility = transitionEditorStep === 1 ? 'hidden' : 'visible';
-    $('transition-editor-next').style.display = transitionEditorStep === 4 ? 'none' : 'inline-flex';
-    $('transition-save').style.display = transitionEditorStep === 4 ? 'inline-flex' : 'none';
-}
-
 function openTransitionEditor(id = null) {
     editingTransitionId = id;
     const rule = id ? transitionRules.find(item => item.id === id) : null;
     $('transition-editor-modal').classList.add('show');
     $('transition-editor-title').textContent = rule ? 'Editar Transição' : 'Nova Transição';
-    $('transition-flow-type').value = rule?.flowType || active;
-    $('transition-event').value = rule?.event || 'user_action';
-    $('transition-user-action').value = rule?.userAction || '';
-    $('transition-operation').value = rule?.operation || '';
-    $('transition-integration').value = rule?.integration || '';
-    $('transition-service-order-type').value = rule?.serviceOrderType || '';
-    $('transition-service-order-result').value = rule?.serviceOrderResult || '';
-    $('transition-internal-routine').value = rule?.internalRoutine || '';
-    $('transition-prerequisite-type').value = rule?.prerequisiteType || 'none';
+    $('transition-flow-type').value = rule?.flowType || (currentTransitionFilter === 'all' ? active : currentTransitionFilter);
     $('transition-route-required').checked = rule?.routeRequired ?? false;
-    $('transition-required').checked = rule?.required ?? false;
-    $('transition-failure-behavior').value = rule?.failureBehavior || 'block_message';
-    $('transition-failure-message').value = rule?.failureMessage || '';
-    $('transition-execution').value = rule?.executionMode || 'user';
-    $('transition-cross-criteria').value = rule?.crossCriteria || 'all';
-    $('transition-threshold').value = rule?.threshold || '';
     $('transition-scope-chip').className = `scope-chip ${$('scope').value}`;
     $('transition-scope-chip').textContent = `● Escopo: ${scopeName()}`;
-    updateTransitionStateOptions(rule || {});
-    updateTransitionEventFields({
-        userAction: rule?.userAction || '',
-        operation: rule?.operation || '',
-        integration: rule?.integration || '',
-        integrationResult: rule?.integrationResult || '',
-        serviceOrderType: rule?.serviceOrderType || '',
-        serviceOrderResult: rule?.serviceOrderResult || '',
-        internalRoutine: rule?.internalRoutine || ''
-    });
-    updateTransitionConditionalFields();
-    setTransitionStep(1);
+    updateTransitionStateOptions(rule || { originId: '', destinationId: '' });
+    updateTransitionValidation();
+    $('transition-flow-type').focus();
 }
 
 function closeTransitionEditor() {
@@ -7642,7 +6969,7 @@ function saveTransitionRule() {
     }
     renderTransitionRules();
     closeTransitionEditor();
-    toast('Transição e pré-requisito salvos nesta configuração.');
+    toast('Transição salva nesta configuração.');
 }
 
 /* ---------------------------------------------------------------------
@@ -8287,8 +7614,6 @@ $('transition-context-toggle').onclick = () => {
 $('transition-editor-close').onclick = closeTransitionEditor;
 $('transition-editor-cancel').onclick = closeTransitionEditor;
 $('transition-save').onclick = saveTransitionRule;
-$('transition-editor-prev').onclick = () => setTransitionStep(transitionEditorStep - 1);
-$('transition-editor-next').onclick = () => setTransitionStep(transitionEditorStep + 1);
 
 $('transition-editor-modal').onclick = (e) => {
     if (e.target === $('transition-editor-modal')) closeTransitionEditor();
@@ -8303,47 +7628,13 @@ document.addEventListener('keydown', (e) => {
     }
 });
 
-/* Campos do editor */
+/* Campos da rota */
 $('transition-flow-type').onchange = () => {
-    updateTransitionStateOptions({ originId: '', destinationId: '', failureTargetId: '', relatedStateId: '' });
-    updateTransitionConditionalFields();
-};
-$('transition-event').onchange = () => {
-    updateTransitionEventFields();
+    updateTransitionStateOptions({ originId: '', destinationId: '' });
     updateTransitionValidation();
 };
-$('transition-integration').onchange = () => {
-    updateTransitionIntegrationResults();
-    updateTransitionValidation();
-};
-$('transition-prerequisite-type').onchange = () => {
-    $('transition-required').checked = $('transition-prerequisite-type').value !== 'none';
-    updateTransitionStateOptions({ relatedStateId: '' });
-    updateTransitionConditionalFields();
-};
-$('transition-cross-criteria').onchange = updateTransitionConditionalFields;
-$('transition-failure-behavior').onchange = updateTransitionConditionalFields;
-$('transition-required').onchange = updateTransitionConditionalFields;
-$('transition-route-required').onchange = updateTransitionValidation;
-
-[
-    'transition-origin',
-    'transition-destination',
-    'transition-event',
-    'transition-user-action',
-    'transition-operation',
-    'transition-integration-result',
-    'transition-service-order-type',
-    'transition-service-order-result',
-    'transition-internal-routine',
-    'transition-related-state',
-    'transition-threshold',
-    'transition-execution',
-    'transition-failure-target',
-    'transition-failure-message'
-].forEach(id => {
-    const el = $(id);
-    if (el) el.addEventListener(el.tagName === 'INPUT' ? 'input' : 'change', updateTransitionValidation);
+['transition-origin', 'transition-destination', 'transition-route-required'].forEach(id => {
+    $(id).addEventListener('change', updateTransitionValidation);
 });
 
 /* Pesquisa da tabela de etapas/status */
@@ -8472,4 +7763,4 @@ $('project').onchange = () => toast('Projeto de aplicação atualizado.');
 
 
 <script>(function(){function c(){var b=a.contentDocument||(a.contentWindow&&a.contentWindow.document);if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a3b80d290ab12550',t:'MTc4OTQ3OTcxMg=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script><iframe height="1" width="1" style="position: absolute; top: 0px; left: 0px; border-width: medium; border-style: none; border-color: currentcolor; border-image: none; visibility: hidden;" src="./Configurar Transições  - Configuração de Fluxos Documentais - Gui V2_files/saved_resource(2).html"></iframe>
-<script>(function(){function c(){var b=a.contentDocument||(a.contentWindow&&a.contentWindow.document);if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a3bffb211af6b5fe',t:'MTc4OTU2Mjg1OQ=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body></html>
+<script>(function(){function c(){var b=a.contentDocument||(a.contentWindow&&a.contentWindow.document);if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a3cfeb3858ff7b75',t:'MTc4OTcyOTk4MA=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body></html>
