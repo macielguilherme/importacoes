@@ -4972,8 +4972,33 @@
 
 @media (max-width: 1100px) {
     #stage-editor-fields {
-        grid-template-columns: minmax(250px, 1.5fr) minmax(130px,.55fr) minmax(150px,.65fr) minmax(170px,.75fr) !important;
-    }
+            display: grid;
+            grid-template-columns: minmax(300px,1.55fr) minmax(145px,.5fr) minmax(155px,.58fr) minmax(185px,.72fr) auto;
+            gap: 14px;
+            align-items: start;
+            padding-top: 4px;
+        }
+        #stage-editor-fields .formRow {
+            align-self: start;
+            padding-top: 0;
+            margin-top: 0;
+        }
+        #stage-editor-fields .formRow > label {
+            min-height: 18px;
+            line-height: 18px;
+            margin-bottom: 4px;
+        }
+        #stage-editor-fields .domain-help {
+            display: block;
+            margin-top: 5px;
+            font-size: 9px;
+            line-height: 1.35;
+            color: #7a8790;
+        }
+        #stage-editor-fields .sequential-flow-note {
+            grid-column: 1 / -1;
+            margin-top: 6px;
+        }
     #stage-editor-actions {
         grid-column: 1 / -1;
         justify-content: flex-end;
@@ -4981,6 +5006,767 @@
 }
 </style>
 
+
+
+
+
+
+
+
+
+<style id="stage-editor-final">
+/* ============================================================
+   EDITOR DE ETAPA / STATUS — Todos os campos em uma linha
+   ============================================================ */
+
+#stage-editor-section {
+    padding: 20px 24px 22px !important;
+    background: #f4f7f9 !important;
+    border-bottom: 1px solid #cdcdcd !important;
+    margin: 0 -14px !important;
+}
+
+#stage-editor-section > div:first-child {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    margin-bottom: 16px !important;
+    padding-bottom: 12px !important;
+    border-bottom: 1px solid #dbe2e6 !important;
+}
+
+#stage-editor-section h2#editor-title {
+    font-size: 14px !important;
+    font-weight: 700 !important;
+    color: #344650 !important;
+    margin: 0 !important;
+    text-transform: uppercase !important;
+    letter-spacing: .4px !important;
+}
+
+#stage-editor-section > div:first-child > span {
+    font-size: 10px !important;
+    color: #8895a0 !important;
+    font-style: italic !important;
+}
+
+/* ---------- CONTAINER — agora é uma GRID de 1 linha ---------- */
+#stage-editor-fields {
+    display: grid !important;
+    grid-template-columns:
+        minmax(320px, 1.6fr)   /* Etapa Documental */
+        minmax(140px, .55fr)   /* Ordem no Fluxo */
+        minmax(160px, .7fr)    /* Situação */
+        minmax(180px, .8fr)    /* Passagem Obrigatória */
+        auto                    /* Botões */
+        !important;
+    grid-template-areas:
+        "ident config-ident config-ident config-ident actions"
+        "note note note note note" !important;
+    gap: 16px 20px !important;
+    align-items: end !important;
+    width: 100% !important;
+    padding: 18px 20px !important;
+    background: #ffffff !important;
+    border: 1px solid #dfe5e9 !important;
+    border-radius: 6px !important;
+    box-shadow: 0 1px 3px rgba(44, 60, 72, .05) !important;
+    box-sizing: border-box !important;
+}
+
+/* ---------- BLOCO 1 (Identificação) — ocupa apenas a primeira coluna ---------- */
+#stage-editor-fields .stage-block-identificacao {
+    grid-area: ident !important;
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    width: 100% !important;
+    display: contents !important;   /* ⬅️ dissolve o bloco para o grid pai controlar */
+}
+
+/* ---------- BLOCO 2 (Configuração) — os 3 campos ficam nas colunas 2, 3, 4 ---------- */
+#stage-editor-fields .stage-block-configura {
+    display: contents !important;   /* ⬅️ dissolve o bloco */
+}
+
+/* Cada formRow da configuração vai para uma coluna específica */
+#stage-editor-fields .stage-block-configura .stage-block-config {
+    display: contents !important;
+}
+
+/* Remove títulos internos dos blocos (não fazem sentido em 1 linha) */
+#stage-editor-fields .stage-block-title {
+    display: none !important;
+}
+
+/* ---------- FORM ROWS ---------- */
+#stage-editor-fields .formRow {
+    display: flex !important;
+    flex-direction: column !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    border: none !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+}
+
+#stage-editor-fields .formRow > label {
+    display: block !important;
+    min-height: 20px !important;
+    line-height: 20px !important;
+    margin-bottom: 6px !important;
+    font-size: 11px !important;
+    font-weight: 700 !important;
+    color: #4d5d66 !important;
+    text-transform: uppercase !important;
+    letter-spacing: .3px !important;
+    white-space: nowrap !important;
+}
+
+#stage-editor-fields .formRow > label span[style*="#c00"],
+#stage-editor-fields .formRow > label span[style*="c00"] {
+    color: #c0392b !important;
+}
+
+/* ---------- CAMPOS PADRONIZADOS ---------- */
+#stage-editor-fields input[type="text"],
+#stage-editor-fields input[type="number"],
+#stage-editor-fields select {
+    height: 38px !important;
+    border: 1px solid #cfd6da !important;
+    border-radius: 4px !important;
+    background: #fff !important;
+    font-size: 12px !important;
+    color: #34424c !important;
+    box-sizing: border-box !important;
+    transition: border-color .15s ease, box-shadow .15s ease !important;
+    width: 100% !important;
+}
+
+#stage-editor-fields input:focus,
+#stage-editor-fields select:focus {
+    border-color: #4b96b8 !important;
+    box-shadow: 0 0 0 3px rgba(75,150,184,.12) !important;
+    outline: none !important;
+}
+
+/* ---------- COMBOBOX (Etapa Documental) ---------- */
+#stage-editor-fields .domain-combobox {
+    position: relative !important;
+    width: 100% !important;
+}
+
+#stage-editor-fields #stage-name-search {
+    height: 38px !important;
+    padding: 0 42px 0 34px !important;
+    width: 100% !important;
+}
+
+#stage-editor-fields .domain-search-icon {
+    left: 12px !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    font-size: 14px !important;
+    color: #8a97a0 !important;
+    position: absolute !important;
+    pointer-events: none !important;
+}
+
+#stage-editor-fields .domain-combobox-toggle {
+    width: 36px !important;
+    height: 36px !important;
+    background: #f8fafb !important;
+    border-left: 1px solid #e1e5e8 !important;
+    position: absolute !important;
+    right: 1px !important;
+    top: 1px !important;
+    border-radius: 0 4px 4px 0 !important;
+    color: #687781 !important;
+    cursor: pointer !important;
+}
+
+#stage-editor-fields .domain-help {
+    display: none !important;   /* ⬅️ esconde o texto de ajuda para não empurrar altura */
+}
+
+/* ---------- STEPPER "ORDEM NO FLUXO" ---------- */
+#stage-editor-fields .order-input {
+    display: flex !important;
+    align-items: stretch !important;
+    max-width: 150px !important;
+    height: 38px !important;
+    min-height: 38px !important;
+    max-height: 38px !important;
+    border: 1px solid #c9d2d7 !important;
+    border-radius: 6px !important;
+    overflow: hidden !important;
+    background: #fff !important;
+    box-shadow: 0 1px 2px rgba(44, 60, 72, .04) !important;
+    box-sizing: border-box !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    line-height: normal !important;
+}
+
+#stage-editor-fields .order-input button {
+    width: 40px !important;
+    min-width: 40px !important;
+    max-width: 40px !important;
+    height: 100% !important;
+    min-height: 0 !important;
+    max-height: 100% !important;
+    flex: 0 0 40px !important;
+    border: 0 !important;
+    border-radius: 0 !important;
+    background: #f3f6f8 !important;
+    color: #52616b !important;
+    font-size: 17px !important;
+    font-weight: 600 !important;
+    cursor: pointer !important;
+    transition: background .15s ease, color .15s ease !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    line-height: 0 !important;
+    box-shadow: none !important;
+    outline: none !important;
+    -webkit-appearance: none !important;
+    appearance: none !important;
+    box-sizing: border-box !important;
+    font-family: inherit !important;
+    vertical-align: top !important;
+}
+
+#stage-editor-fields .order-input button:hover {
+    background: #e6eef3 !important;
+    color: #2f718f !important;
+}
+
+#stage-editor-fields .order-input button:first-child {
+    border-right: 1px solid #e1e7ea !important;
+}
+
+#stage-editor-fields .order-input button:last-child {
+    border-left: 1px solid #e1e7ea !important;
+}
+
+#stage-editor-fields .order-input input {
+    flex: 1 1 auto !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    height: 100% !important;
+    min-height: 0 !important;
+    max-height: 100% !important;
+    border: 0 !important;
+    border-radius: 0 !important;
+    background: #fff !important;
+    text-align: center !important;
+    font-weight: 700 !important;
+    font-size: 14px !important;
+    color: #2f4d5f !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    box-sizing: border-box !important;
+    outline: none !important;
+    box-shadow: none !important;
+    display: block !important;
+    line-height: 1 !important;
+    -moz-appearance: textfield !important;
+    appearance: textfield !important;
+    font-family: inherit !important;
+    vertical-align: top !important;
+}
+
+#stage-editor-fields .order-input input::-webkit-outer-spin-button,
+#stage-editor-fields .order-input input::-webkit-inner-spin-button {
+    -webkit-appearance: none !important;
+    margin: 0 !important;
+    display: none !important;
+}
+
+#stage-editor-fields .order-input:focus-within {
+    border-color: #4b96b8 !important;
+    box-shadow: 0 0 0 3px rgba(75,150,184,.14) !important;
+}
+
+/* ---------- BLOCO DE AÇÕES ---------- */
+#stage-editor-fields .stage-block-actions {
+    grid-area: actions !important;
+    display: flex !important;
+    align-items: flex-end !important;
+    justify-content: flex-end !important;
+    gap: 10px !important;
+    background: transparent !important;
+    border: none !important;
+    padding: 0 !important;
+    box-shadow: none !important;
+    width: 100% !important;
+    align-self: end !important;
+}
+
+#stage-editor-fields #stage-editor-actions {
+    display: flex !important;
+    gap: 10px !important;
+    align-items: center !important;
+    justify-content: flex-end !important;
+}
+
+#stage-editor-fields #stage-editor-actions .btn,
+#stage-editor-fields #stage-editor-actions .greenB {
+    height: 38px !important;
+    padding: 0 18px !important;
+    font-size: 11px !important;
+    font-weight: 700 !important;
+    letter-spacing: .3px !important;
+    border-radius: 4px !important;
+    white-space: nowrap !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+
+#stage-editor-fields #stage-editor-actions .btn {
+    border: 1px solid #cbd3d7 !important;
+    background: #fff !important;
+    color: #52616b !important;
+    text-transform: uppercase !important;
+}
+
+#stage-editor-fields #stage-editor-actions .btn:hover {
+    background: #f5f9fc !important;
+    border-color: #8eb2c4 !important;
+    color: #337492 !important;
+}
+
+#stage-editor-fields #stage-editor-actions .greenB {
+    border: 1px solid #7ca82a !important;
+    color: #fff !important;
+    text-transform: uppercase !important;
+}
+
+#stage-editor-fields #stage-editor-actions .greenB:hover {
+    filter: brightness(1.05) !important;
+}
+
+/* ---------- CALLOUT (linha inteira embaixo) ---------- */
+#stage-editor-fields .sequential-flow-note {
+    grid-area: note !important;
+    display: flex !important;
+    align-items: flex-start !important;
+    gap: 10px !important;
+    margin: 0 !important;
+    padding: 12px 16px !important;
+    border: 1px solid #cfe3ee !important;
+    background: #f0f7fb !important;
+    border-radius: 6px !important;
+    color: #52646f !important;
+    font-size: 11px !important;
+    line-height: 1.5 !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+}
+
+#stage-editor-fields .sequential-flow-note .info-dot {
+    width: 20px !important;
+    height: 20px !important;
+    border-radius: 50% !important;
+    border: 1px solid #8eb2c4 !important;
+    color: #337492 !important;
+    background: #fff !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    font-size: 11px !important;
+    font-weight: 700 !important;
+    flex: 0 0 auto !important;
+}
+
+/* ---------- RESPONSIVO ---------- */
+@media (max-width: 1200px) {
+    #stage-editor-fields {
+        grid-template-columns:
+            minmax(240px, 1.4fr)
+            minmax(130px, .55fr)
+            minmax(140px, .65fr)
+            minmax(160px, .75fr)
+            auto !important;
+        gap: 14px !important;
+    }
+}
+
+@media (max-width: 900px) {
+    #stage-editor-fields {
+        grid-template-columns: 1fr 1fr !important;
+        grid-template-areas:
+            "ident ident"
+            "config-ident config-ident"
+            "actions actions"
+            "note note" !important;
+        gap: 14px !important;
+    }
+    #stage-editor-fields .stage-block-config .formRow {
+        grid-column: auto !important;
+    }
+}
+
+@media (max-width: 600px) {
+    #stage-editor-section { padding: 16px !important; }
+    #stage-editor-fields {
+        grid-template-columns: 1fr !important;
+        grid-template-areas:
+            "ident"
+            "config-ident"
+            "actions"
+            "note" !important;
+        padding: 14px !important;
+    }
+    #stage-editor-fields .stage-block-config {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 14px !important;
+    }
+    #stage-editor-fields .stage-block-actions {
+        justify-content: stretch !important;
+    }
+    #stage-editor-fields #stage-editor-actions {
+        width: 100% !important;
+    }
+    #stage-editor-fields #stage-editor-actions .btn,
+    #stage-editor-fields #stage-editor-actions .greenB {
+        flex: 1 !important;
+        justify-content: center !important;
+    }
+}
+</style>
+<style id="stage-editor-combobox-fix">
+/* ============================================================
+   COMBOBOX DE PESQUISA — Botão da seta alinhado ao input
+   ============================================================ */
+
+/* Wrapper do combobox */
+#stage-editor-fields .domain-combobox {
+    position: relative !important;
+    width: 100% !important;
+}
+
+/* Container do controle (input + botão) */
+#stage-editor-fields .domain-combobox-control {
+    position: relative !important;
+    display: flex !important;
+    align-items: stretch !important;
+    width: 100% !important;
+    height: 38px !important;
+}
+
+/* INPUT de busca */
+#stage-editor-fields #stage-name-search {
+    height: 38px !important;
+    width: 100% !important;
+    padding: 0 46px 0 34px !important;   /* espaço para ícone (esq) e seta (dir) */
+    border: 1px solid #cfd6da !important;
+    border-radius: 4px !important;
+    background: #fff !important;
+    font-size: 12px !important;
+    color: #34424c !important;
+    box-sizing: border-box !important;
+    outline: none !important;
+    transition: border-color .15s ease, box-shadow .15s ease !important;
+}
+
+#stage-editor-fields #stage-name-search:focus {
+    border-color: #4b96b8 !important;
+    box-shadow: 0 0 0 3px rgba(75,150,184,.12) !important;
+}
+
+/* Ícone de lupa (esquerda) */
+#stage-editor-fields .domain-search-icon {
+    position: absolute !important;
+    left: 12px !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    font-size: 14px !important;
+    color: #8a97a0 !important;
+    pointer-events: none !important;
+    line-height: 1 !important;
+    z-index: 2 !important;
+}
+
+/* BOTÃO DA SETA (direita) — altura total do input */
+#stage-editor-fields .domain-combobox-toggle {
+    position: absolute !important;
+    right: 0 !important;
+    top: 0 !important;
+    width: 40px !important;
+    height: 100% !important;              /* ⬅️ ocupa toda a altura do input */
+    min-height: 0 !important;
+    max-height: 100% !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    border: 0 !important;
+    border-left: 1px solid #e1e5e8 !important;
+    background: #f8fafb !important;
+    color: #687781 !important;
+    border-radius: 0 4px 4px 0 !important;
+    font-size: 12px !important;
+    line-height: 1 !important;
+    cursor: pointer !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    box-sizing: border-box !important;
+    transition: background .15s ease, color .15s ease !important;
+    z-index: 2 !important;
+}
+
+#stage-editor-fields .domain-combobox-toggle:hover {
+    background: #eef4f7 !important;
+    color: #337492 !important;
+}
+
+#stage-editor-fields .domain-combobox-toggle:focus {
+    outline: none !important;
+}
+</style>
+<style id="stage-editor-selects-uniform">
+/* ============================================================
+   SELECTS UNIFORMIZADOS — visual consistente em todo o editor
+   ============================================================ */
+
+/* ---------- BASE COMUM — todos os selects do editor ---------- */
+#stage-editor-section select,
+#scope,
+#client,
+#project,
+#rule-entry-stage,
+#rule-exit-stage,
+#rule-collection-stage,
+#transition-flow-type,
+#transition-origin,
+#transition-destination,
+#transition-event,
+#transition-user-action,
+#transition-operation,
+#transition-integration,
+#transition-integration-result,
+#transition-service-order-type,
+#transition-service-order-result,
+#transition-internal-routine,
+#transition-prerequisite-type,
+#transition-cross-criteria,
+#transition-related-state,
+#transition-failure-behavior,
+#transition-failure-target,
+.new-flow-target-grid select,
+.flow-filter-bar select {
+    /* Reset completo */
+    -webkit-appearance: none !important;
+    -moz-appearance: none !important;
+    appearance: none !important;
+
+    /* Dimensões */
+    width: 100% !important;
+    height: 38px !important;
+    min-height: 38px !important;
+    max-height: 38px !important;
+    box-sizing: border-box !important;
+
+    /* Borda e fundo */
+    border: 1px solid #cfd6da !important;
+    border-radius: 4px !important;
+    background-color: #ffffff !important;
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23687781' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E") !important;
+    background-repeat: no-repeat !important;
+    background-position: right 12px center !important;
+    background-size: 12px 12px !important;
+
+    /* Texto */
+    color: #34424c !important;
+    font-family: Arial, Helvetica, sans-serif !important;
+    font-size: 12px !important;
+    font-weight: 400 !important;
+    line-height: 1.2 !important;
+
+    /* Padding (espaço à direita para a seta) */
+    padding: 0 34px 0 12px !important;
+    margin: 0 !important;
+
+    /* Interação */
+    cursor: pointer !important;
+    outline: none !important;
+    box-shadow: none !important;
+    transition: border-color .15s ease, box-shadow .15s ease !important;
+
+    /* Evita altura variável */
+    text-overflow: ellipsis !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+}
+
+/* ---------- ESTADO DE FOCO ---------- */
+#stage-editor-section select:focus,
+#scope:focus,
+#client:focus,
+#project:focus,
+#rule-entry-stage:focus,
+#rule-exit-stage:focus,
+#rule-collection-stage:focus,
+#transition-flow-type:focus,
+#transition-origin:focus,
+#transition-destination:focus,
+#transition-event:focus,
+#transition-user-action:focus,
+#transition-operation:focus,
+#transition-integration:focus,
+#transition-integration-result:focus,
+#transition-service-order-type:focus,
+#transition-service-order-result:focus,
+#transition-internal-routine:focus,
+#transition-prerequisite-type:focus,
+#transition-cross-criteria:focus,
+#transition-related-state:focus,
+#transition-failure-behavior:focus,
+#transition-failure-target:focus,
+.new-flow-target-grid select:focus,
+.flow-filter-bar select:focus {
+    border-color: #4b96b8 !important;
+    box-shadow: 0 0 0 3px rgba(75,150,184,.12) !important;
+}
+
+/* ---------- ESTADO DESABILITADO ---------- */
+#stage-editor-section select:disabled,
+#scope:disabled,
+#client:disabled,
+#project:disabled,
+#rule-entry-stage:disabled,
+#rule-exit-stage:disabled,
+#rule-collection-stage:disabled,
+#transition-flow-type:disabled,
+#transition-origin:disabled,
+#transition-destination:disabled,
+#transition-event:disabled,
+#transition-user-action:disabled,
+#transition-operation:disabled,
+#transition-integration:disabled,
+#transition-integration-result:disabled,
+#transition-service-order-type:disabled,
+#transition-service-order-result:disabled,
+#transition-internal-routine:disabled,
+#transition-prerequisite-type:disabled,
+#transition-cross-criteria:disabled,
+#transition-related-state:disabled,
+#transition-failure-behavior:disabled,
+#transition-failure-target:disabled,
+.new-flow-target-grid select:disabled,
+.flow-filter-bar select:disabled {
+    background-color: #f2f4f5 !important;
+    color: #99a3a9 !important;
+    cursor: not-allowed !important;
+    opacity: 1 !important;
+}
+
+/* ---------- REMOVE ESTILO AZUL PADRÃO DO CHROME EM <option> ---------- */
+#stage-editor-section select option,
+#scope option,
+#client option,
+#project option,
+.flow-filter-bar select option,
+.new-flow-target-grid select option {
+    background: #ffffff !important;
+    color: #34424c !important;
+    padding: 8px 12px !important;
+    font-size: 12px !important;
+}
+
+/* ---------- CORREÇÃO PARA O FIREFOX ---------- */
+#stage-editor-section select:-moz-focusring,
+#scope:-moz-focusring,
+#client:-moz-focusring,
+#project:-moz-focusring {
+    color: transparent !important;
+    text-shadow: 0 0 0 #34424c !important;
+}
+
+/* ---------- GARANTE QUE SELECIONADOS NÃO FIQUEM MAIS ALTOS ---------- */
+#stage-editor-section select::-ms-expand,
+#scope::-ms-expand,
+#client::-ms-expand,
+#project::-ms-expand {
+    display: none !important;
+}
+
+/* ---------- UNIFORMIZA TAMBÉM OS INPUTS DE TEXTO ---------- */
+#stage-editor-section input[type="text"]:not(#stage-name-search),
+#stage-editor-section input[type="number"],
+#stage-editor-fields input[type="text"]:not(#stage-name-search),
+#stage-editor-fields input[type="number"] {
+    height: 38px !important;
+    min-height: 38px !important;
+    max-height: 38px !important;
+    border: 1px solid #cfd6da !important;
+    border-radius: 4px !important;
+    background: #fff !important;
+    font-size: 12px !important;
+    color: #34424c !important;
+    padding: 0 12px !important;
+    box-sizing: border-box !important;
+    outline: none !important;
+    transition: border-color .15s ease, box-shadow .15s ease !important;
+}
+
+#stage-editor-section input[type="text"]:not(#stage-name-search):focus,
+#stage-editor-section input[type="number"]:focus,
+#stage-editor-fields input[type="text"]:not(#stage-name-search):focus,
+#stage-editor-fields input[type="number"]:focus {
+    border-color: #4b96b8 !important;
+    box-shadow: 0 0 0 3px rgba(75,150,184,.12) !important;
+}
+
+/* ---------- COMBOBOX DE PESQUISA (mantém o ícone de lupa à esquerda) ---------- */
+#stage-editor-fields #stage-name-search {
+    padding: 0 46px 0 34px !important;  /* espaço para lupa e seta */
+}
+
+#stage-editor-fields .domain-combobox-toggle {
+    position: absolute !important;
+    right: 0 !important;
+    top: 0 !important;
+    width: 40px !important;
+    height: 100% !important;
+    min-height: 0 !important;
+    max-height: 100% !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    border: 0 !important;
+    border-left: 1px solid #e1e5e8 !important;
+    background: #f8fafb !important;
+    color: #687781 !important;
+    border-radius: 0 4px 4px 0 !important;
+    font-size: 12px !important;
+    line-height: 1 !important;
+    cursor: pointer !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    box-sizing: border-box !important;
+    z-index: 2 !important;
+}
+
+#stage-editor-fields .domain-combobox-toggle:hover {
+    background: #eef4f7 !important;
+    color: #337492 !important;
+}
+
+/* ---------- STEPPER (garante altura consistente) ---------- */
+#stage-editor-fields .order-input {
+    height: 38px !important;
+    min-height: 38px !important;
+    max-height: 38px !important;
+}
+</style>
 </head>
 
 <body>
@@ -6631,7 +7417,9 @@
                         </div>
                         <div id="stage-editor-fields" style="display:grid;grid-template-columns:minmax(300px,1.55fr) minmax(145px,.5fr) minmax(155px,.58fr) minmax(185px,.72fr) auto;gap:14px;align-items:end">
 
-                            <div class="formRow" style="border:none;padding:0;margin:0;clear:both;position:relative">
+                            <div class="stage-block stage-block-identificacao">
+                    <div class="stage-block-title"><span class="block-num">1</span> Identificação</div>
+                    <div class="formRow" style="border:none;padding:0;margin:0;clear:both;position:relative">
                                 <label id="name-label" style="display:block;font-weight:bold;font-size:11px;color:#555;margin-bottom:4px;float:none">Etapa Documental <span style="color:#c00">*</span></label>
                                 <div class="formRight" style="display:block;float:none;width:100%;margin:0">
                                     <div class="domain-combobox" id="stage-name-combobox">
@@ -6652,7 +7440,12 @@
                                 <div class="clear" style="clear:both"></div>
                             </div>
 
-                            <div class="formRow" style="border:none;padding:0;margin:0;clear:both;position:relative">
+                            
+                </div>
+                <div class="stage-block stage-block-configura">
+                    <div class="stage-block-title"><span class="block-num">2</span> Configuração do Fluxo</div>
+                    <div class="stage-block-config">
+                <div class="formRow" style="border:none;padding:0;margin:0;clear:both;position:relative">
                                 <label style="display:block;font-weight:bold;font-size:11px;color:#555;margin-bottom:4px;float:none">Ordem
                                     no Fluxo <span style="color:#c00">*</span></label>
                                 <div class="formRight" style="display:block;float:none;width:100%;margin:0">
@@ -6689,12 +7482,18 @@
                                 <div class="clear" style="clear:both"></div>
                             </div>
 
-                            <div id="stage-editor-actions" style="display:flex;gap:8px;align-items:center">
+                            
+                </div>
+                </div>
+                <div class="stage-block stage-block-actions">
+                <div id="stage-editor-actions" style="display:flex;gap:8px;align-items:center">
                                 <button class="btn" id="cancel" style="height:36px;border-radius:3px;border:1px solid #cbd3d7;background:#fff;color:#52616b;padding:0 15px;font-size:11px;font-weight:700;display:inline-flex;align-items:center;gap:7px;cursor:pointer">Cancelar</button>
                                 <button class="greenB" id="save" style="height:36px;border-radius:3px;padding:0 15px;font-size:11px;font-weight:700;display:inline-flex;align-items:center;gap:7px;cursor:pointer;background-image:var(--sf-img-39);background-position:0 -425px;border:1px solid #7ca82a;color:#fff">Salvar Status</button>
                             </div>
 
-                            <div class="sequential-flow-note" id="sequential-flow-note">
+                            
+                </div>
+                <div class="sequential-flow-note" id="sequential-flow-note">
                                 <span class="info-dot">i</span>
                                 <span id="sequential-flow-hint">A ordem do fluxo define automaticamente a transição para a próxima posição ativa. Posições inativas são desconsideradas.</span>
                             </div>
